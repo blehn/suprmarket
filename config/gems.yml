@@ -1,7 +1,7 @@
 --- 
 - :name: haml
-- :source: http://gems.github.com
-  :name: thoughtbot-clearance
+- :source: http://gemcutter.org
+  :name: clearance
 - :source: http://gemcutter.org
   :name: will_paginate
 - :version: 2.3.3

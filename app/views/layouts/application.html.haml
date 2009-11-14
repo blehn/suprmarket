@@ -2,5 +2,17 @@
 %html
   %head
     %title Marketplace
+    = stylesheet_link_tag 'screen'
   %body 
-    = yield
+    .header
+      = render 'users/user_bar'
+    .content
+      = render 'shared/messages'
+      = yield
+    .footer
+      Copyright 2009. Merkd, Inc.
+      = link_to t(:privacy_policy), privacy_policy_path
+      = link_to t(:terms_of_service), terms_of_service_path
+      = link_to t(:about), about_path
+      = link_to t(:support), support_path
+      = link_to t(:contact), contact_path
