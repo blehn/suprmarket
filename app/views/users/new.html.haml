@@ -1,6 +1,6 @@
-%h2 Sign up
+%h2= t(:register).capitalize
 
 - form_for @user do |form|
   = form.error_messages
   = render :partial => '/users/form', :locals => {:form => form}
-  = form.submit "Sign up"
+  = form.submit t(:submit).capitalize

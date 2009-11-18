@@ -1,6 +1,10 @@
-- unless current_user
-  = link_to t(:join), sign_up_path
+- unless current_user 
+  = link_to t(:register), sign_up_path
   = link_to t(:login), sign_in_path
 - else
-  = t(:welcome) + " #{current_user.username}"
-  = link_to t(:logout), sign_out_path
+  Market
+  = render 'shared/search'
+  = current_user.username
+  = link_to t(:new_listing), new_listing_path
+  = link_to t(:dashboard), dashboard_path
+  = link_to t(:sign_out), sign_out_path

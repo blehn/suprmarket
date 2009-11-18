@@ -3,13 +3,21 @@
 
 en:
   about: "About"
-  browse: "Browse"
+  browse: "browse"
+  buying: "buying"
   contact: "Contact"
-  join: "Join"
-  login: "Login"
-  logout: "Logout"
+  dashboard: "dashboard"
+  feedback: "feedback"
+  filter: "filter"
+  login: "login"
+  new_listing: 'new listing'
+  preferences: 'preferences'
   privacy_policy: "Privacy Policy"
+  register: "register"
   search: "Search"
+  selling: "selling"
+  sign_out: "sign out"
+  submit: "Submit"
   support: "Support"
   terms_of_service: "Terms of Service"
   welcome: "Welcome"

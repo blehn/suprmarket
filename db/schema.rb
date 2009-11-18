@@ -9,7 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091026224121) do
+ActiveRecord::Schema.define(:version => 20091118030206) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "listings", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "price"
+    t.integer  "category_id"
+    t.string   "condition"
+    t.string   "zip_code"
+    t.string   "shipping_options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
+  add_index "listings", ["user_id"], :name => "index_listings_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

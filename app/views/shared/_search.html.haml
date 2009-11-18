@@ -1,0 +1,5 @@
+- form_tag(search_path) do
+  = text_field_tag :q
+  = text_field_tag :zip_code, nil, :title => 'zip code'
+  = submit_tag t(:search)
+  = link_to t(:browse), '#'

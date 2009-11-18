@@ -1,7 +1,11 @@
+- content_for :head do
+  = javascript_include_tag 'jquery', 'jquery.hint.js'
+  :javascript
+    $(function() {
+      $('input').hint();
+    });
+    
 .home
   Market
-  a new era of classifieds.
-  - form_tag(searches_path) do
-    = text_field_tag :q
-    = submit_tag t(:search)
-  = link_to t(:browse), '#'
+  = render 'shared/search'
+  = link_to t(:filter), '#'

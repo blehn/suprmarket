@@ -3,12 +3,14 @@
   %head
     %title Marketplace
     = stylesheet_link_tag 'screen'
+    = yield :head
   %body 
-    .header
-      = render 'users/user_bar'
-    .content
-      = render 'shared/messages'
-      = yield
+    .container
+      .header
+        = render 'users/user_bar'
+      .content
+        = render 'shared/messages'
+        = yield
     .footer
       Copyright 2009. Merkd, Inc.
       = link_to t(:privacy_policy), privacy_policy_path
