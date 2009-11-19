@@ -1,1 +1,35 @@
-New
+New Listing
+- form_for(@listing) do |form|
+  = form.error_messages
+  .text_field
+    = form.label :title
+    = form.text_field :title
+  .text_area
+    = form.label :description
+    = form.text_area :description
+  .text_field
+    = form.label :price
+    = form.text_field :price
+  .select
+    = form.label :category_id
+    = form.select :category_id, @categories.map{|c| [c.title, c.id]}
+  .radio_button
+    %fieldset 
+      %legend Condition
+      = form.label :condition_new, 'New'
+      = form.radio_button :condition, 'new'
+      = form.label :condition_used, 'Used'
+      = form.radio_button :condition, 'used'
+  .text_area
+    = form.label :zip_code
+    = form.text_field :zip_code
+  .radio_button
+    %fieldset
+      %legend Willing to Ship?
+      = form.label :willing_to_ship_yes, 'Yes'
+      = form.radio_button :willing_to_ship, 'yes'
+      = form.label :willing_to_ship_no, 'No'
+      = form.radio_button :willing_to_ship, 'no'
+  .submit
+    = form.submit 'Submit'
+  = link_to 'cancel', root_path

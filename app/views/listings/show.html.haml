@@ -1,0 +1,15 @@
+%div[@listing]
+  .title= @listing.title
+  .price= @listing.price
+
+  .seller= link_to @listing.user.username, @listing.user
+
+  .tab
+    %h3 Make an offer
+  .tab
+    %h3 Ask a question
+  .tab
+    %h3 Report Abuse
+
+  .description= @listing.description
+

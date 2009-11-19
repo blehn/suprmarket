@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091118030206) do
+ActiveRecord::Schema.define(:version => 20091119011219) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20091118030206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "willing_to_ship"
+    t.decimal  "shipping_cost",    :precision => 15, :scale => 2
   end
 
   add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
