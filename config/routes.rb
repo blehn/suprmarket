@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => :home
   map.resource :dashboard, :only => [:show]
   map.resource :search, :only => [:show]
-  map.resources :listings
+  map.resources :listings, :has_many => [:offers, :questions, :reports]
   
   map.with_options :controller => :home do |home|
     home.privacy_policy '/privacy_policy', :action => :privacy_policy

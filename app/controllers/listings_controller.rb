@@ -3,6 +3,9 @@ class ListingsController < ApplicationController
   before_filter :load_listing
 
   def show
+    @offer = @listing.offers.new
+    @question = @listing.questions.new
+    @report = @listing.reports.new
   end
 
   def new

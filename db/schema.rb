@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091119011219) do
+ActiveRecord::Schema.define(:version => 20091120013723) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,41 @@ ActiveRecord::Schema.define(:version => 20091119011219) do
 
   add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["user_id"], :name => "index_listings_on_user_id"
+
+  create_table "offers", :force => true do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.decimal  "amount",              :precision => 15, :scale => 2
+    t.string   "pickup_availability"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "offers", ["listing_id"], :name => "index_offers_on_listing_id"
+  add_index "offers", ["user_id"], :name => "index_offers_on_user_id"
+
+  create_table "questions", :force => true do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["listing_id"], :name => "index_questions_on_listing_id"
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
+  create_table "reports", :force => true do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reports", ["listing_id"], :name => "index_reports_on_listing_id"
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
