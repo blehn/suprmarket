@@ -1,0 +1,16 @@
+%table
+  %thead
+    %tr
+      %th Date
+      %th Item
+      %th Price
+      %th Location
+      %th User Rating
+  %tbody
+    - @results.each do |listing|
+      %tr
+        %td= listing.created_at.strftime("%b %d").upcase
+        %td= listing.title
+        %td= listing.price
+        %td Location
+        %td Rating

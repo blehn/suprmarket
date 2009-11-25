@@ -30,6 +30,10 @@ New Listing
       = form.radio_button :willing_to_ship, 'yes'
       = form.label :willing_to_ship_no, 'No'
       = form.radio_button :willing_to_ship, 'no'
+  - form.fields_for :photos do |photo_form|
+    .file_field
+      = photo_form.label :file, 'Image'
+      = photo_form.file_field :file
   .submit
     = form.submit 'Submit'
   = link_to 'cancel', root_path

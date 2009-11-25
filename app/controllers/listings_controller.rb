@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
   def new
     @listing = current_user.listings.new
     @categories = Category.all(:order => 'title asc')
+    4.times { @listing.photos.build }
   end
 
   def create
