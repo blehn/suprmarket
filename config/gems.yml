@@ -1,8 +1,7 @@
 --- 
-- :name: haml
 - :source: http://gemcutter.org
-  :name: clearance
+  :name: paperclip
 - :source: http://gemcutter.org
-  :name: will_paginate
-- :version: 2.3.3
+  :name: rails-footnotes
+- :version: 2.3.4
   :name: rails
