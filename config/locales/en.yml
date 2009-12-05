@@ -3,14 +3,18 @@
 
 en:
   about: "About"
+  activity: "Activity"
   am: 'AM'
   ask_a_question: 'Ask a Question'
   browse: "browse"
   buying: "buying"
   contact: "Contact"
   dashboard: "dashboard"
+  date: "date"
   feedback: "feedback"
   filter: "filter"
+  item: "item"
+  location: "location"
   login: "login"
   make_an_offer: "Make an Offer"
   message: 'Message'
@@ -19,6 +23,7 @@ en:
   pickup_availability: 'Pickup Availability'
   pm: 'PM'
   preferences: 'preferences'
+  price: 'price'
   privacy_policy: "Privacy Policy"
   register: "register"
   report_abuse: 'Report Abuse'
@@ -28,6 +33,7 @@ en:
   submit: "Submit"
   support: "Support"
   terms_of_service: "Terms of Service"
+  user_rating: "User Rating"
   weekday: 'weekday'
   weekend: 'weekend'
   welcome: "Welcome"

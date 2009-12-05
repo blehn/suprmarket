@@ -1,4 +1,34 @@
-= link_to t(:buying), '#'
-= link_to t(:selling), '#'
-= link_to t(:feedback), '#'
-= link_to t(:preferences), '#'
+= link_to t(:buying), :filter => 'buying'
+= link_to t(:selling), :filter => 'selling'
+= link_to t(:feedback), :filter => 'feedback'
+= link_to t(:preferences), :filter => 'preferences'
+
+- if @listings
+  %h2= t(:activity)
+  %table
+    - @listings.each do |listing|
+      %tr
+        %td= listing.created_at.to_s(:month_day)
+        %td
+          = link_to listing.title, listing
+          %h4 OFFERS
+          - unless listing.offers.empty?
+            %table
+              - listing.offers.each do |offer|
+                %tr
+                  %td= offer.created_at.to_s(:month_day)
+                  %td= offer.readable_format
+          %h4 QUESTIONS
+          - unless listing.questions.empty?
+            %table
+              - listing.questions.each do |question|
+                %tr
+                  %td= question.created_at.to_s(:month_day)
+                  %td= question.readable_format
+                  
+
+        %td= listing.price
+        %td= pluralize(listing.offers_count, 'Offer')
+        %td= pluralize(listing.questions_count, 'Question')
+- else
+  = render params[:filter]

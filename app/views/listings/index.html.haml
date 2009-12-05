@@ -1,0 +1,18 @@
+- unless @listings.empty?
+  %table
+    %thead
+      %tr
+        %th= t(:date)
+        %th= t(:item)
+        %th= t(:price)
+        %th= t(:location)
+        %th= t(:user_rating)
+    %tbody
+      - @listings.each do |listing|
+        %tr
+          %td= listing.created_at.to_s(:month_day)
+          %td= link_to listing.title, listing
+          %td= listing.price
+          %td Location
+          %td= listing.user.rating
+

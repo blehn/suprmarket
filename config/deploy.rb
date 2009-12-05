@@ -1,1 +1,1 @@
-server "192.168.66.128", :app, :web, :db, :primary => true
+server "209.20.74.22", :app, :web, :db, :primary => true

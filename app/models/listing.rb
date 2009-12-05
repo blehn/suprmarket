@@ -10,4 +10,5 @@ class Listing < ActiveRecord::Base
   validates_presence_of :title, :description, :price, :category, :condition, :zip_code
 
   accepts_nested_attributes_for :photos
+
 end

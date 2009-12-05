@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :home
+  map.connect '/dashboard/:filter', :controller => :dashboards, :action => :show
   map.resource :dashboard, :only => [:show]
   map.resource :search, :only => [:show]
   map.resources :listings, :has_many => [:offers, :questions, :reports]

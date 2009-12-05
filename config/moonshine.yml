@@ -1,9 +1,9 @@
 :ruby: ree
-:application: your_app_name
+:application: market
 :user: rails
 #:time_zone: UTC
 :deploy_to: /home/rails/public_html/market
-:domain: 192.168.66.128
+:domain: 209.20.74.22
 #:domain_aliases:
 #  - assets1.yourapp.com
 #  - assets2.yourapp.com

@@ -1,5 +1,57 @@
+- content_for(:head) do
+  = javascript_include_tag 'jquery', 'swfupload/swfupload', 'swfupload/swfupload.swfobject', 'swfupload/handlers'
+- session_key_name = ActionController::Base.session_options[:key]
+:javascript
+  SWFUpload.onload = function() {
+    var swf_settings = {
+ 
+      // SWFObject settings
+      minimum_flash_version: "9.0.28",
+      swfupload_pre_load_handler: function() {
+        $('#swfupload_degraded_container').hide();
+        $('#swfupload_container').show();
+      },
+      swfupload_load_failed_handler: function() {
+      },
+ 
+      post_params: {
+        "#{session_key_name}": "#{cookies[session_key_name]}",
+        "authenticity_token": "#{form_authenticity_token}",
+      },
+ 
+      upload_url: "#{listings_path}",
+      flash_url: '/flash/swfupload/swfupload.swf',
+ 
+      file_types: "*.jpg;*.gif;*.png;*.bmp",
+      file_types_description: "Image Files",
+      file_size_limit: "5 MB",
+ 
+      button_placeholder_id: "spanButtonPlaceholder",
+      button_width: 380,
+      button_height: 32,
+      button_text : '<span class="button">Select Files <span class="buttonSmall">(20 MB Max)</span></span>',
+      button_text_style : '.button { font-family: Helvetica, Arial, sans-serif; font-size: 24pt; } .buttonSmall { font-size: 18pt; }',
+      button_text_top_padding: 0,
+      button_text_left_padding: 18,
+      button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+      button_cursor: SWFUpload.CURSOR.HAND,
+      button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,
+      file_queue_error_handler : fileQueueError,
+      file_dialog_complete_handler : fileDialogComplete,
+      upload_progress_handler : uploadProgress,
+      upload_error_handler : uploadError,
+      upload_success_handler : uploadSuccess,
+      upload_complete_handler : uploadComplete,
+ 
+      custom_settings : {
+        upload_target: "divFileProgressContainer"
+      }
+    }
+    var swf_upload = new SWFUpload(swf_settings);
+  };
+    
 New Listing
-- form_for(@listing) do |form|
+- form_for(@listing, :html => {:multipart => true}) do |form|
   = form.error_messages
   .text_field
     = form.label :title
@@ -30,10 +82,10 @@ New Listing
       = form.radio_button :willing_to_ship, 'yes'
       = form.label :willing_to_ship_no, 'No'
       = form.radio_button :willing_to_ship, 'no'
-  - form.fields_for :photos do |photo_form|
-    .file_field
-      = photo_form.label :file, 'Image'
-      = photo_form.file_field :file
+  Attach Images
+  .attachment_container
+  .attachment_button
+  
   .submit
     = form.submit 'Submit'
   = link_to 'cancel', root_path
