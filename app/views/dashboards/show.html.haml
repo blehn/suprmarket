@@ -1,11 +1,24 @@
-= link_to t(:buying), :filter => 'buying'
-= link_to t(:selling), :filter => 'selling'
-= link_to t(:feedback), :filter => 'feedback'
-= link_to t(:preferences), :filter => 'preferences'
+.dashboard_links
+  = link_to t(:selling) + "<span>#{current_user.listings.count}</span>", {:filter => 'selling'}, {:class => 'tab_heading first_tab_heading' + (@current_filter == 'selling' ? ' active_tab_heading' : '')}
+  = link_to t(:buying), {:filter => 'buying'}, {:class => 'tab_heading' + (@current_filter == 'buying' ? ' active_tab_heading' : '')}
+  = link_to t(:feedback), {:filter => 'feedback'}, {:class => 'tab_heading' + (@current_filter == 'feedback' ? ' active_tab_heading' : '')}
+  = link_to t(:preferences), {:filter => 'preferences'}, {:class => 'tab_heading' + (@current_filter == 'preferences' ? ' active_tab_heading' : '')}
 
 - if @listings
-  %h2= t(:activity)
-  %table
+  %table.dashboard_table
+    %thead
+      %tr
+        %th Date &bull;
+        %th Item &bull;
+        %th Price &bull;
+        - if @current_filter == 'selling'
+          %th= image_tag('offer_header.png', :alt => 'offers') + ' &bull;'
+          %th= image_tag('question_header.png', :alt => 'questions') + '  &bull;'
+          %th.hidden <span>Edit</span>
+          %th.hidden <span>Delete</span>
+        - elsif @current_filter == 'buying'
+          %th Location
+          %th User Rating
     - @listings.each do |listing|
       %tr
         %td= listing.created_at.to_s(:month_day)
@@ -25,10 +38,13 @@
                 %tr
                   %td= question.created_at.to_s(:month_day)
                   %td= question.readable_format
-                  
+                
 
         %td= listing.price
-        %td= pluralize(listing.offers_count, 'Offer')
-        %td= pluralize(listing.questions_count, 'Question')
+        %td= image_tag('offer.png', :alt => 'Offers') + listing.offers_count.to_s
+        %td= image_tag('question.png', :alt => 'Questions') + listing.questions_count.to_s
+        - if @current_filter == 'selling'
+          %td= link_to 'Edit', edit_listing_path(listing)
+          %td= link_to 'Delete', listing, :method => :delete, :confirm => "Are you sure you want to delete this listing?"
 - else
   = render params[:filter]

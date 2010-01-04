@@ -11,15 +11,21 @@ en:
   contact: "Contact"
   dashboard: "dashboard"
   date: "date"
+  email_address: "Email Address"
+  example_search: "e.g. star wars bed sheets"
   feedback: "feedback"
   filter: "filter"
+  how_much: "How much?"
+  invitation_code: "Invitation Code"
   item: "item"
   location: "location"
-  login: "login"
+  login: "log in"
   make_an_offer: "Make an Offer"
   message: 'Message'
   new_listing: 'new listing'
   offer_amount: 'Offer Amount'
+  password: "Password"
+  password_confirmation: "Confirm Password"
   pickup_availability: 'Pickup Availability'
   pm: 'PM'
   preferences: 'preferences'
@@ -27,13 +33,17 @@ en:
   privacy_policy: "Privacy Policy"
   register: "register"
   report_abuse: 'Report Abuse'
+  rules: "rules"
   search: "Search"
   selling: "selling"
   sign_out: "sign out"
   submit: "Submit"
   support: "Support"
+  tagline: "A new era of classifieds."
   terms_of_service: "Terms of Service"
   user_rating: "User Rating"
+  username: "Username"
   weekday: 'weekday'
   weekend: 'weekend'
   welcome: "Welcome"
+  zip_code: "ZIP Code"

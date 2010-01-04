@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @listing = @listing.presenter
     @offer = @listing.offers.new
     @question = @listing.questions.new
     @report = @listing.reports.new

@@ -7,11 +7,13 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.load_paths += %W( #{RAILS_ROOT}/app/middleware )
+  config.load_paths += %W( #{RAILS_ROOT}/app/presenters #{RAILS_ROOT}/app/middleware )
   config.gem 'haml'
   config.gem 'clearance', :source => 'http://gemcutter.org'
   config.gem 'paperclip', :source => 'http://gemcutter.org'
   config.gem 'will_paginate', :source => 'http://gemcutter.org'
+  config.gem 'presentable'
+  config.gem 'geokit'
   config.time_zone = 'UTC'
 end
 

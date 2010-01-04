@@ -6,10 +6,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :listings, :has_many => [:offers, :questions, :reports]
   
   map.with_options :controller => :home do |home|
-    home.privacy_policy '/privacy_policy', :action => :privacy_policy
-    home.terms_of_service '/terms_of_service', :action => :terms_of_service
-    home.about '/about', :action => :about
-    home.support '/support', :action => :support
-    home.contact '/contact', :action => :contact
+    home.rules '/rules', :action => :show, :id => :rules
+    home.feedback '/feedback', :action => :show, :id => :feedback
+    home.about '/about', :action => :show, :id => :about
+    home.support '/support', :action => :show, :id => :support
+    home.contact '/contact', :action => :show, :id => :contact
   end
+  
+  #override clearance
+  map.resource  :session, :controller => :sessions, :only => [:new, :create, :destroy]
+  map.sign_out 'sign_out', :controller => :sessions, :action => :destroy, :method => :delete
 end

@@ -1,11 +1,21 @@
-- content_for :head do
-  = javascript_include_tag 'jquery', 'jquery.hint.js'
-  :javascript
-    $(function() {
-      $('input').hint();
-    });
-    
-.home
-  Market
-  = render 'shared/search'
-  = link_to t(:filter), '#'
+.home_content
+  .logo Splunkr.
+  .tagline= t(:tagline)
+  - form_tag(search_path, :id => 'search', :method => :get) do
+    = text_field_tag :q, {}, :title => t(:example_search)
+    = text_field_tag :zip_code, nil, :title => 'zip code'
+    = image_submit_tag 'search_button.png', :alt => t(:search), :id => 'search_button'
+    #browse_categories
+      = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'
+      #categories
+        %ul
+          %li= link_to 'one', '#'
+          %li= link_to 'two', '#'
+          %li= link_to 'three', '#'
+    #search_details
+      Search title only
+      Include Completed
+      Has image
+      Min
+      Max
+      Search Radius

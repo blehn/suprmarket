@@ -9,13 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091202030505) do
+ActiveRecord::Schema.define(:version => 20100104030801) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.string   "county"
+    t.string   "state"
+    t.string   "zip_code"
+    t.decimal  "lat",        :precision => 15, :scale => 10
+    t.decimal  "lon",        :precision => 15, :scale => 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
 
   create_table "listings", :force => true do |t|
     t.string   "title"
@@ -73,6 +86,16 @@ ActiveRecord::Schema.define(:version => 20091202030505) do
   add_index "questions", ["listing_id"], :name => "index_questions_on_listing_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
+  create_table "ratings", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
+
   create_table "reports", :force => true do |t|
     t.integer  "listing_id"
     t.integer  "user_id"
@@ -95,6 +118,11 @@ ActiveRecord::Schema.define(:version => 20091202030505) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "zip_code"
+    t.integer  "listings_count",                    :default => 0
+    t.integer  "buying_count",                      :default => 0
+    t.integer  "feedbacks_count",                   :default => 0
+    t.integer  "ratings_count",                     :default => 0
+    t.integer  "rating",                            :default => 100
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

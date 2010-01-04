@@ -1,20 +1,22 @@
 !!! Strict
 %html
   %head
-    %title Marketplace
+    %title Splunkr
+    = javascript_include_tag 'jquery', 'jquery.hint.js', 'application'
     = stylesheet_link_tag 'screen'
     = yield :head
-  %body 
+  %body{:class => controller.controller_name}
     .container
       .header
-        = render 'users/user_bar'
+        = render 'users/bar'
       .content
         = render 'shared/messages'
         = yield
     .footer
-      Copyright 2009. Merkd, Inc.
-      = link_to t(:privacy_policy), privacy_policy_path
-      = link_to t(:terms_of_service), terms_of_service_path
-      = link_to t(:about), about_path
-      = link_to t(:support), support_path
-      = link_to t(:contact), contact_path
+      .links
+        = link_to t(:about).capitalize, about_path
+        = link_to t(:rules).capitalize, rules_path
+        = link_to t(:support).capitalize, support_path
+        = link_to t(:feedback).capitalize, feedback_path
+        = link_to t(:contact).capitalize, contact_path
+      Copyright 2009. Splunkr, Inc.

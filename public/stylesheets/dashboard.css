@@ -1,0 +1,42 @@
+.dashboard_table {
+  border-top: 10px solid #E5F3FC; }
+
+body.dashboards .content {
+  margin: 0; }
+
+.dashboard_links {
+  position: relative;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #999999; }
+  .dashboard_links a {
+    padding: 4px 0;
+    margin-top: 1px;
+    border: 1px solid #CCCCCC;
+    border-bottom: 0;
+    display: block;
+    color: #999999;
+    float: left;
+    background-color: #F6F6F6;
+    width: 110px;
+    margin-right: 10px;
+    text-align: center; }
+    .dashboard_links a span {
+      font-size: 11px;
+      padding: 0 4px;
+      margin-left: 4px;
+      color: #018AE1;
+      background: #FFFFFF;
+      border: 1px solid #CCCCCC; }
+
+a.first_tab_heading {
+  margin-left: 20px; }
+
+a.active_tab_heading {
+  position: relative;
+  margin-top: 0;
+  padding-bottom: 5px;
+  top: 1px;
+  background-color: #E5F3FC;
+  color: #333333;
+  border-color: #999999; }

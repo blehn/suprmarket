@@ -1,0 +1,33 @@
+.search_details
+  .search_views= image_tag('grid_view_up.png') + image_tag('list_view_down.png')
+  #{@results.total_entries} results matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
+.search_filters
+  %input(type='text' value='min price')
+  %input(type='text' value='max price')
+  = image_submit_tag 'set_button.png', :alt => 'set', :class => 'image_button'
+  %input(type='checkbox')
+  Search title only
+  %input(type='checkbox')
+  Include Completed
+  %input(type='checkbox')
+  Has Image
+  %input(type='checkbox')
+  Only New
+%table.listing_table
+  %thead
+    %tr
+      %th Date &bull;
+      %th Item &bull;
+      %th Price &bull;
+      %th Location &bull;
+      %th User Rating &bull;
+      %th= image_tag('favorite_header.png', :alt => 'favorite') + ' &bull;'
+  %tbody
+    - @results.each do |listing|
+      %tr
+        %td= listing.date
+        %td= link_to listing.title, listing
+        %td= listing.price
+        %td= listing.location
+        %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
+        %td= image_tag('not_favorite.png', :alt => 'Not favorited')

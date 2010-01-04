@@ -1,6 +1,12 @@
-%h2= t(:register).capitalize
+%p Splunkr is currently a private marketplace.
+%p 
+  To create a new account, you must:
+  %ol
+    %li have a valid invitation code, or
+    %li receive an invitation from an existing user (via email)
 
 - form_for @user do |form|
   = form.error_messages
   = render :partial => '/users/form', :locals => {:form => form}
-  = form.submit t(:submit).capitalize
+  = image_submit_tag 'submit_button.png', :alt => t(:submit).capitalize
+  = link_to 'Cancel', root_path

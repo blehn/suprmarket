@@ -1,91 +1,94 @@
 - content_for(:head) do
-  = javascript_include_tag 'jquery', 'swfupload/swfupload', 'swfupload/swfupload.swfobject', 'swfupload/handlers'
-- session_key_name = ActionController::Base.session_options[:key]
-:javascript
-  SWFUpload.onload = function() {
-    var swf_settings = {
+  = javascript_include_tag 'swfupload/swfupload', 'swfupload/swfupload.swfobject', 'swfupload/handlers'
+  - session_key_name = ActionController::Base.session_options[:key]
+  :javascript
+    SWFUpload.onload = function() {
+      var swf_settings = {
  
-      // SWFObject settings
-      minimum_flash_version: "9.0.28",
-      swfupload_pre_load_handler: function() {
-        $('#swfupload_degraded_container').hide();
-        $('#swfupload_container').show();
-      },
-      swfupload_load_failed_handler: function() {
-      },
+        // SWFObject settings
+        minimum_flash_version: "9.0.28",
+        swfupload_pre_load_handler: function() {
+          $('#swfupload_degraded_container').hide();
+          $('#swfupload_container').show();
+        },
+        swfupload_load_failed_handler: function() {
+        },
  
-      post_params: {
-        "#{session_key_name}": "#{cookies[session_key_name]}",
-        "authenticity_token": "#{form_authenticity_token}",
-      },
+        post_params: {
+          "#{session_key_name}": "#{cookies[session_key_name]}",
+          "authenticity_token": "#{form_authenticity_token}",
+        },
  
-      upload_url: "#{listings_path}",
-      flash_url: '/flash/swfupload/swfupload.swf',
+        upload_url: "#{listings_path}",
+        flash_url: '/flash/swfupload/swfupload.swf',
  
-      file_types: "*.jpg;*.gif;*.png;*.bmp",
-      file_types_description: "Image Files",
-      file_size_limit: "5 MB",
+        file_types: "*.jpg;*.gif;*.png;*.bmp",
+        file_types_description: "Image Files",
+        file_size_limit: "5 MB",
  
-      button_placeholder_id: "spanButtonPlaceholder",
-      button_width: 380,
-      button_height: 32,
-      button_text : '<span class="button">Select Files <span class="buttonSmall">(20 MB Max)</span></span>',
-      button_text_style : '.button { font-family: Helvetica, Arial, sans-serif; font-size: 24pt; } .buttonSmall { font-size: 18pt; }',
-      button_text_top_padding: 0,
-      button_text_left_padding: 18,
-      button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
-      button_cursor: SWFUpload.CURSOR.HAND,
-      button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,
-      file_queue_error_handler : fileQueueError,
-      file_dialog_complete_handler : fileDialogComplete,
-      upload_progress_handler : uploadProgress,
-      upload_error_handler : uploadError,
-      upload_success_handler : uploadSuccess,
-      upload_complete_handler : uploadComplete,
+        button_placeholder_id: "spanButtonPlaceholder",
+        button_width: 380,
+        button_height: 32,
+        button_text : '<span class="button">Add</span>',
+        button_text_style : '.button { font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #2098E5}',
+        button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+        button_cursor: SWFUpload.CURSOR.HAND,
+        button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,
+        file_queue_error_handler : fileQueueError,
+        file_dialog_complete_handler : fileDialogComplete,
+        upload_progress_handler : uploadProgress,
+        upload_error_handler : uploadError,
+        upload_success_handler : uploadSuccess,
+        upload_complete_handler : uploadComplete,
  
-      custom_settings : {
-        upload_target: "divFileProgressContainer"
+        custom_settings : {
+          upload_target: "divFileProgressContainer"
+        }
       }
-    }
-    var swf_upload = new SWFUpload(swf_settings);
-  };
+      var swf_upload = new SWFUpload(swf_settings);
+    };
     
-New Listing
+Complete all fields and click the <strong>Submit</strong> button to post your listing.
 - form_for(@listing, :html => {:multipart => true}) do |form|
   = form.error_messages
-  .text_field
-    = form.label :title
-    = form.text_field :title
-  .text_area
-    = form.label :description
-    = form.text_area :description
-  .text_field
-    = form.label :price
-    = form.text_field :price
-  .select
-    = form.label :category_id
-    = form.select :category_id, @categories.map{|c| [c.title, c.id]}
-  .radio_button
-    %fieldset 
-      %legend Condition
-      = form.label :condition_new, 'New'
-      = form.radio_button :condition, 'new'
-      = form.label :condition_used, 'Used'
-      = form.radio_button :condition, 'used'
-  .text_area
-    = form.label :zip_code
-    = form.text_field :zip_code
-  .radio_button
-    %fieldset
-      %legend Willing to Ship?
-      = form.label :willing_to_ship_yes, 'Yes'
-      = form.radio_button :willing_to_ship, 'yes'
-      = form.label :willing_to_ship_no, 'No'
-      = form.radio_button :willing_to_ship, 'no'
-  Attach Images
-  .attachment_container
-  .attachment_button
+  .form_left
+    .text_field
+      = form.label :title, 'Title <span>(limited to 65 characters)'
+      = form.text_field :title, :maxlength => 65
+    .text_area
+      = form.label :description
+      = form.text_area :description
+  .form_right
+    .text_field
+      = form.label :price
+      = form.text_field :price, :class => 'price'
+    .select
+      = form.label :category_id
+      = form.select :category_id, @categories.map{|c| [c.title, c.id]}
+    .radio_button
+      %fieldset 
+        %legend Condition
+        = form.radio_button :condition, 'new'
+        = form.label :condition_new, 'New'
+        = form.radio_button :condition, 'used'
+        = form.label :condition_used, 'Used'
+    .text_area
+      = form.label :zip_code
+      = form.text_field :zip_code
+    #shipping.radio_button
+      %fieldset
+        %legend Willing to Ship?
+        = form.radio_button :willing_to_ship, 'no'
+        = form.label :willing_to_ship_no, 'No'
+        = form.radio_button :willing_to_ship, 'yes'
+        = form.label :willing_to_ship_yes, 'Yes'
+        .will_ship
+          = form.label :shipping_cost, t(:how_much)
+          = form.text_field :shipping_cost
+    %label Images
+    .attachment_container
+    %span#spanButtonPlaceholder.attachment_button
   
   .submit
-    = form.submit 'Submit'
-  = link_to 'cancel', root_path
+    = image_submit_tag 'submit_button.png', :alt => 'Submit'
+    = link_to 'cancel', root_path

@@ -2,56 +2,75 @@
   .photos
     - @listing.photos.each do |photo|
       = image_tag photo.file(:display)
-  .title= @listing.title
-  .price= @listing.price
+  .listing_details
+    .date= @listing.date
+    %h1.title= @listing.title
+    .price= @listing.price
+    .location
+      = @listing.location
+      .distance= @listing.distance_from(current_user) if signed_in?
+    .seller_details
+      .seller= link_to @listing.user.username, @listing.user
 
-  .seller= link_to @listing.user.username, @listing.user
-
-  .tab
-    %h3= t(:make_an_offer)
-    - form_for([@listing, @offer]) do |form|
-      .text_field
-        = form.label :amount, t(:offer_amount)
-        = form.text_field :amount
-      .radio_button
-        %fieldset
-          %legend= t(:pickup_availability)
-          = form.label :pickup_availability_weekday_am, t(:weekday).capitalize + ' ' + t(:am)
-          = form.radio_button :pickup_availability, 'weekday am'
-          = form.label :pickup_availability_weekday_pm, t(:weekday).capitalize + ' ' + t(:pm)
-          = form.radio_button :pickup_availability, 'weekday pm'
-          = form.label :pickup_availability_weekend_am, t(:weekend).capitalize + ' ' + t(:am)
-          = form.radio_button :pickup_availability, 'weekend am'
-          = form.label :pickup_availability_weekend_pm, t(:weekend).capitalize + ' ' + t(:pm)
-          = form.radio_button :pickup_availability, 'weekend pm'
-      .text_area
-        = form.label :message, t(:message)
-        = form.text_area :message
-      .submit
-        = form.submit t(:submit)
-  .tab
-    %h3= t(:ask_a_question)
-    - form_for([@listing, @question]) do |form|
-      .text_field
-        = form.label :message, t(:message)
-        = form.text_area :message
-      .submit
-        = form.submit t(:submit)
-  .tab
-    %h3= t(:report_abuse)
-    - form_for([@listing, @report]) do |form|
-      .radio_button
-        = form.label :reason_duplicate, 'Duplicate Listing'
-        = form.radio_button :reason, 'duplicate'
-        = form.label :reason_misleading, 'Misleading Title or Description'
-        = form.radio_button :reason, 'misleading'
-        = form.label :reason_not_actual_item, 'Photo used is not the actual item (This is okay for new items)'
-        = form.radio_button :reason, 'not actual item'
-        = form.label :reason_miscategorized, 'Item is miscategorized'
-        = form.radio_button :reason, 'miscategorized'
-        = form.label :reason_offensive, 'Inappropriate or offensive content'
-        = form.radio_button :reason, 'offensive'
-      .submit
-        = form.submit t(:submit)
-  .description= @listing.description
+    .tabs
+      = link_to t(:make_an_offer), '#', :class => 'tab_header'
+      = link_to t(:ask_a_question), '#', :class => 'tab_header'
+      = link_to t(:report_abuse), '#', :class => 'tab_header flag'
+      .tab
+        - form_for([@listing, @offer]) do |form|
+          .tab_left
+            .text_field
+              = form.label :amount, t(:offer_amount)
+              = form.text_field :amount
+            .radio_button
+              %fieldset
+                %legend= t(:pickup_availability)
+                .button
+                  = form.radio_button :pickup_availability, 'weekday am'
+                  = form.label :pickup_availability_weekday_am, t(:weekday).capitalize + ' ' + t(:am)
+                .button
+                  = form.radio_button :pickup_availability, 'weekday pm'
+                  = form.label :pickup_availability_weekday_pm, t(:weekday).capitalize + ' ' + t(:pm)
+                .button
+                  = form.radio_button :pickup_availability, 'weekend am'
+                  = form.label :pickup_availability_weekend_am, t(:weekend).capitalize + ' ' + t(:am)
+                .button
+                  = form.radio_button :pickup_availability, 'weekend pm'
+                  = form.label :pickup_availability_weekend_pm, t(:weekend).capitalize + ' ' + t(:pm)
+          .tab_right
+            .text_area
+              = form.label :message, t(:message)
+              = form.text_area :message
+          .submit
+            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+      .tab
+        - form_for([@listing, @question]) do |form|
+          .text_field
+            = form.label :message, t(:message)
+            = form.text_area :message
+          .submit
+            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+      .tab
+        - form_for([@listing, @report]) do |form|
+          .radio_button
+            %fieldset
+              %legend Reasons for reporting this listing
+              .button
+                = form.radio_button :reason, 'duplicate'
+                = form.label :reason_duplicate, 'Duplicate Listing'
+              .button
+                = form.radio_button :reason, 'misleading'
+                = form.label :reason_misleading, 'Misleading Title or Description'
+              .button
+                = form.radio_button :reason, 'not actual item'
+                = form.label :reason_not_actual_item, 'Photo used is not the actual item (This is okay for new items)'
+              .button
+                = form.radio_button :reason, 'miscategorized'
+                = form.label :reason_miscategorized, 'Item is miscategorized'
+              .button
+                = form.radio_button :reason, 'offensive'
+                = form.label :reason_offensive, 'Inappropriate or offensive content'
+          .submit
+            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+    .description= @listing.description
 
