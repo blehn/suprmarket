@@ -14,7 +14,7 @@ $(function() {
 	$('#q').focus(function() {
 		$('#search_details').show();
 	});
-	$('#q').blur(function() {
+	$('#search').blur(function() {
 		$('#search_details').hide();
 	});
 	$('#browse').click(function() {
@@ -49,7 +49,16 @@ $(function() {
 		this.submit();
 		return false;
 	});
-	
-	$(".slider").slider();
+	var slider_values = ['<5 miles', '<20 miles', '<50 miles', '<200 miles', 'Anywhere']
+	$("#slider").slider({
+		min: 0,
+		max: 4,
+		value: 0,
+		step: 1,
+		slide: function(event, ui) {
+			$("#slider_amount").val(slider_values[ui.value]);
+		}
+	});
+	$("#slider_amount").val(slider_values[0]);
 	
 });

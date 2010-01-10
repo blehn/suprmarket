@@ -13,13 +13,20 @@
           %li= link_to 'two', '#'
           %li= link_to 'three', '#'
     #search_details
-      = check_box_tag :title_only
-      Search title only
-      = check_box_tag :include_complete
-      Include Completed
-      = check_box_tag :has_image
-      Has image
-      = text_field_tag :min, nil, :title => 'Min'
-      = text_field_tag :min, nil, :title => 'Max'
-      Search Radius
-      .slider
+      .search_details_left
+        .check_box
+          = check_box_tag :title_only
+          Search title only
+        .check_box
+          = check_box_tag :include_complete
+          Include Completed
+        .check_box
+          = check_box_tag :has_image
+          Has image
+      .search_details_right
+        .search_prices
+          = text_field_tag :min, nil, :title => 'Min', :class => 'search_price'
+          = text_field_tag :min, nil, :title => 'Max', :class => 'search_price'
+        Search Radius: 
+        = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
+        #slider

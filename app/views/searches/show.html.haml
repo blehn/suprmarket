@@ -13,6 +13,10 @@
   Has Image
   %input(type='checkbox')
   Only New
+  #search_radius
+    Search Radius: 
+    = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
+    #slider
 %table.listing_table
   %thead
     %tr
