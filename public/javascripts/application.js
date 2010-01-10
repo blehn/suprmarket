@@ -49,4 +49,7 @@ $(function() {
 		this.submit();
 		return false;
 	});
+	
+	$(".slider").slider();
+	
 });

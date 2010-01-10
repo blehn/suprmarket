@@ -21,6 +21,9 @@ class ApplicationManifest < Moonshine::Manifest::Rails
   # database.yml, Postfix, Cron, logrotate and NTP. See lib/moonshine/manifest/rails.rb
   # for details. To customize, remove this recipe and specify the components you want.
   recipe :default_stack
+  plugin :god
+  recipe :god
+  
   plugin :sphinx
   recipe :sphinx
   # Add your application's custom requirements here
