@@ -1,5 +1,5 @@
 :ruby: ree
-:application: market
+:application: splunkr
 :user: rails
 #:time_zone: UTC
 :deploy_to: /home/rails/public_html/splunkr
