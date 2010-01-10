@@ -1,6 +1,9 @@
 --- 
 - :source: http://gemcutter.org
   :name: paperclip
+- :name: presentable
+- :name: geokit
+- :name: thinking-sphinx
 - :source: http://gemcutter.org
   :name: rails-footnotes
 - :version: 2.3.4
