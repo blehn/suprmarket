@@ -1,1 +1,20 @@
-Preferences
+.dashboard_top
+  .left
+    Account Info
+    Location
+    Settings
+    Invites
+  .right
+    - form_for(current_user) do |form|
+      .text_field
+        = form.label :username
+        = form.text_field :username
+      .password_field
+        = form.label :password
+        = form.password_field :password
+      .text_field
+        = form.label :email, 'Email Address'
+        = form.text_field :email
+      .submit_button
+        = image_submit_tag('save_button.png', :alt => "Save")
+        = link_to 'Cancel', '#'

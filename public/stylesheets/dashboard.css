@@ -4,6 +4,11 @@
 body.dashboards .content {
   margin: 0; }
 
+.dashboard_top {
+  border-top: 10px solid #E5F3FC;
+  clear: both;
+  padding: 25px 25px 18px 25px; }
+
 .dashboard_links {
   position: relative;
   float: left;
