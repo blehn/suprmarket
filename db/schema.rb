@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104030801) do
+ActiveRecord::Schema.define(:version => 20100110181839) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(:version => 20100104030801) do
 
   add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "listings", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -45,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20100104030801) do
     t.decimal  "shipping_cost",    :precision => 15, :scale => 2
     t.integer  "offers_count",                                    :default => 0
     t.integer  "questions_count",                                 :default => 0
+    t.integer  "photos_count",                                    :default => 0
   end
 
   add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
@@ -123,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20100104030801) do
     t.integer  "feedbacks_count",                   :default => 0
     t.integer  "ratings_count",                     :default => 0
     t.integer  "rating",                            :default => 100
+    t.integer  "favorites_count",                   :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -5,4 +5,5 @@ doc/api
 doc/app
 config/database.yml
 *.swp
+*.sphinx.conf
 .DS_Store

@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   attr_accessor :invitation_code
   attr_accessible :username, :zip_code, :invitation_code, :rating
   has_many :listings, :dependent => :destroy
-  has_many :offers
+  has_many :offers, :dependent => :destroy
   has_many :ratings
+  has_many :favorites, :dependent => :destroy
 
   # Hack clearance
   def password=(password)

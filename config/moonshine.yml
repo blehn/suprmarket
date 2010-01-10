@@ -2,8 +2,8 @@
 :application: market
 :user: rails
 #:time_zone: UTC
-:deploy_to: /home/rails/public_html/market
-:domain: 209.20.74.22
+:deploy_to: /home/rails/public_html/splunkr
+:domain: 74.207.235.153
 #:domain_aliases:
 #  - assets1.yourapp.com
 #  - assets2.yourapp.com

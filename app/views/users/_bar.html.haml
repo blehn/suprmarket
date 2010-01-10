@@ -34,5 +34,5 @@
     = image_tag('message.png')
     0
     = image_tag('favorite.png')
-    0
+    = current_user.favorites_count
   = link_to image_tag('post.png', :alt => t(:new_listing)), new_listing_path, :class => 'post_link'

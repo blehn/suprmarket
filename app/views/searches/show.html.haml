@@ -1,6 +1,6 @@
 .search_details
   .search_views= image_tag('grid_view_up.png') + image_tag('list_view_down.png')
-  #{@results.total_entries} results matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
+  #{pluralize(@results.total_entries, 'result')} matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
 .search_filters
   %input(type='text' value='min price')
   %input(type='text' value='max price')
@@ -16,18 +16,23 @@
 %table.listing_table
   %thead
     %tr
-      %th Date &bull;
-      %th Item &bull;
-      %th Price &bull;
-      %th Location &bull;
-      %th User Rating &bull;
+      %th= sort_link_to(:date, 'Date')
+      %th= sort_link_to(:title, 'Item')
+      %th= sort_link_to(:price, 'Price')
+      %th Distance &bull;
+      %th= sort_link_to(:rating, 'User Rating')
       %th= image_tag('favorite_header.png', :alt => 'favorite') + ' &bull;'
   %tbody
     - @results.each do |listing|
+      - listing = listing.presenter
       %tr
         %td= listing.date
         %td= link_to listing.title, listing
         %td= listing.price
         %td= listing.location
         %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
-        %td= image_tag('not_favorite.png', :alt => 'Not favorited')
+        %td 
+          - if @favorites.key?(listing.id)
+            = link_to(image_tag('favorite.png', :alt => 'Remove from favorites'), listing_favorite_path(listing, @favorites[listing.id]), :method => :delete)
+          - else 
+            = link_to(image_tag('not_favorite.png', :alt => 'Add to Favorites'), listing_favorites_path(listing), :method => :post)

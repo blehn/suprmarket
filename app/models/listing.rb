@@ -6,7 +6,7 @@ class Listing < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
   has_many :reports
   has_many :photos, :dependent => :destroy
-  
+  has_many :favorites
   has_one :city, :foreign_key => :zip_code, :primary_key => :zip_code
   
   # validations
@@ -14,4 +14,14 @@ class Listing < ActiveRecord::Base
   
   accepts_nested_attributes_for :photos
 
+  define_index do
+    indexes title, :sortable => true
+    indexes description
+    has category_id, condition, photos_count
+    has city.lat, :as => 'lat'
+    has city.lon, :as => 'lon'
+    has created_at, :as => 'date'
+    has price
+    has user.rating, :as => 'rating'
+  end
 end

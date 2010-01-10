@@ -3,7 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/dashboard/:filter', :controller => :dashboards, :action => :show
   map.resource :dashboard, :only => [:show]
   map.resource :search, :only => [:show]
-  map.resources :listings, :has_many => [:offers, :questions, :reports]
+  map.resources :listings, :has_many => [:offers, :questions, :reports] do |listing|
+    listing.resources :favorites, :only => [:create, :destroy]
+  end
   
   map.with_options :controller => :home do |home|
     home.rules '/rules', :action => :show, :id => :rules
