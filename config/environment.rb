@@ -14,6 +14,7 @@ Rails::Initializer.run do |config|
   config.gem 'will_paginate', :source => 'http://gemcutter.org'
   config.gem 'presentable'
   config.gem 'geokit'
+  config.gem 'faster_csv', :lib => false
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.time_zone = 'UTC'
 end

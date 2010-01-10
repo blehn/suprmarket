@@ -3,6 +3,7 @@
   :name: paperclip
 - :name: presentable
 - :name: geokit
+- :name: faster_csv
 - :name: thinking-sphinx
 - :source: http://gemcutter.org
   :name: rails-footnotes
