@@ -23,5 +23,6 @@ class Listing < ActiveRecord::Base
     has created_at, :as => 'date'
     has price
     has user.rating, :as => 'rating'
+    has sold
   end
 end

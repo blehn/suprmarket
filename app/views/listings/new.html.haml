@@ -74,7 +74,7 @@ Complete all fields and click the <strong>Submit</strong> button to post your li
         = form.label :condition_used, 'Used'
     .text_area
       = form.label :zip_code
-      = form.text_field :zip_code
+      = form.text_field :zip_code, :value => current_user.zip_code
     #shipping.radio_button
       %fieldset
         %legend Willing to Ship?

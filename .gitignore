@@ -1,4 +1,5 @@
 log/*.log
+log/*.pid
 log/**/*
 tmp/**/*
 doc/api
@@ -7,3 +8,4 @@ config/database.yml
 *.swp
 *.sphinx.conf
 .DS_Store
+db/sphinx

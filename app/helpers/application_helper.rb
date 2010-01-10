@@ -2,6 +2,10 @@
 module ApplicationHelper
   def sort_link_to(field, name = nil)
     name = field if name.nil?
-    link_to("#{name} &bull", params.merge(:sort => (params[:sort] == "#{field}_asc" ?  "#{field}_desc" : "#{field}_asc")))
+    marker = @order == field ? (@sort_mode == :asc ? '&uarr;' : '&darr;'): '&bull;'
+    link_to("#{name} #{marker}", 
+      params.merge(:sort => (params[:sort] == "#{field}_asc" ?  "#{field}_desc" : "#{field}_asc")), 
+      :class => @order == field ? 'active' : nil
+    )
   end
 end

@@ -128,7 +128,9 @@ label {
     top: 0px;
     height: 500px;
     border-left: 1px solid #EEE;
-    padding-left: 20px; }
+    padding-left: 20px;
+    text-align: left;
+    font-size: 11px; }
     #search_small #categories ul {
       list-style-type: none;
       margin: 0;
@@ -362,12 +364,13 @@ table {
   table th {
     font-size: 14px;
     padding: 5px 0 5px 20px; }
+    table th a {
+      color: #999999;
+      font-weight: bold; }
+      table th a.active {
+        color: #333; }
   table th.hidden span {
     display: none; }
-
-.listing_table a {
-  color: #333333;
-  font-weight: bold; }
 
 span.user {
   font-size: 12px; }
