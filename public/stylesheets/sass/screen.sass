@@ -364,15 +364,28 @@ span.user
   img
     :vertical-align bottom
 .search_filters
+  :font-size 11px
   :display none
   :background-color #E5F3FC
-  :padding 10px 20px
+  :padding 10px 0
   :border-top 1px solid #999999
   :border-bottom 1px solid #999999
+  :float left
+  :width 100%
+  .other_filters
+    :margin-left 20px
+    :float left
 .image_button
   :vertical-align middle
+  
 #slider
   :font-size 60% 
+  .ui-slider-range
+    :background #DDD
+  .ui-slider-handle
+    :background #FFF
+    :border-color #333333
+
 #slider_amount
   :border 0
   :background transparent
@@ -393,4 +406,5 @@ span.user
   :border 1px solid #BBBBBB
 #search_radius
   :float left
+  :margin-left 20px
 @import dashboard.sass

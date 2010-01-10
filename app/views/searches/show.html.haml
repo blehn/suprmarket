@@ -2,17 +2,18 @@
   .search_views= image_tag('grid_view_up.png') + image_tag('list_view_down.png')
   #{pluralize(@results.total_entries, 'result')} matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
 .search_filters
-  %input(type='text' value='min price')
-  %input(type='text' value='max price')
-  = image_submit_tag 'set_button.png', :alt => 'set', :class => 'image_button'
-  %input(type='checkbox')
-  Search title only
-  %input(type='checkbox')
-  Include Completed
-  %input(type='checkbox')
-  Has Image
-  %input(type='checkbox')
-  Only New
+  .other_filters
+    %input(type='text' value='min price')
+    %input(type='text' value='max price')
+    = image_submit_tag 'set_button.png', :alt => 'set', :class => 'image_button'
+    %input(type='checkbox')
+    Search title only
+    %input(type='checkbox')
+    Include Completed
+    %input(type='checkbox')
+    Has Image
+    %input(type='checkbox')
+    Only New
   #search_radius
     Search Radius: 
     = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'

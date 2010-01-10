@@ -53,8 +53,7 @@ $(function() {
 	$("#slider").slider({
 		min: 0,
 		max: 4,
-		value: 0,
-		step: 1,
+		range: "min",
 		slide: function(event, ui) {
 			$("#slider_amount").val(slider_values[ui.value]);
 		}

@@ -387,17 +387,28 @@ span.user {
     vertical-align: bottom; }
 
 .search_filters {
+  font-size: 11px;
   display: none;
   background-color: #E5F3FC;
-  padding: 10px 20px;
+  padding: 10px 0;
   border-top: 1px solid #999999;
-  border-bottom: 1px solid #999999; }
+  border-bottom: 1px solid #999999;
+  float: left;
+  width: 100%; }
+  .search_filters .other_filters {
+    margin-left: 20px;
+    float: left; }
 
 .image_button {
   vertical-align: middle; }
 
 #slider {
   font-size: 60%; }
+  #slider .ui-slider-range {
+    background: #DDD; }
+  #slider .ui-slider-handle {
+    background: #FFF;
+    border-color: #333333; }
 
 #slider_amount {
   border: 0;
@@ -422,7 +433,8 @@ span.user {
   border: 1px solid #BBBBBB; }
 
 #search_radius {
-  float: left; }
+  float: left;
+  margin-left: 20px; }
 
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }
