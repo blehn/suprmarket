@@ -391,6 +391,11 @@ span.user {
 .image_button {
   vertical-align: middle; }
 
+.slider {
+  font-size: 60%;
+  width: 200px;
+  height: 20px; }
+
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }
 
