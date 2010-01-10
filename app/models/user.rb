@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   # Hack clearance
   def password=(password)
     write_attribute(:password, password)
-    write_attribute(:password_confirmation, password)
+    send("password_confirmation=", password)
   end
   
   def rate(user, positive_or_negative)
