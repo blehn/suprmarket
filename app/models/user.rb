@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
   has_many :favorites, :dependent => :destroy
 
   # Hack clearance
-  def password=(password)
-    write_attribute(:password, password)
-    send("password_confirmation=", password)
+  def before_create
+    send("password_confirmation=", password) if password
   end
   
   def rate(user, positive_or_negative)
