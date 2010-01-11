@@ -18,8 +18,9 @@ class Listing < ActiveRecord::Base
     indexes title, :sortable => true
     indexes description
     has category_id, condition, photos_count
-    has city.lat, :as => 'lat'
-    has city.lon, :as => 'lon'
+    has city(:zip_code), :as => :zip_code
+    has "RADIANS(cities.lat)", :as => :latitude, :type => :float
+    has "RADIANS(cities.lon)", :as => :longitude, :type => :float
     has created_at, :as => 'date'
     has price
     has user.rating, :as => 'rating'

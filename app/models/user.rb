@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def rate(user, positive_or_negative)
     user.ratings.create({:rater_id => self.id, :value => positive_or_negative})
   end
+  
+  def rating
+    ratings_count > 0 ? read_attribute(:rating) : '~'
+  end
 end

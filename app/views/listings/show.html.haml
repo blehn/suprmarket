@@ -10,7 +10,10 @@
       = @listing.location
       .distance= @listing.distance_from(current_user) if signed_in?
     .seller_details
-      .seller= link_to @listing.user.username, @listing.user
+      .seller
+        = link_to @listing.user.username, @listing.user
+        = image_tag('rating.png', :alt => 'rating')
+        = "#{@listing.user.rating} (#{@listing.user.ratings_count})"
 
     .tabs
       = link_to t(:make_an_offer), '#', :class => 'tab_header'

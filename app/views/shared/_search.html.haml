@@ -1,6 +1,6 @@
 - form_tag(search_path, :id => 'search_small', :method => :get) do
   = text_field_tag :q, {}, :title => t(:example_search)
-  = text_field_tag :zip_code, (signed_in? ? current_user.zip_code : nil), :title => 'zip code'
+  = text_field_tag :zip_code, (params[:zip_code] || (signed_in? ? current_user.zip_code : nil)), :title => 'zip code'
   = image_submit_tag 'search_small.png', :alt => t(:search), :id => 'search_button'
   #browse_categories
     = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'

@@ -24,7 +24,7 @@
       %th= sort_link_to(:date, 'Date')
       %th= sort_link_to(:title, 'Item')
       %th= sort_link_to(:price, 'Price')
-      %th Distance &bull;
+      %th= @city ? sort_link_to(:distance, 'Distance') : 'Location &bull;';
       %th= sort_link_to(:rating, 'User Rating')
       %th= image_tag('favorite_header.png', :alt => 'favorite') + ' &bull;'
   %tbody
@@ -34,7 +34,9 @@
         %td= listing.date
         %td= link_to listing.title, listing
         %td= listing.price
-        %td= listing.location
+        %td
+          = listing.location
+          = display_distance(listing.city.distance_from(@city))
         %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
         %td 
           - if @favorites.key?(listing.id)

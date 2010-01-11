@@ -8,4 +8,8 @@ module ApplicationHelper
       :class => @order == field ? 'active' : nil
     )
   end
+  
+  def display_distance(distance)
+    '(' + (distance < 5.0 ? '< 5 miles' : '~ %0.1f miles' % distance) + ')'
+  end
 end
