@@ -1,3 +1,4 @@
+var slider_values = ['<5 miles', '<20 miles', '<50 miles', '<200 miles', 'Anywhere']
 $(function() {
 	
 	$('#login_link').click(
@@ -44,12 +45,20 @@ $(function() {
 		$('.search_filters').toggle();
 	});
 	
+	$('tr').hover(
+		function() {
+			$(this).addClass('selected')
+		},
+		function() {
+			$(this).removeClass('selected')
+		}
+	)
+	
 	//scrub x and y parameters
 	$('form').submit(function() {
 		this.submit();
 		return false;
 	});
-	var slider_values = ['<5 miles', '<20 miles', '<50 miles', '<200 miles', 'Anywhere']
 	$("#slider").slider({
 		min: 0,
 		max: 4,

@@ -1,42 +1,59 @@
+- content_for(:head) do
+  - if params[:radius]
+    :javascript
+      $(function() {
+        $('#slider').slider('option', 'value', #{value_for_radius(params[:radius])});
+        $("#slider_amount").val(slider_values[$("#slider").slider("value")]);
+      })
 .search_details
   .search_views= image_tag('grid_view_up.png') + image_tag('list_view_down.png')
   #{pluralize(@results.total_entries, 'result')} matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
 .search_filters
-  .other_filters
-    %input(type='text' value='min price')
-    %input(type='text' value='max price')
-    = image_submit_tag 'set_button.png', :alt => 'set', :class => 'image_button'
-    %input(type='checkbox')
-    Search title only
-    %input(type='checkbox')
-    Include Completed
-    %input(type='checkbox')
-    Has Image
-    %input(type='checkbox')
-    Only New
-  #search_radius
-    Search Radius: 
-    = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
-    #slider
+  - form_tag(search_path, :id => 'search_filter', :method => :get) do
+    - params.select{ |key, value| ['q'].include?(key) }.each do |key, value|
+      %input(type='hidden' name='#{key}' value='#{h(value)}')
+    .other_filters
+      = text_field_tag :min, params[:min], :title => 'min price'
+      = text_field_tag :max, params[:max], :title => 'max price'
+      = check_box_tag :title_only, 1, params[:title_only]
+      Search title only
+      = check_box_tag :include_completed, 1, params[:include_completed]
+      Include Completed
+      = check_box_tag :has_image, 1, params[:has_image]
+      Has Image
+      = check_box_tag :only_new, 1, params[:only_new]
+      Only New
+    #search_radius
+      Search Radius: 
+      = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
+      #slider
+    = image_submit_tag 'submit_small.png', :alt => 'set', :class => 'image_button'
 %table.listing_table
   %thead
     %tr
-      %th= sort_link_to(:date, 'Date')
+      %th.fixed= sort_link_to(:date, 'Date')
+      %th.fixed
       %th= sort_link_to(:title, 'Item')
       %th= sort_link_to(:price, 'Price')
-      %th= @city ? sort_link_to(:distance, 'Distance') : 'Location &bull;';
+      %th= @city ? sort_link_to(:distance, 'Distance') : 'Location'
       %th= sort_link_to(:rating, 'User Rating')
-      %th= image_tag('favorite_header.png', :alt => 'favorite') + ' &bull;'
+      %th= image_tag('favorite_header.png', :alt => 'favorite')
   %tbody
     - @results.each do |listing|
       - listing = listing.presenter
       %tr
-        %td= listing.date
-        %td= link_to listing.title, listing
+        %td.fixed
+          = listing.date
+        %td.fixed
+          - if listing.new?
+            = image_tag('new.png', :alt => 'new')
+        %td
+          = link_to listing.title, listing
         %td= listing.price
         %td
           = listing.location
-          = display_distance(listing.city.distance_from(@city))
+          - if @city
+            = display_distance(listing.city.distance_from(@city))
         %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
         %td 
           - if @favorites.key?(listing.id)

@@ -12,4 +12,15 @@ module ApplicationHelper
   def display_distance(distance)
     '(' + (distance < 5.0 ? '< 5 miles' : '~ %0.1f miles' % distance) + ')'
   end
+  
+  def value_for_radius(radius)
+    case radius
+    when nil then 0
+    when 'Anywhere' then 4
+    when '<5 miles' then 0
+    when '<20 miles' then 1
+    when '<50 miles' then 2
+    when '<200 miles' then 3
+    end
+  end
 end

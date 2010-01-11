@@ -356,7 +356,7 @@ table {
   clear: both;
   border-spacing: 0; }
   table thead {
-    background-color: #F6F6F6;
+    background-color: #F5F5F5;
     color: #999999;
     text-align: left; }
   table th, table td {
@@ -437,7 +437,14 @@ span.user {
 
 #search_radius {
   float: left;
-  margin-left: 20px; }
+  margin-left: 20px;
+  margin-right: 20px; }
+
+tr.selected {
+  background-color: #F6F6F6; }
+
+td.fixed, th.fixed {
+  width: 60px; }
 
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }
