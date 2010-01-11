@@ -35,6 +35,7 @@
         button_cursor: SWFUpload.CURSOR.HAND,
         button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,
         file_queue_error_handler : fileQueueError,
+        file_queued_handler : fileQueuedHandler, 
         file_dialog_complete_handler : fileDialogComplete,
         upload_progress_handler : uploadProgress,
         upload_error_handler : uploadError,
@@ -87,7 +88,9 @@ Complete all fields and click the <strong>Submit</strong> button to post your li
           = form.text_field :shipping_cost
     %label Images
     .attachment_container
+    #images
     %span#spanButtonPlaceholder.attachment_button
+    
   
   .submit
     = image_submit_tag 'submit_button.png', :alt => 'Submit'

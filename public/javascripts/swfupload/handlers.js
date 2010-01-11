@@ -1,3 +1,5 @@
+var flash_ids = { };
+
 function fileQueueError(file, errorCode, message) {
 	try {
 		var imageName = "error.gif";
@@ -33,10 +35,14 @@ function fileQueueError(file, errorCode, message) {
 
 }
 
+function fileQueuedHandler(file) {
+	flash_ids[file.id] = $('#images').append('<div>'+file.name+' <a href="#">remove</a></div>');
+}
+
 function fileDialogComplete(numFilesSelected, numFilesQueued) {
 	try {
 		if (numFilesQueued > 0) {
-			this.startUpload();
+			//this.startUpload();
 		}
 	} catch (ex) {
 		this.debug(ex);

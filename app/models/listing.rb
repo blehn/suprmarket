@@ -39,6 +39,13 @@ class Listing < ActiveRecord::Base
     unless order_by == :favorites
       options[:order] = (order_by == :distance ? "@geodist #{sort_mode}" : order_by)
       options[:sort_mode] = (order_by == :distance ? nil : sort_mode)
+    else
+      # id_matches = favorites.map do |favorite| 
+      #         l = Listing.new
+      #         l.id = favorite.listing_id
+      #         l.sphinx_document_id
+      #       end
+      #       options[:order] = "IN(@id, #{id_matches.join(',')}) #{sort_mode}"
     end
     
     if city
@@ -53,7 +60,6 @@ class Listing < ActiveRecord::Base
       options[:with][:is_new] = true
     end
     
-    RAILS_DEFAULT_LOGGER.info options.inspect
     if params[:title_only]
       Listing.search(options.merge(:conditions => {:title => params[:q]}))
     else
