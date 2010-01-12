@@ -24,6 +24,8 @@ a {
     border: 0; }
 
 .container {
+  float: left;
+  width: 100%;
   background-color: #FFF;
   min-height: 500px; }
 
@@ -71,6 +73,7 @@ a {
         margin-bottom: 10px; }
 
 .footer {
+  clear: both;
   background-color: #EEE;
   border-top: 2px solid #CCC;
   padding: 25px 20px;
@@ -493,3 +496,16 @@ a.active_tab_heading {
   background-color: #E5F3FC;
   color: #333333;
   border-color: #999999; }
+
+.listing {
+  float: left;
+  padding-bottom: 30px; }
+  .listing .photos {
+    float: left;
+    width: 562px; }
+    .listing .photos img {
+      border: 1px solid #333333;
+      margin-bottom: 25px; }
+  .listing .listing_details {
+    margin-left: 35px;
+    float: left; }

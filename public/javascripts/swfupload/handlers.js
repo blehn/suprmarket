@@ -49,6 +49,10 @@ function fileDialogComplete(numFilesSelected, numFilesQueued) {
 	}
 }
 
+function doStartUpload(swfupload) {
+	swfupload.startUpload();
+}
+
 function uploadProgress(file, bytesLoaded) {
 
 	try {

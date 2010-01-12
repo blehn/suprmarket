@@ -23,11 +23,11 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.new(params[:listing])
     if @listing.save
       flash[:notice] = 'Your listing has been posted'
-      redirect_to @listing
+      request.xhr? ? render(:json => "{status:'success'}") : redirect_to(@listing)
     else
       flash[:notice] = 'Your listing could not be saved'
       @categories = Category.all(:order => 'title asc')
-      render 'new'
+      request.xhr? ? render(:json => "{status:'failure', errors:#{@listing.errors.to_json}}") : render('new')
     end
   end
 

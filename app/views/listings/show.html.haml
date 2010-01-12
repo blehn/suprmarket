@@ -1,7 +1,7 @@
 %div[@listing]
   .photos
     - @listing.photos.each do |photo|
-      = image_tag photo.file(:display)
+      %div[photo]= image_tag photo.file(:display)
   .listing_details
     .date= @listing.date
     %h1.title= @listing.title
