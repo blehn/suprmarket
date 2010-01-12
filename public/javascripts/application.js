@@ -69,6 +69,11 @@ $(function() {
 	$("#slider_amount").val(slider_values[0]);
 	$('.tab_heading').corner("top 2px")
 	$('.tab_heading span').corner("2px")
+	$('#q').corner('left 2px')
+	$('#zip_code').corner('right 2px')
+	$('#login_link').corner('top 2px')
+	$('div.login_form').corner('tl bl br 2px')
+	$('div.login_form input').corner('2px')
 	
 	$('form').submit(function() {
 		this.submit();

@@ -9,9 +9,8 @@
       = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'
       #categories
         %ul
-          %li= link_to 'one', '#'
-          %li= link_to 'two', '#'
-          %li= link_to 'three', '#'
+          - @categories.each do |category|
+            %li= link_to category.title, '#'
     #search_details
       .search_details_left
         .check_box
