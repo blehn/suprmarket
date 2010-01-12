@@ -18,6 +18,11 @@ class Listing < ActiveRecord::Base
     condition == 'new'
   end
 
+  def sold!
+    update_attribute(:sold, true)
+  end
+
+  
   def self.find_for_search(order_by, sort_mode, city, params, favorites)
     
     options = { :include => [:user, :city], :with => {}, :conditions => {}, :star => true }

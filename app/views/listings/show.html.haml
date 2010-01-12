@@ -1,3 +1,7 @@
+.listing_back
+  - if request.referrer.gsub(/\?.*$/, '') == search_url
+    = link_to 'Back to search results', request.referrer
+
 %div[@listing]
   .photos
     - @listing.photos.each do |photo|

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :offers, :dependent => :destroy
   has_many :ratings
   has_many :favorites, :dependent => :destroy
-
+  has_many :replies
   # Hack clearance
   def before_create
     send("password_confirmation=", password) if password

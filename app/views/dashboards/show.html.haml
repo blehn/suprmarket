@@ -26,18 +26,41 @@
           = link_to listing.title, listing
           %h4 OFFERS
           - unless listing.offers.empty?
-            %table
+            %table.inner
               - listing.offers.each do |offer|
                 %tr
-                  %td= offer.created_at.to_s(:month_day)
-                  %td= offer.readable_format
+                  %td= offer.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td
+                    %strong= "#{offer.user.username} #{offer.user.rating}%"
+                    (#{offer.user.ratings_count})
+                    offered you
+                    %span.price= '$'+offer.amount.to_s
           %h4 QUESTIONS
           - unless listing.questions.empty?
-            %table
+            %table.inner
               - listing.questions.each do |question|
-                %tr
-                  %td= question.created_at.to_s(:month_day)
-                  %td= question.readable_format
+                - if question.reply              
+                  %tr.answered
+                    %td= question.reply.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td
+                      %div[question.reply]
+                        You replied: #{question.reply.message}
+                %tr{:class => question.reply ? 'answered' : nil}
+                  %td= question.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td
+                    %div[question]
+                      %strong= question.user.username
+                      asked:
+                      = question.message
+                      - unless question.reply
+                        = link_to 'reply', '#'
+                        .reply
+                          - form_for(Reply.new) do |form|
+                            = form.text_area :message
+                            = form.hidden_field :source_type, :value => 'Question'
+                            = form.hidden_field :source_id, :value => question.id
+                            = form.submit 'Save'
+                          
                 
 
         %td= listing.price

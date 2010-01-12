@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110233445) do
+ActiveRecord::Schema.define(:version => 20100112025834) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -104,6 +104,17 @@ ActiveRecord::Schema.define(:version => 20100110233445) do
   end
 
   add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
+
+  create_table "replies", :force => true do |t|
+    t.string   "source_type"
+    t.integer  "source_id"
+    t.integer  "user_id"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "replies", ["source_type", "source_id"], :name => "index_replies_on_source_type_and_source_id"
 
   create_table "reports", :force => true do |t|
     t.integer  "listing_id"
