@@ -494,7 +494,8 @@ tr td a.photo_link {
   .grid .grid_result {
     width: 162px;
     float: left;
-    margin-left: 20px; }
+    margin-left: 20px;
+    margin-bottom: 20px; }
     .grid .grid_result img {
       border: 1px solid #333; }
     .grid .grid_result .image {
