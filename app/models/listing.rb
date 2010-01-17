@@ -74,6 +74,12 @@ class Listing < ActiveRecord::Base
       options[:with][:is_new] = true
     end
     
+    if params[:with]
+      params[:with].each do |key, value|
+        options[:with][key] = value
+      end
+    end
+    
     if params[:title_only]
       Listing.search(options.merge(:conditions => {:title => params[:q]}))
     else
