@@ -26,7 +26,7 @@
             = display_distance(listing.city.distance_from(city))
         %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
         %td 
-          - if favorites.key?(listing.id)
+          - if @favorites.key?(listing.id)
             = link_to(image_tag('favorite.png', :alt => 'Remove from favorites'), listing_favorite_path(listing, favorites[listing.id]), :method => :delete)
           - else 
             = link_to(image_tag('not_favorite.png', :alt => 'Add to Favorites'), listing_favorites_path(listing), :method => :post)

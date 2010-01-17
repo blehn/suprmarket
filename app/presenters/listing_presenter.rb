@@ -8,7 +8,7 @@ class ListingPresenter < Presenter
   end
   
   def location
-    "#{city.name}, #{city.state}"
+    "#{city.name}, #{city.state}" if city
   end
   
   def distance_from(user)
