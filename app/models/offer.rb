@@ -23,12 +23,12 @@ class Offer < ActiveRecord::Base
   
   def decline!
     update_attribute(:state, 'declined')
-    listing.declined_notifications.create(:user_id => user_id)
+    listing.declined_notifications.create(:user_id => user_id, :data => {:amount => amount})
   end
   
-  def counter!(amount)
+  def counter!(counter_amount)
     update_attribute(:counter, 'countered')
-    listing.countered_notifications.create(:user_id => user_id)
+    listing.countered_notifications.create(:user_id => user_id, , :data => {:amount => amount, :counter_amount => counter_amount})
   end
   
 end
