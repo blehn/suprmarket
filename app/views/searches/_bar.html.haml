@@ -4,8 +4,8 @@
     = text_field_tag :zip_code, (params[:zip_code] || (signed_in? ? current_user.zip_code : nil)), :title => 'zip code'
     = image_submit_tag 'search_small.png', :alt => t(:search), :id => 'search_button'
     #browse_categories
-      = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'
+      = link_to ((@category ? @category.title : t(:browse)).capitalize, '#', :class => 'right_arrow', :id => 'browse')
       #categories
         %ul
           - Category.all.each do |category|
-            %li= link_to category.title, '#'
+            %li= link_to category.title, category

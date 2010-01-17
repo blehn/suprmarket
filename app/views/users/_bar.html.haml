@@ -1,7 +1,7 @@
 - if current_page?(sign_up_path)
   .logo_top
     = link_to 'Splunkr.', root_path
-  = render 'shared/search'
+  = render 'searches/bar'
   .logged_out
     Already a member? 
     .login
@@ -18,7 +18,7 @@
   - unless current_page?(root_path)
     .logo_top
       = link_to 'Splunkr.', root_path
-    = render 'shared/search'
+    = render 'searches/bar'
   .logged_out
     .login
       = link_to t(:login).capitalize, sign_in_path, :id => 'login_link'
@@ -35,7 +35,7 @@
   .logo_top
     = link_to 'Splunkr.', dashboard_path
   - unless current_page?(new_listing_path)
-    = render 'shared/search'
+    = render 'searches/bar'
   %span.user
     %span.details= "#{link_to(current_user.username, dashboard_path)}#{link_to('('+t(:sign_out)+')', sign_out_path)}"
     = image_tag('message.png')

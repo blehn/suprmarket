@@ -9,3 +9,4 @@ config/database.yml
 *.sphinx.conf
 .DS_Store
 db/sphinx
+public/system
