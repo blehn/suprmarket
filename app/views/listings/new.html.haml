@@ -91,7 +91,8 @@ Complete all fields and click the <strong>Submit</strong> button to post your li
     .attachment_container
     #images
       - form.fields_for(:photos) do |photos_form|
-        = photos_form.file_field :file
+        .file_field
+          = photos_form.file_field :file
       
     %span#spanButtonPlaceholder.attachment_button
     

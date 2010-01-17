@@ -140,7 +140,8 @@ label {
     border-left: 1px solid #EEE;
     padding-left: 20px;
     text-align: left;
-    font-size: 11px; }
+    font-size: 11px;
+    z-index: 100; }
     #search_small #categories ul {
       list-style-type: none;
       margin: 0;
@@ -295,6 +296,9 @@ span.button {
 div.price, span.price {
   color: #339900;
   font-size: 16px; }
+
+table span.price {
+  font-size: inherit; }
 
 .flag {
   background-image: url('/images/flag.png');
@@ -468,6 +472,17 @@ tr.selected {
 
 td.fixed, th.fixed {
   width: 60px; }
+
+td.icon, th.icon {
+  width: 15px !important; }
+
+tr td a.photo_link {
+  display: block;
+  width: 19px;
+  height: 18px;
+  overflow: hidden;
+  text-indent: -10000px;
+  background: url('/images/photo.png'); }
 
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }

@@ -35,6 +35,8 @@ $(function() {
 	$(".tab_header:eq(0)").addClass('active_tab')
 	$(".tab:gt(0)").hide();
 	
+	$(".tab").corner("tr bottom 2px")
+	$(".tab_header").corner("top 2px")
 	$(".tab_header").click(function() {
 		index = $(".tab_header").index(this)
 		$('.tab_header:not(:eq('+index+'))').removeClass('active_tab')
@@ -79,5 +81,15 @@ $(function() {
 		this.submit();
 		return false;
 	});
+	
+	$('.photo_link').click(function() {
+		if($(this).css('background-position') == '0px -18px') {
+			$(this).css('background-position', '0px 0px')
+			$(this).next('img').remove();
+		} else {
+			$(this).css('background-position', '0px -18px')
+			$(this).after("<img src='"+$(this).attr('rel')+"'  style='position:absolute;top:"+($(this).position().top - 132)+"px;left:"+$(this).position().left+"px;'/>");
+		}
+	})
 	
 });

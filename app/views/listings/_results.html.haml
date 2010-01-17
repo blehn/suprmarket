@@ -2,7 +2,8 @@
   %thead
     %tr
       %th.fixed= sort_link_to(:date, 'Date')
-      %th.fixed
+      %th.icon
+      %th.icon
       %th= sort_link_to(:title, 'Item')
       %th= sort_link_to(:price, 'Price')
       %th= city ? sort_link_to(:distance, 'Distance') : 'Location'
@@ -14,9 +15,12 @@
       %tr
         %td.fixed
           = listing.date
-        %td.fixed
+        %td.icon
           - if listing.new?
             = image_tag('new.png', :alt => 'new')
+        %td.icon
+          - if listing.photos_count > 0
+            = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))
         %td
           = link_to listing.title, listing
         %td= listing.price
