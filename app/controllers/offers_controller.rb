@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_filter :load_listing
+  before_filter :authenticate, :load_listing
   def create
     @listing.offers.create(params[:offer].merge(:user => current_user))
     flash[:notice] = 'Your offer was received'
