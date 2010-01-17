@@ -28,7 +28,7 @@ class Offer < ActiveRecord::Base
   
   def counter!(counter_amount)
     update_attribute(:counter, 'countered')
-    listing.countered_notifications.create(:user_id => user_id, , :data => {:amount => amount, :counter_amount => counter_amount})
+    listing.countered_notifications.create(:user_id => user_id, :data => {:amount => amount, :counter_amount => counter_amount})
   end
   
 end
