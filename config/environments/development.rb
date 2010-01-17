@@ -18,4 +18,4 @@ config.action_mailer.raise_delivery_errors = false
 
 HOST = "localhost"
 
-config.gem 'rails-footnotes', :source => 'http://gemcutter.org'
+#config.gem 'rails-footnotes', :source => 'http://gemcutter.org'

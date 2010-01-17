@@ -2,30 +2,31 @@
   .logo Splunkr.
   .tagline= t(:tagline)
   - form_tag(search_path, :id => 'search', :method => :get) do
-    = text_field_tag :q, {}, :title => t(:example_search)
-    = text_field_tag :zip_code, nil, :title => 'zip code'
-    = image_submit_tag 'search_button.png', :alt => t(:search), :id => 'search_button'
-    #browse_categories
-      = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'
-      #categories
-        %ul
-          - @categories.each do |category|
-            %li= link_to category.title, '#'
-    #search_details
-      .search_details_left
-        .check_box
-          = check_box_tag :title_only
-          Search title only
-        .check_box
-          = check_box_tag :include_completed
-          Include Completed
-        .check_box
-          = check_box_tag :has_image
-          Has image
-      .search_details_right
-        .search_prices
-          = text_field_tag :min, nil, :title => 'Min', :class => 'search_price'
-          = text_field_tag :max, nil, :title => 'Max', :class => 'search_price'
-        Search Radius: 
-        = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
-        #slider
+    .form
+      = text_field_tag :q, {}, :title => t(:example_search)
+      = text_field_tag :zip_code, nil, :title => 'zip code'
+      = image_submit_tag 'search_button.png', :alt => t(:search), :id => 'search_button'
+      #browse_categories
+        = link_to t(:browse).capitalize, '#', :class => 'right_arrow', :id => 'browse'
+        #categories
+          %ul
+            - @categories.each do |category|
+              %li= link_to category.title, '#'
+      #search_details
+        .search_details_left
+          .check_box
+            = check_box_tag :title_only
+            Search title only
+          .check_box
+            = check_box_tag :include_completed
+            Include Completed
+          .check_box
+            = check_box_tag :has_image
+            Has image
+        .search_details_right
+          .search_prices
+            = text_field_tag :min, nil, :title => 'Min', :class => 'search_price'
+            = text_field_tag :max, nil, :title => 'Max', :class => 'search_price'
+          Search Radius: 
+          = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
+          #slider

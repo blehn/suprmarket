@@ -8,12 +8,13 @@
       = link_to t(:login).capitalize, sign_in_path, :id => 'login_link'
       .login_form
         - form_for(:session, :url => session_path) do |form|
-          .text_field= form.text_field :email, :title => 'email address'
-          .text_field= form.password_field :password, :title => 'password'
-          .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
-          = form.check_box :remember_me
-          = form.label :remember_me
-          = link_to 'forgot password', new_password_path
+          .form
+            .text_field= form.text_field :email, :title => 'email address'
+            .text_field= form.password_field :password, :title => 'password'
+            .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
+            = form.check_box :remember_me
+            = form.label :remember_me
+            = link_to 'forgot password', new_password_path
 - elsif signed_out? 
   - unless current_page?(root_path)
     .logo_top
@@ -24,12 +25,13 @@
       = link_to t(:login).capitalize, sign_in_path, :id => 'login_link'
       .login_form
         - form_for(:session, :url => session_path) do |form|
-          .text_field= form.text_field :email, :title => 'email address'
-          .text_field= form.password_field :password, :title => 'password'
-          .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
-          = form.check_box :remember_me
-          = form.label :remember_me
-          = link_to 'forgot password', new_password_path
+          .form
+            .text_field= form.text_field :email, :title => 'email address'
+            .text_field= form.password_field :password, :title => 'password'
+            .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
+            = form.check_box :remember_me
+            = form.label :remember_me
+            = link_to 'forgot password', new_password_path
     = link_to t(:register).capitalize, sign_up_path
 - else
   .logo_top
