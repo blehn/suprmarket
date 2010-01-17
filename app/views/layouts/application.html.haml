@@ -1,7 +1,9 @@
 !!! Strict
-%html
+%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
   %head
     %title Splunkr
+    %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
+    
     = javascript_include_tag 'jquery', 'jquery.hint.js', 'jquery-ui', 'jquery.corner', 'application'
     = stylesheet_link_tag 'smoothness/screen', 'screen'
     = yield :head

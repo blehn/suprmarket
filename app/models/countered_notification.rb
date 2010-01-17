@@ -1,0 +1,2 @@
+class CounteredNotification < Notification
+end

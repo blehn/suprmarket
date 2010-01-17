@@ -1,0 +1,2 @@
+class AcceptedNotification < Notification
+end

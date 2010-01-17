@@ -2,12 +2,15 @@ class Listing < ActiveRecord::Base
   # associations
   belongs_to :user, :counter_cache => true
   belongs_to :category
-  has_many :offers, :dependent => :destroy
+  has_many :offers, :dependent => :destroy, :order => 'created_at desc'
   has_many :questions, :dependent => :destroy
   has_many :reports
   has_many :photos, :dependent => :destroy
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   has_one :city, :foreign_key => :zip_code, :primary_key => :zip_code
+  has_many :accepted_notifications
+  has_many :declined_notifications
+  has_many :counter_notifications
   
   # validations
   validates_presence_of :title, :description, :price, :category, :condition, :zip_code

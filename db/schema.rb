@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112025834) do
+ActiveRecord::Schema.define(:version => 20100116224501) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(:version => 20100112025834) do
   add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["user_id"], :name => "index_listings_on_user_id"
 
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.string   "type"
+    t.text     "data"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "offers", :force => true do |t|
     t.integer  "listing_id"
     t.integer  "user_id"
@@ -67,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20100112025834) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",                                              :default => "new"
+    t.decimal  "counter_amount",      :precision => 15, :scale => 2
   end
 
   add_index "offers", ["listing_id"], :name => "index_offers_on_listing_id"

@@ -8,7 +8,11 @@ class OffersController < ApplicationController
 
   def update
     @offer = @listing.offers.find(params[:id])
-    @offer.update_attributes(params[:offer])
+    case params[:status]
+      when 'accepted' then @offer.accept!
+      when 'declined' then @offer.decline!
+      when 'countered' then @offer.counter!(params[:counter_amount])
+    end
     redirect_to dashboard_path
   end
 

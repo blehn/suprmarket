@@ -1,0 +1,2 @@
+class DeclinedNotification < Notification
+end

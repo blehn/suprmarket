@@ -1,6 +1,6 @@
 .dashboard_links
   = link_to t(:selling) + "<span>#{current_user.listings.count}</span>", {:filter => 'selling'}, {:class => 'tab_heading first_tab_heading' + (@current_filter == 'selling' ? ' active_tab_heading' : '')}
-  = link_to t(:buying)+ "<span>0</span>", {:filter => 'buying'}, {:class => 'tab_heading' + (@current_filter == 'buying' ? ' active_tab_heading' : '')}
+  = link_to t(:buying)+ "<span>#{current_user.buying_count}</span>", {:filter => 'buying'}, {:class => 'tab_heading' + (@current_filter == 'buying' ? ' active_tab_heading' : '')}
   = link_to t(:feedback)+ "<span>0</span>", {:filter => 'feedback'}, {:class => 'tab_heading' + (@current_filter == 'feedback' ? ' active_tab_heading' : '')}
   = link_to t(:preferences), {:filter => 'preferences'}, {:class => 'tab_heading' + (@current_filter == 'preferences' ? ' active_tab_heading' : '')}
 
@@ -20,21 +20,43 @@
           %th Location
           %th User Rating
     - @listings.each do |listing|
-      %tr
-        %td= listing.created_at.to_s(:month_day)
+      %tr{:class => listing.sold? ? 'sold' : nil}
+        %td= listing.created_at.to_s(:month_day).upcase
         %td
           = link_to listing.title, listing
           %h4 OFFERS
           - unless listing.offers.empty?
             %table.inner
-              - listing.offers.each do |offer|
-                %tr
-                  %td= offer.created_at.to_datetime.strftime("%B %d %I:%M%P")
-                  %td
-                    %strong= "#{offer.user.username} #{offer.user.rating}%"
-                    (#{offer.user.ratings_count})
-                    offered you
-                    %span.price= '$'+offer.amount.to_s
+              - if @current_filter == 'selling'
+                - listing.offers.each do |offer|
+                  %tr
+                    %td= offer.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td
+                      %strong= "#{offer.user.username} #{offer.user.rating}%"
+                      (#{offer.user.ratings_count})
+                      offered you
+                      %span.price= '$'+offer.amount.to_s
+                      = link_to 'reply', '#'
+                      .reply
+                        %ul
+                          %li= link_to 'accept', listing_offer_path(listing, offer, :status => 'accepted'), :method => :put
+                          %li= link_to 'decline', listing_offer_path(listing, offer, :status => 'declined'), :method => :put
+                          %li= link_to 'counter', '#'
+                        
+              - else
+                - (@notifications[listing.id] || {}).sort_by(&:created_at).reverse.each do |notification|
+                  %tr
+                    %td= notification.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td
+                      = notification_display(notification)
+                - @listing_offers[listing.id].sort_by(&:created_at).reverse.each do |offer|
+                  %tr
+                    %td= offer.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td
+                      %strong= "#{offer.user.username} #{offer.user.rating}%"
+                      (#{offer.user.ratings_count})
+                      offered you
+                      %span.price= '$'+offer.amount.to_s
           %h4 QUESTIONS
           - unless listing.questions.empty?
             %table.inner
