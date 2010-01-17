@@ -30,3 +30,5 @@
       #slider
     = image_submit_tag 'submit_small.png', :alt => 'set', :class => 'image_button'
 = render :partial => (params[:grid_view] ? 'listings/grid' : 'listings/results'), :locals => {:city => @city, :results => @results, :favorites => @favorites}
+- content_for(:footer) do
+  = custom_paginate @results

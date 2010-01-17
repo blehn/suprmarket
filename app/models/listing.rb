@@ -33,7 +33,8 @@ class Listing < ActiveRecord::Base
       :with => {}, 
       :conditions => {}, 
       :star => true,
-      :retry_stale => true
+      :retry_stale => true,
+      :page => params[:page] || 1
     }
     
     unless params[:include_completed]

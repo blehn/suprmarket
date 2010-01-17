@@ -15,6 +15,7 @@
         = render 'shared/messages'
         = yield
     .footer
+      = yield :footer
       .links
         = link_to t(:about).capitalize, about_path
         = link_to t(:rules).capitalize, rules_path
