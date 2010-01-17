@@ -92,4 +92,16 @@ $(function() {
 		}
 	})
 	
+	$('.grid_result .title').hide();
+	$('.grid_result .title').css('opacity', 0.6);
+	$('.grid_result .image').hover(
+		function() {
+			$(this).find('.title').show();
+		},
+		function() {
+			$(this).find('.title').hide();
+		}
+	);
+	
+	
 });

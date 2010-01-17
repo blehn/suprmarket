@@ -1,0 +1,14 @@
+.grid
+  - results.each do |result|
+    - result = result.presenter
+    .grid_result
+      .image
+        - if result.photos_count > 0
+          = image_tag(result.photos.first.file.url(:thumb), :alt => h(result.title))
+        - else
+          = image_tag('/images/no_photo.png', :alt => 'No Photo')
+        .title
+          = result.title
+      .details
+        %span.price= result.price
+        = result.location

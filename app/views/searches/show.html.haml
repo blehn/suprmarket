@@ -6,7 +6,8 @@
         $("#slider_amount").val(slider_values[$("#slider").slider("value")]);
       })
 .search_details
-  .search_views= image_tag('grid_view_up.png') + image_tag('list_view_down.png')
+  .search_views
+    = search_view_links
   #{pluralize(@results.total_entries, 'result')} matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
 .search_filters
   - form_tag(search_path, :id => 'search_filter', :method => :get) do
@@ -28,4 +29,4 @@
       = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
       #slider
     = image_submit_tag 'submit_small.png', :alt => 'set', :class => 'image_button'
-= render :partial => 'listings/results', :locals => {:city => @city, :results => @results, :favorites => @favorites}
+= render :partial => (params[:grid_view] ? 'listings/grid' : 'listings/results'), :locals => {:city => @city, :results => @results, :favorites => @favorites}
