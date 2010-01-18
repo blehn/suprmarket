@@ -4,7 +4,7 @@ module ApplicationHelper
     name = field if name.nil?
     marker = @order == field ? (@sort_mode == :asc ? '&uarr;' : '&darr;'): '&bull;'
     link_to("#{name} #{marker}", 
-      params.merge(:sort => (params[:sort] == "#{field}_asc" ?  "#{field}_desc" : "#{field}_asc")), 
+      params.merge(:page => nil, :sort => (params[:sort] == "#{field}_asc" ?  "#{field}_desc" : "#{field}_asc")), 
       :class => @order == field ? 'active' : nil
     )
   end
