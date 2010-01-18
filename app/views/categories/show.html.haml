@@ -1,1 +1,3 @@
 = render :partial => 'listings/results', :locals => {:city => @city, :results => @results, :favorites => @favorites}
+- content_for(:footer) do
+  = custom_paginate @results

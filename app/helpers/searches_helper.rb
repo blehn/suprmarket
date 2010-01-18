@@ -5,12 +5,21 @@ module SearchesHelper
   end
   
   def custom_paginate results
-    page = params[:page].to_i || 1
+    page = params[:page] ? params[:page].to_i : 1
     returning("<div class='pagination'>") do |output|
-      1.upto([results.total_pages, 12].min) do |i|
-        output << link_to(i.to_s, params.merge(:page => i), :class => 'link'+(i == page ? ' active' : ''))
+      if page == 1 || (page - 5) < 3
+        1.upto([results.total_pages, 12].min) do |i|
+          output << link_to(i.to_s, params.merge(:page => i), :class => 'link'+(i == page ? ' active' : ''))
+        end
+      elsif page == results.total_pages
+      else
+        output << link_to('1', params.merge(:page => 1), :class => 'link'+(1 == page ? ' active' : ''))
+        output << "<div class='link ellipses'>...</div>"
+        (page - 5).upto([results.total_pages, (page + 5)].min) do |i|
+          output << link_to(i.to_s, params.merge(:page => i), :class => 'link'+(i == page ? ' active' : ''))
+        end
       end
-      if results.total_pages > 12
+      if ((page - 5) < 3 && results.total_pages > 12) || ((page - 5) >= 3 && (page + 5) < results.total_pages)
         output << "<div class='link ellipses'>...</div>"
         output << link_to(results.total_pages, params.merge(:page => results.total_pages), :class => 'link'+(results.total_pages == page ? ' active' : ''))
       end
