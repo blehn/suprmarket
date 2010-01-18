@@ -91,8 +91,8 @@
         - if @current_filter == 'selling'
           %td= link_to 'Edit', edit_listing_path(listing)
           %td= link_to 'Delete', listing, :method => :delete, :confirm => "Are you sure you want to delete this listing?"
-- if @listings
-  -content_for(:footer) do
-    = custom_paginate @listings
+  - if @listings && @current_filter == 'selling'
+    - content_for(:footer) do
+      = custom_paginate @listings
 - else
   = render params[:filter]
