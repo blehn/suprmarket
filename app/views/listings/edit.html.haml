@@ -54,7 +54,6 @@ Complete all fields and click the <strong>Submit</strong> button to post your li
 - form_for(@listing, :html => {:multipart => true, :class => 'swf_upload'}) do |form|
   = render form
     
-  
   .submit
     = image_submit_tag 'submit_button.png', :alt => 'Submit'
     = link_to 'cancel', root_path

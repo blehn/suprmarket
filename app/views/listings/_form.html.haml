@@ -1,0 +1,43 @@
+= form.error_messages
+.form_left
+  .text_field
+    = form.label :title, 'Title <span>(limited to 65 characters)'
+    = form.text_field :title, :maxlength => 65
+  .text_area
+    = form.label :description
+    = form.text_area :description
+.form_right
+  .text_field
+    = form.label :price
+    = form.text_field :price, :class => 'price'
+  .select
+    = form.label :category_id
+    = form.select :category_id, @categories.map{|c| [c.title, c.id]}
+  .radio_button
+    %fieldset 
+      %legend Condition
+      = form.radio_button :condition, 'new'
+      = form.label :condition_new, 'New'
+      = form.radio_button :condition, 'used'
+      = form.label :condition_used, 'Used'
+  .text_area
+    = form.label :zip_code
+    = form.text_field :zip_code, :value => current_user.zip_code
+  #shipping.radio_button
+    %fieldset
+      %legend Willing to Ship?
+      = form.radio_button :willing_to_ship, 'no'
+      = form.label :willing_to_ship_no, 'No'
+      = form.radio_button :willing_to_ship, 'yes'
+      = form.label :willing_to_ship_yes, 'Yes'
+      .will_ship
+        = form.label :shipping_cost, t(:how_much)
+        = form.text_field :shipping_cost
+  %label Images
+  .attachment_container
+  #images
+    - form.fields_for(:photos) do |photos_form|
+      .file_field
+        = photos_form.file_field :file
+    
+  %span#spanButtonPlaceholder.attachment_button

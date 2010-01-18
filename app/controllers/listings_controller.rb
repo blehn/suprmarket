@@ -18,6 +18,11 @@ class ListingsController < ApplicationController
     @categories = Category.all(:order => 'title asc')
     5.times { @listing.photos.build }
   end
+  
+  def edit
+    @categories = Category.all(:order => 'title asc')
+    (5 - @listing.photos_count).times { @listing.photos.build }
+  end
 
   def create
     @listing = current_user.listings.new(params[:listing])
@@ -26,6 +31,17 @@ class ListingsController < ApplicationController
       request.xhr? ? render(:json => "{status:'success'}") : redirect_to(@listing)
     else
       flash[:notice] = 'Your listing could not be saved'
+      @categories = Category.all(:order => 'title asc')
+      request.xhr? ? render(:json => "{status:'failure', errors:#{@listing.errors.to_json}}") : render('new')
+    end
+  end
+  
+  def update
+    if @listing.update_attributes(params[:listing])
+      flash[:notice] = 'Your listing has been updated'
+      request.xhr? ? render(:json => "{status:'success'}") : redirect_to(@listing)
+    else
+      flash[:notice] = 'Your listing could not be updates'
       @categories = Category.all(:order => 'title asc')
       request.xhr? ? render(:json => "{status:'failure', errors:#{@listing.errors.to_json}}") : render('new')
     end

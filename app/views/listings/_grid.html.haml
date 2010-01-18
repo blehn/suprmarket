@@ -1,13 +1,14 @@
 .grid
-  - results.each do |result|
-    - result = result.presenter
-    .grid_result
-      .image
-        - if result.photos_count > 0
-          = link_to(image_tag(result.photos.first.file.url(:thumb), :alt => h(result.title)), result)
-        - else
-          = link_to(image_tag('/images/no_photo.png', :alt => 'No Photo'), result)
-        = link_to result.title, result, :class => 'title'
-      .details
-        %span.price= result.price
-        = result.location
+  .results
+    - results.each do |result|
+      - result = result.presenter
+      .grid_result
+        .image
+          - if result.photos_count > 0
+            = link_to(image_tag(result.photos.first.file.url(params[:large] ? :display : :thumb), :alt => h(result.title)), result)
+          - else
+            = link_to(image_tag('/images/no_photo.png', :alt => 'No Photo'), result)
+          = link_to result.title, result, :class => 'title'
+        .details
+          %span.price= result.price
+          = result.location

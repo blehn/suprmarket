@@ -11,7 +11,6 @@ module SearchesHelper
         1.upto([results.total_pages, 12].min) do |i|
           output << link_to(i.to_s, params.merge(:page => i), :class => 'link'+(i == page ? ' active' : ''))
         end
-      elsif page == results.total_pages
       else
         output << link_to('1', params.merge(:page => 1), :class => 'link'+(1 == page ? ' active' : ''))
         output << "<div class='link ellipses'>...</div>"

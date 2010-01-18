@@ -419,13 +419,19 @@ span.user {
   .search_details img {
     vertical-align: bottom; }
 
+#search_filters {
+  background: url('/images/down.png') right center no-repeat;
+  padding-right: 12px; }
+
+#search_filters.up {
+  background: url('/images/up.png') right center no-repeat; }
+
 .search_filters {
   font-size: 11px;
   display: none;
   background-color: #E5F3FC;
   padding: 10px 0;
   border-top: 1px solid #999999;
-  border-bottom: 1px solid #999999;
   float: left;
   width: 100%; }
   .search_filters .other_filters {
@@ -493,7 +499,10 @@ tr td a.photo_link {
 .grid {
   float: left;
   border-top: 1px solid #999;
-  padding: 18px 18px 18px 0; }
+  padding: 18px 0 18px 0;
+  width: 100%; }
+  .grid .results {
+    margin-right: 18px; }
   .grid .grid_result {
     width: 162px;
     float: left;
@@ -540,6 +549,24 @@ tr td a.photo_link {
     padding-top: 1px;
     margin-top: 0;
     color: #333; }
+
+.grid_view_details {
+  color: #333;
+  float: right;
+  margin-right: 20px; }
+  .grid_view_details .image_size {
+    display: inline; }
+  .grid_view_details .sort {
+    margin-left: 30px;
+    display: inline; }
+
+.input_price {
+  border: 1px solid #CCC;
+  padding: 5px;
+  width: 80px; }
+
+.listing_table {
+  border-top: 1px solid #999; }
 
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }

@@ -32,8 +32,9 @@ $(function() {
 		}
 	})
 	
-	$(".tab_header:eq(0)").addClass('active_tab')
+	$(".tab_header:eq(0)").addClass('active_tab');
 	$(".tab:gt(0)").hide();
+	$(".input_price").corner('2px');
 	
 	$(".tab").corner("tr bottom 2px")
 	$(".tab_header").corner("top 2px")
@@ -47,6 +48,7 @@ $(function() {
 	
 	$('#search_filters').click(function() {
 		$('.search_filters').toggle();
+		$(this).toggleClass('up')
 	});
 	
 	$('tr').hover(

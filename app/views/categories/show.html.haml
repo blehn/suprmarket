@@ -1,3 +1,27 @@
-= render :partial => 'listings/results', :locals => {:city => @city, :results => @results, :favorites => @favorites}
+.search_details
+  .search_views
+    = search_view_links
+  #{pluralize(@results.total_entries, 'result')} matching "#{h(params[:q])}" #{link_to 'Filters', '#', :id => 'search_filters'}
+.search_filters
+  - form_tag(search_path, :id => 'search_filter', :method => :get) do
+    - params.select{ |key, value| ['q'].include?(key) }.each do |key, value|
+      %input(type='hidden' name='#{key}' value='#{h(value)}')
+    .other_filters
+      = text_field_tag :min, params[:min], :title => 'min price'
+      = text_field_tag :max, params[:max], :title => 'max price'
+      = check_box_tag :title_only, 1, params[:title_only]
+      Search title only
+      = check_box_tag :include_completed, 1, params[:include_completed]
+      Include Completed
+      = check_box_tag :has_image, 1, params[:has_image]
+      Has Image
+      = check_box_tag :only_new, 1, params[:only_new]
+      Only New
+    #search_radius
+      Search Radius: 
+      = text_field_tag :radius, nil, :id => 'slider_amount', :readonly => 'readonly'
+      #slider
+    = image_submit_tag 'submit_small.png', :alt => 'set', :class => 'image_button'
+= render :partial => (params[:grid_view] ? 'listings/grid' : 'listings/results'), :locals => {:city => @city, :results => @results, :favorites => @favorites}
 - content_for(:footer) do
   = custom_paginate @results
