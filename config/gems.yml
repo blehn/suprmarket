@@ -1,5 +1,7 @@
 --- 
 - :source: http://gemcutter.org
+  :name: clearance
+- :source: http://gemcutter.org
   :name: paperclip
 - :name: presentable
 - :name: geokit
