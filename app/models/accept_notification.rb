@@ -1,2 +1,2 @@
-class AcceptedNotification < Notification
+class AcceptNotification < Notification
 end
