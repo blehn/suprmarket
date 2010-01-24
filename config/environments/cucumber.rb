@@ -21,4 +21,4 @@ config.gem "rspec",       :lib => false,        :version => ">=1.2.6" unless Fil
 config.gem "rspec-rails", :lib => 'spec/rails', :version => ">=1.2.6" unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
 config.gem 'factory_girl', :source => 'http://gemcutter.org'
 
-HOST = "localhost"
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }

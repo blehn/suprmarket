@@ -1,0 +1,2 @@
+class CounterCounterNotification < Notification
+end

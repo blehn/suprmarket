@@ -1,0 +1,88 @@
+= render 'dashboards/navigation'
+
+- if @listings
+  %table.dashboard_table
+    %thead
+      %tr
+        %th Date &bull;
+        %th Item &bull;
+        %th Price &bull;
+        - if @current_filter == 'selling'
+          %th= image_tag('offer_header.png', :alt => 'offers') + ' &bull;'
+          %th= image_tag('question_header.png', :alt => 'questions') + '  &bull;'
+          %th.hidden <span>Edit</span>
+          %th.hidden <span>Delete</span>
+        - elsif @current_filter == 'buying'
+          %th Location
+          %th User Rating
+    - @listings.each do |listing|
+      %tr{:class => listing.sold? ? 'sold' : nil}
+        %td= listing.created_at.to_s(:month_day).upcase
+        %td
+          = link_to listing.title, listing
+          %h4 OFFERS
+          - unless listing.offers.empty?
+            %table.inner
+              - @notifications[listing.id].each do |notification|
+                %tr
+                  %td= notification.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td
+                    = notification_display(notification, 'seller')
+              / - listing.offers.reject{|offer| offer.state == 'counter'}.each do |offer|
+              /                 %tr
+              /                   %td.offer_date= offer.created_at.to_datetime.strftime("%B %d %I:%M%P") + offer.state
+              /                   %td
+              /                     %strong= "#{offer.user.username} #{offer.user.rating}%"
+              /                     (#{offer.user.ratings_count})
+              /                     offered you
+              /                     %span.price= '$'+offer.amount.to_s
+              /                     = link_to 'reply', '#'
+              /                     .reply
+              /                       %ul
+              /                         %li= link_to 'accept', listing_offer_path(listing, offer, :status => 'accepted'), :method => :put
+              /                         %li= link_to 'decline', listing_offer_path(listing, offer, :status => 'declined'), :method => :put
+              /                         %li= link_to 'counter', '#'
+              /                     .counter
+              /                       - form_tag(listing_offer_path(listing, offer, :status => 'countered'), :method => :put) do |form|
+              /                         .text_field
+              /                           = text_field_tag :counter_amount, nil, :class => 'price'
+              /                         .text_area
+              /                           = text_area_tag :counter_message, nil
+              /                         .submit_button
+              /                           = image_submit_tag('save_button.png', :alt => "save")
+                        
+          %h4 QUESTIONS
+          - unless listing.questions.empty?
+            %table.inner
+              - listing.questions.each do |question|
+                - if question.reply              
+                  %tr.answered
+                    %td= question.reply.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td
+                      %div[question.reply]
+                        You replied: #{question.reply.message}
+                %tr{:class => question.reply ? 'answered' : nil}
+                  %td= question.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td
+                    %div[question]
+                      %strong= question.user.username
+                      asked:
+                      = question.message
+                      - unless question.reply
+                        = link_to 'reply', '#'
+                        .reply
+                          - form_for(Reply.new) do |form|
+                            = form.text_area :message
+                            = form.hidden_field :source_type, :value => 'Question'
+                            = form.hidden_field :source_id, :value => question.id
+                            = form.submit 'Save'
+                          
+                
+
+        %td= listing.price
+        %td= image_tag('offer.png', :alt => 'Offers') + listing.offers_count.to_s
+        %td= image_tag('question.png', :alt => 'Questions') + listing.questions_count.to_s
+        %td= link_to 'Edit', edit_listing_path(listing)
+        %td= link_to 'Delete', listing, :method => :delete, :confirm => "Are you sure you want to delete this listing?"
+- content_for(:footer) do
+  = custom_paginate @listings

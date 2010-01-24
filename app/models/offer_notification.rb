@@ -1,0 +1,2 @@
+class OfferNotification < Notification
+end

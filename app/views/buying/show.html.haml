@@ -1,0 +1,60 @@
+= render 'dashboards/navigation'
+
+%table.dashboard_table
+  %thead
+    %tr
+      %th Date &bull;
+      %th Item &bull;
+      %th Price &bull;
+      - if @current_filter == 'selling'
+        %th= image_tag('offer_header.png', :alt => 'offers') + ' &bull;'
+        %th= image_tag('question_header.png', :alt => 'questions') + '  &bull;'
+        %th.hidden <span>Edit</span>
+        %th.hidden <span>Delete</span>
+      - elsif @current_filter == 'buying'
+        %th Location
+        %th User Rating
+  - @listings.each do |listing|
+    %tr{:class => listing.sold? ? 'sold' : nil}
+      %td= listing.created_at.to_s(:month_day).upcase
+      %td
+        = link_to listing.title, listing
+        %h4 OFFERS
+        - unless @notifications[listing.id].empty?
+          %table.inner
+            - (@notifications[listing.id] || {}).sort_by(&:created_at).reverse.each do |notification|
+              %tr
+                %td= notification.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                %td
+                  = notification_display(notification, 'buyer')
+        %h4 QUESTIONS
+        - unless listing.questions.empty?
+          %table.inner
+            - listing.questions.each do |question|
+              - if question.reply              
+                %tr.answered
+                  %td= question.reply.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td
+                    %div[question.reply]
+                      You replied: #{question.reply.message}
+              %tr{:class => question.reply ? 'answered' : nil}
+                %td= question.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                %td
+                  %div[question]
+                    %strong= question.user.username
+                    asked:
+                    = question.message
+                    - unless question.reply
+                      = link_to 'reply', '#'
+                      .reply
+                        - form_for(Reply.new) do |form|
+                          = form.text_area :message
+                          = form.hidden_field :source_type, :value => 'Question'
+                          = form.hidden_field :source_id, :value => question.id
+                          = form.submit 'Save'
+                        
+              
+
+      %td= listing.price
+      %td= image_tag('offer.png', :alt => 'Offers') + listing.offers_count.to_s
+      %td= image_tag('question.png', :alt => 'Questions') + listing.questions_count.to_s

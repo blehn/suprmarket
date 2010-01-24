@@ -8,10 +8,13 @@ class Listing < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
   has_one :city, :foreign_key => :zip_code, :primary_key => :zip_code
-  has_many :accepted_notifications
-  has_many :declined_notifications
+  has_many :accept_notifications
+  has_many :decline_notifications
   has_many :counter_notifications
-  
+  has_many :counter_accept_notifications
+  has_many :counter_decline_notifications
+  has_many :counter_counter_notifications
+  has_many :notifications
   # validations
   validates_presence_of :title, :description, :price, :category, :condition, :zip_code
   

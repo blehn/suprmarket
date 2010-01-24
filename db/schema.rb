@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100116224501) do
+ActiveRecord::Schema.define(:version => 20100124033201) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -60,14 +60,20 @@ ActiveRecord::Schema.define(:version => 20100116224501) do
   add_index "listings", ["user_id"], :name => "index_listings_on_user_id"
 
   create_table "notifications", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "seller_id"
     t.integer  "listing_id"
+    t.integer  "offer_id"
+    t.string   "for"
     t.string   "type"
     t.text     "data"
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "buyer_id"
   end
+
+  add_index "notifications", ["buyer_id"], :name => "index_notifications_on_buyer_id"
+  add_index "notifications", ["seller_id"], :name => "index_notifications_on_seller_id"
 
   create_table "offers", :force => true do |t|
     t.integer  "listing_id"
@@ -145,17 +151,23 @@ ActiveRecord::Schema.define(:version => 20100116224501) do
     t.string   "salt",               :limit => 128
     t.string   "confirmation_token", :limit => 128
     t.string   "remember_token",     :limit => 128
-    t.boolean  "email_confirmed",                   :default => false, :null => false
+    t.boolean  "email_confirmed",                                                  :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
     t.string   "zip_code"
-    t.integer  "listings_count",                    :default => 0
-    t.integer  "buying_count",                      :default => 0
-    t.integer  "feedbacks_count",                   :default => 0
-    t.integer  "ratings_count",                     :default => 0
-    t.integer  "rating",                            :default => 100
-    t.integer  "favorites_count",                   :default => 0
+    t.integer  "listings_count",                                                   :default => 0
+    t.integer  "buying_count",                                                     :default => 0
+    t.integer  "feedbacks_count",                                                  :default => 0
+    t.integer  "ratings_count",                                                    :default => 0
+    t.integer  "rating",                                                           :default => 100
+    t.integer  "favorites_count",                                                  :default => 0
+    t.string   "city"
+    t.string   "state"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.decimal  "lat",                               :precision => 15, :scale => 6
+    t.decimal  "lng",                               :precision => 15, :scale => 6
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

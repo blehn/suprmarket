@@ -1,0 +1,5 @@
+.dashboard_links
+  = link_to t(:selling) + "<span>#{current_user.listings.count}</span>", dashboard_selling_path, {:class => 'tab_heading first_tab_heading' + (current_page?(dashboard_selling_path) ? ' active_tab_heading' : '')}
+  = link_to t(:buying)+ "<span>#{current_user.buying_count}</span>", dashboard_buying_path, {:class => 'tab_heading' + (current_page?(dashboard_buying_path) ? ' active_tab_heading' : '')}
+  = link_to t(:feedback)+ "<span>0</span>", {:filter => 'feedback'}, {:class => 'tab_heading' + (@current_filter == 'feedback' ? ' active_tab_heading' : '')}
+  = link_to t(:preferences), {:filter => 'preferences'}, {:class => 'tab_heading' + (@current_filter == 'preferences' ? ' active_tab_heading' : '')}

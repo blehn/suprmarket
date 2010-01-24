@@ -1,0 +1,2 @@
+- form_tag(listing_offer_path(notification.listing, notification.offer, :status => 'counter_countered'), :method => :put) do |form|
+  = render 'notifications/counter_fields', :form => form
