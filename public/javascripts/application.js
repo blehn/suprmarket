@@ -87,12 +87,12 @@ $(function() {
 			$(this).next('img').remove();
 		} else {
 			$(this).css('background-position', '0px -18px')
-			$(this).after("<img src='"+$(this).attr('rel')+"'  style='position:absolute;top:"+($(this).position().top - 132)+"px;left:"+$(this).position().left+"px;'/>");
+			$(this).after("<img src='"+$(this).attr('rel')+"' class='preview'  style='position:absolute;top:"+($(this).position().top - 119)+"px;left:"+$(this).position().left+"px;'/>");
 		}
 	})
 	
 	$('.grid_result .title').hide();
-	$('.grid_result .title').css('opacity', 0.6);
+	$('.grid_result .title').css('opacity', 1);
 	$('.grid_result .image').hover(
 		function() {
 			$(this).find('.title').show();

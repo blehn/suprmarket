@@ -78,13 +78,13 @@ button {
   padding: 0 10px; }
 
 .btn_sm {
-  height: 26px;
+  height: 24px;
   font-size: 14px;
   padding: 0 8px; }
 
 .post_link {
   background: #2098e5;
-  border: 1px solid #0B54B1;
+  border: 1px solid #000;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
@@ -140,8 +140,12 @@ a {
 
 .header {
   text-align: right;
-  height: 55px;
-  width: 100%; }
+  height: 65px;
+  width: 100%;
+  background-color: #292929;
+  padding: 5px 0 0 0; }
+  .header a {
+    color: #fff; }
   .header .logged_out a {
     height: 25px;
     line-height: 25px;
@@ -149,10 +153,10 @@ a {
     border: 1px solid transparent;
     padding: 5px 8px;
     font-size: 12px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #fff; }
     .header .logged_out a.active {
       background-color: #F4F4F4;
-      border: 1px solid #999999;
       border-bottom: 0;
       color: #ccc; }
   .header #register {
@@ -169,13 +173,13 @@ a {
       right: 0px;
       margin-top: 5px;
       background-color: #F4F4F4;
-      border: 1px solid #999999;
       width: 200px;
       padding: 15px 15px 8px;
       display: none;
       font-size: 11px;
       position: absolute; }
       .header .login .login_form a {
+        color: #2098e5;
         border: none;
         padding: 0;
         margin-left: 20px;
@@ -238,9 +242,18 @@ label {
 #search_small {
   float: left;
   width: 500px;
-  margin: 15px 0px; }
+  margin: 15px 0 0; }
   #search_small input {
     outline: none; }
+  #search_small button {
+    background: url('/images/btn_bg_2.png') 0 0 repeat-x;
+    border: 1px solid #666;
+    color: #000;
+    text-shadow: 0 1px 0 #777; }
+    #search_small button:hover {
+      border-color: #888; }
+    #search_small button:active {
+      background: #444; }
   #search_small #q {
     font-size: 15px;
     margin: 0;
@@ -253,6 +266,13 @@ label {
     width: 58px;
     padding: 3px 5px;
     font-weight: normal; }
+  #search_small #q, #search_small #zip_code {
+    background-color: #333;
+    color: #666;
+    border-color: #000 #444 #444; }
+    #search_small #q:focus, #search_small #zip_code:focus {
+      background-color: #666;
+      color: #fff; }
   #search_small #categories {
     background: #fff;
     display: none;
@@ -321,21 +341,24 @@ label {
 .logo {
   width: 215px;
   height: 42px;
-  text-indent: -10000px;
   overflow: hidden;
-  background: url('/images/logo_home.gif') top left no-repeat;
   float: left;
-  margin-left: 115px; }
+  margin-left: 115px;
+  font-size: 36px;
+  color: #333333;
+  font-weight: bold;
+  letter-spacing: -1px; }
 
+.logo_top h2 {
+  font-size: 26px; }
 .logo_top a {
   display: block;
-  width: 150px;
+  width: auto;
   height: 32px;
-  text-indent: 10000px;
   overflow: hidden;
-  background: url('/images/logo.gif') top left no-repeat;
   float: left;
-  margin: 15px 15px; }
+  margin: 15px 15px;
+  color: #fff; }
 
 .tagline {
   float: left;
@@ -424,14 +447,14 @@ span.button {
 
 div.price, span.price {
   color: #54AE00;
-  font-size: 22px;
-  font-weight: normal; }
+  font-weight: bold; }
 
 div.price {
   width: 300px; }
 
 table span.price {
-  font-size: inherit; }
+  font-size: 15px;
+  font-weight: bold; }
 
 .flag {
   background-image: url('/images/flag.png');
@@ -505,17 +528,17 @@ table {
   clear: both;
   border-spacing: 0; }
   table thead {
-    background-color: #F5F5F5;
+    background-color: #eee;
     color: #ccc;
     text-align: left; }
   table th, table td {
-    padding-left: 20px;
-    vertical-align: top; }
+    padding: 5px;
+    vertical-align: middle; }
   table td {
-    padding: 10px 20px; }
+    padding: 12px 0; }
   table th {
     font-size: 14px;
-    padding: 5px 0 5px 20px; }
+    padding: 5px 0; }
     table th a {
       color: #ccc;
       font-weight: bold; }
@@ -540,7 +563,8 @@ span.user {
   width: auto;
   font-size: 11px;
   margin: 22px 0 0 0;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #444; }
   span.user .details {
     margin: 0 8px 0 0; }
   span.user img {
@@ -550,7 +574,6 @@ span.user {
 .search_details {
   color: #CCCCCC;
   margin-left: 20px;
-  margin-bottom: 5px;
   font-size: 11px; }
   .search_details img {
     vertical-align: bottom; }
@@ -566,7 +589,7 @@ span.user {
   font-size: 11px;
   display: visible;
   background-color: #e1f3fd;
-  padding: 13px 0;
+  padding: 10px 0;
   height: 24px;
   float: left;
   width: 100%;
@@ -578,7 +601,7 @@ span.user {
   .search_filters .search_views {
     position: absolute;
     left: 15px;
-    top: 16px; }
+    top: 12px; }
     .search_filters .search_views a:hover {
       opacity: .7; }
   .search_filters label {
@@ -675,10 +698,12 @@ tr.selected {
   background-color: #F6F6F6; }
 
 td.fixed, th.fixed {
-  width: 60px; }
+  width: 50px;
+  padding-left: 15px; }
 
 td.icon, th.icon {
-  width: 15px !important; }
+  width: 35px;
+  text-align: center; }
 
 tr td a.photo_link {
   display: block;
@@ -686,7 +711,28 @@ tr td a.photo_link {
   height: 18px;
   overflow: hidden;
   text-indent: -10000px;
-  background: url('/images/photo.png'); }
+  background: url('/images/pic.png') 0 0 no-repeat;
+  margin-left: 6px; }
+  tr td a.photo_link:hover {
+    opacity: .7; }
+
+td .preview {
+  border: 1px solid #333;
+  margin-left: 7px; }
+
+td {
+  color: #999;
+  border-bottom: 1px solid #eee;
+  font-size: 12px; }
+  td a {
+    color: #333333; }
+    td a:hover {
+      color: #2098e5; }
+
+td.title {
+  font-size: 15px;
+  font-weight: bold;
+  min-width: 540px; }
 
 .list_view_icon {
   margin-left: -1px; }
@@ -711,12 +757,21 @@ tr td a.photo_link {
     .grid .grid_result .title {
       font-size: 11px;
       position: absolute;
-      bottom: 6px;
+      bottom: 3px;
       left: 1px;
-      width: 156px;
-      padding: 2px;
-      background: #000;
-      color: #FFF; }
+      width: 152px;
+      padding: 2px 4px 6px;
+      background: #333;
+      color: #fff;
+      font-weight: bold;
+      line-height: 1.15; }
+    .grid .grid_result .location {
+      font-size: 11px;
+      float: right;
+      color: #999; }
+    .grid .grid_result .price {
+      font-size: 12px;
+      float: left; }
 
 .pagination {
   margin-top: -1px;

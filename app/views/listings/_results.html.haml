@@ -8,7 +8,7 @@
       %th= sort_link_to(:price, 'Price')
       %th= city ? sort_link_to(:distance, 'Distance') : 'Location'
       %th= sort_link_to(:rating, 'User Rating')
-      %th= image_tag('favorite_header.png', :alt => 'favorite')
+      %th.icon= image_tag('favorite_header.png', :alt => 'favorite')
   %tbody
     - results.each do |listing|
       - listing = listing.presenter
@@ -21,7 +21,7 @@
         %td.icon
           - if listing.photos_count > 0
             = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))
-        %td
+        %td.title
           = link_to listing.title, listing
         %td= listing.price
         %td
@@ -29,7 +29,7 @@
           - if city
             = display_distance(listing.city.distance_from(city))
         %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
-        %td 
+        %td.icon 
           - if @favorites.key?(listing.id)
             = link_to(image_tag('favorite.png', :alt => 'Remove from favorites'), listing_favorite_path(listing, favorites[listing.id]), :method => :delete)
           - else 
