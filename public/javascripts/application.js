@@ -74,6 +74,8 @@ $(function() {
 	$('.tab_heading span').corner("2px")
 	$('#login_link').corner('top 2px')
 	$('div.login_form').corner('tl bl br 2px')
+	$('#search_details').corner('bottom 2px')
+	$('#categories').corner('2px')
 	
 	
 	$('form').submit(function() {

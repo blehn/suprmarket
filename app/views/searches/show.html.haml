@@ -7,6 +7,8 @@
       })
 .search_details
   /= "#{pluralize(@results.total_entries, 'result')} for \"#{h(params[:q])}\""
+  
+.search_filters
   - if params[:grid_view]
     .grid_view_details
       .image_size
@@ -16,7 +18,6 @@
       .sort
         Sort by:
         = link_to 'Date', params.merge(:sort => 'date_desc')
-.search_filters
   .search_views
     = search_view_links
   - form_tag(search_path, :id => 'search_filter', :method => :get) do
