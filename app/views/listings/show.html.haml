@@ -7,9 +7,9 @@
     - @listing.photos.each do |photo|
       %div[photo]= image_tag photo.file(:display)
   .listing_details
-    .date= @listing.date
     %h1.title= @listing.title
     .price= @listing.price
+    .date= @listing.date    
     .location
       = @listing.location
       .distance= @listing.distance_from(current_user) if signed_in?

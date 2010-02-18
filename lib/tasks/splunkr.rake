@@ -3,12 +3,12 @@ namespace :splunkr do
     
     desc 'load cities'
     task :cities => :environment do
-      require 'faster_csv'
+      require 'csv'
       #data = File.read("#{RAILS_ROOT}/tmp/import/ZIP_CODES.txt")
 
       last_lat = 0
       last_lon = 0
-      FasterCSV.foreach("#{RAILS_ROOT}/tmp/import/ZIP_CODES.txt") do |row|
+      CSV.foreach("#{RAILS_ROOT}/tmp/import/ZIP_CODES.txt") do |row|
 
         lat = !row[1].nil? ? row[1].gsub(/\+/,'') : last_lat
         lon = !row[2].nil? ? row[2].gsub(/\+/,'') : last_lon
