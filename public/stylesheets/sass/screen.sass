@@ -1,6 +1,20 @@
+@import reset.sass
+!sans = "Helvetica Neue", Helvetica, Arial, sans-serif
+!serif = Georgia, serif
+!color1 = #333
+!color2 = #2098E5
+!color3 = #E1F3FD
+!color4 = #2D7BB2
+
+=rounded(!radius)
+  -moz-border-radius = !radius
+  -webkit-border-radius = !radius
+  border-radius = !radius
+
 body
   :background-color #EEE
   :font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  :min-width 980px
 body, p, div, h4
   :margin 0
   :padding 0
@@ -8,20 +22,80 @@ h4
   :color #003366
   :font-size 10px
   :font-weight bold
+button
+  :vertical-align middle
+  :font-style normal	
+  font-family = !sans
+  :font-weight bold
+  :border 1px solid #aaa
+  :color #333
+  :text-shadow 0px 1px 0px #fff
+  :background url('/images/btn_bg.png') 0 0 repeat-x
+  &:hover
+    :border 1px solid #777
+    :cursor pointer
+  &:active
+    :background #ddd 
+    :outline none
+.btn_lg
+  :height 36px
+  :font-size 20px
+  :padding 0 12px
+.btn_med
+  :height 30px
+  :font-size 16px
+  :padding 0 10px  
+.btn_sm
+  :height 26px
+  :font-size 14px
+  :padding 0 8px
+.post_link
+  background = !color2
+  :border 1px solid #0B54B1
+  :color #fff
+  :font-size 14px
+  :font-weight bold
+  :padding 5px 11px
+  :text-shadow 0 -1px 0 #093366
+  :float right
+  :margin 15px 15px
+  &:hover
+    :border-color #062054
+    :color #fff
+  &:active
+    :background #1780D1
 .content
   :margin-left 20px
 body.searches .content
   :margin-left 0
-.text_field
+  :min-width 990px
+.text_field, #search, #search_small, .search_filters
   input
-    :border 1px solid #CCC
-    :padding 5px
+    :border-top 1px solid #777
+    :padding 2px 5px 2px
+    font-family = !sans
+    :font-weight bold
+    :height 22px
+    :color #ddd
+    :font-size 13px
+    :vertical-align middle		
+    :border
+      :top 1px solid #999
+      :right 1px solid #ddd
+      :bottom 1px solid #ddd
+      :left 1px solid #ddd
+    :background-color #fff
+    &:focus
+      :background-color #FFD
+      color = !color1
 a
-  :color #2098E5
+  color = !color2
   :text-decoration none
   :outline none
   img
     :border 0
+  &:hover
+    color = !color4
 .container
   :float left
   :width 100%
@@ -29,41 +103,48 @@ a
   :min-height 500px
 .header
   :text-align right
-  :padding 20px 20px
+  :height 55px
+  :width 100%
   .logged_out
     a
       :height 25px
       :line-height 25px
       :overflow hidden
-      :border 1px solid #FFF
-      :padding 5px 25px
+      :border 1px solid transparent
+      :padding 5px 8px
+      :font-size 12px
+      :font-weight bold
       &.active
         :background-color #F4F4F4
         :border 1px solid #999999
         :border-bottom 0
-        :color #000
-  .login
-    :display block
+        :color #ccc
+  #register
     :float right
-    :margin-left 5px
-    :position relative
+    :margin 11px 17px 0 0
+  .login
+    :float right
     :z-index 1
+    :margin 17px 5px
+    :position relative
     .login_form
+      :z-index -1
+      :text-align left
+      :right 0px
+      :margin-top 5px
+      :background-color #F4F4F4
+      :border 1px solid #999999
+      :width 200px
+      :padding 15px 15px 8px
+      :display none
+      :font-size 11px
+      :position absolute
       a
         :border none
         :padding 0
         :margin-left 20px
-      :z-index -1
-      :text-align left
-      :right 0px
-      :margin-top 3px
-      :background-color #F4F4F4
-      :border 1px solid #999999
-      :width 200px
-      :padding 10px
-      :display none
-      :font-size 11px
-      :position absolute
+        :font-size 11px
+        :font-weight normal
       label
         :display inline
         :text-transform lowercase
@@ -73,6 +154,13 @@ a
         input
           :width 180px
           :margin-bottom 10px
+      .remember
+        :float left
+        :width auto
+        :margin 8px 0 0 0
+        input
+          :margin 0
+          :padding 0
 .footer
   :clear both
   :background-color #EEE
@@ -82,10 +170,13 @@ a
   :font-size 12px
   .links
     :clear both
-    :margin-top 25px
+    :margin 25px 0 5px 0
   a
     :margin-right 10px
     :color #AAA
+    :font-weight bold
+    &:hover
+      :color #555
 table
   :width 100%
 label
@@ -94,34 +185,36 @@ label
   :color #003366
   span
     :font-weight normal
+
 .home_content
-  :margin-top 200px
+  :margin 100px auto
+  :width 710px
 .blur
   :color #CCC
-#search_button
-  :vertical-align bottom
 .right_arrow
   :background url('/images/right_arrow.png') right center no-repeat
   :padding-right 10px
 
 #search_small
-  :float left 
+  :float left
+  :width 500px
+  :margin 15px 0px
   input
     :outline none
   #q
-    :font-size 13px
+    :font-size 15px
     :margin 0
-    :padding 4px 10px
-    :border 1px solid #CCC
+    :padding 3px 5px
     :border-right 0
-    :width 320px
+    :width 255px
   #zip_code
-    :font-size 13px
+    :font-size 15px
     :margin-left -5px
-    :width 4.1em
-    :padding 4px 10px
-    :border 1px solid #CCC
+    :width 58px
+    :padding 3px 5px
+    :font-weight normal
   #categories
+    :background #fff
     :display none
     :position absolute
     :left 100%
@@ -140,26 +233,23 @@ label
       li
         :margin 0
         :padding 0
-  
-
 #search
   :clear both
-  :padding-top 40px
+  :padding-top 20px
   input
-    :outline none
+    :outline none 
   #q
-    :font-size 16px
+    :font-size 20px
     :margin 0
-    :padding 5px 10px
-    :border 1px solid #CCC
+    :padding 6px 10px
     :border-right 0
-    :width 320px
+    :width 350px
   #zip_code
-    :font-size 16px
+    :font-size 20px
     :margin-left -5px
-    :width 4.1em
-    :padding 5px 10px
-    :border 1px solid #CCC
+    :width 90px
+    :padding 6px 10px
+    :font-weight normal
   #categories
     :display none
     :position absolute
@@ -183,38 +273,43 @@ label
 #browse
   :font-size 12px
   :margin-left 10px
+  :font-weight bold
 .logo
-  :width 108px
-  :height 28px
+  :width 215px
+  :height 42px
   :text-indent -10000px
   :overflow hidden
-  :background url('/images/logo.png') top left no-repeat
+  :background url('/images/logo_home.gif') top left no-repeat
   :float left
+  :margin-left 115px
 .logo_top
   a
     :display block
-    :width 108px
-    :height 28px
+    :width 150px
+    :height 32px
     :text-indent 10000px
     :overflow hidden
-    :background url('/images/logo_top.png') top left no-repeat
+    :background url('/images/logo.gif') top left no-repeat
     :float left
+    :margin 15px 15px
   
 .tagline
   :float left
-  :color #999999
-  :line-height 32px
-  :margin-left 6px
+  :color #bbb
+  :line-height 60px
+  :margin-left 12px
+  :font-size 12px
+  :letter-spacing 1px
 
 #search_details
   :display none
-  :background-color #E5F3FC
-  :width 319px
-  :padding 5px 10px
-  :border 1px solid #CCC
-  :border-top 0
+  background-color = !color3
+  :width 357px
+  :padding 12px 6px
+  :border 1px solid #ddd
   :font-size 11px
   :position absolute
+  :margin-top -1px
   :float left
   label
     :display inline
@@ -247,7 +342,7 @@ label
     :color #999
 .submit
   :clear both
-  :padding 25px 0
+  :padding 10px 0
 
 #shipping
   :position relative
@@ -343,17 +438,13 @@ table span.price
   :font-size 12px
   :color #999999
   
-.post_link
-  :margin-left 20px
-  img
-    :vertical-align middle
 table
   :clear both
   :border-spacing 0
 
   thead
     :background-color #F5F5F5
-    :color #999999
+    :color #ccc
     :text-align left
   th, td
     :padding-left 20px
@@ -364,10 +455,12 @@ table
     :font-size 14px
     :padding 5px 0 5px 20px
     a
-      :color #999999
+      :color #ccc
       :font-weight bold
       &.active
         :color #333
+      &:hover
+        :color #666
   th.hidden
     span
       :display none
@@ -380,21 +473,22 @@ table
       :height 60px
     .answered, .reply
       :color #999999
-
-    
 span.user
-  :font-size 12px
+  :float right
+  :width auto
+  :font-size 11px
+  :margin 22px 0 0 0
+  :font-weight bold
   .details
-    :margin-right 20px
+    :margin 0 8px 0 0
   img
     :vertical-align middle
+    :margin-left 2px
 .search_details
   :color #CCCCCC
   :margin-left 20px
-  :margin-bottom 10px
-  .search_views
-    :display inline
-    :margin-right 20px
+  :margin-bottom 5px
+  :font-size 11px
   img
     :vertical-align bottom
 #search_filters
@@ -404,48 +498,111 @@ span.user
   :background url('/images/up.png') right center no-repeat
 .search_filters
   :font-size 11px
-  :display none
-  :background-color #E5F3FC
-  :padding 10px 0
-  :border-top 1px solid #999999
+  :display visible
+  background-color = !color3
+  :padding 13px 0
+  :height 24px
   :float left
   :width 100%
+  :position relative
   .other_filters
-    :margin-left 20px
+    :margin-left 80px
     :float left
+    :width 520px
+  .search_views
+    :position absolute
+    :left 15px
+    :top 16px
+    a
+      &:hover
+        :opacity .7
+  label
+    :display block
+    :padding-right 10px
+    :color #2D7BB2
+    :font-size 11px
+    :float left
+    :white-space nowrap
+    :margin-top 1px
+    input
+      :margin 0 2px 0 0
+      :vertical-align middle
+    span
+      :vertical-align middle
+      :font-weight bold
+      :margin-right 4px
+  .input_price
+    :padding 2px 4px 2px 2px
+    :width 45px
+    :font-size 12px 
+    :height 18px
+    :margin-left 6px
+    :text-align right
+    
 .image_button
   :vertical-align middle
   
 #slider
   :font-size 60% 
+  :margin-top -2px
   .ui-slider-range
-    :background #DDD
+    :background #AFD1E5
   .ui-slider-handle
     :background #FFF
-    :border-color #333333
+    :border-color #555
 
 #slider_amount
   :border 0
   :background transparent
-  :color #1F98E5
+  color = !color4
   :display inline
-  :width 70px
-.search_details_left
-  :width 150px
+  :width 57px
+  font-family = !sans
+  :font-size 11px
+  :font-weight bold
+  
+#search_details_left
+  :width 170px
   :float left
-  :border-right 1px solid #CCC
-.search_details_right
-  :margin-left 10px
+  :border-right 1px solid #CAE7FC
+  label
+    :display block
+    :color #2D7BB2
+    :font-size 11px
+    :float left
+    :white-space nowrap
+    :margin-left 5px
+    :height 20px
+    input
+      :margin 0 2px 0 0
+      :vertical-align middle
+    span
+      :vertical-align middle
+      :font-weight bold
+      :margin-right 4px
+#search_details_right
+  :margin-left 30px
   :float left
   :width 150px
-.search_price
-  :width 50px
-  :margin-bottom 10px
-  :border 1px solid #BBBBBB
+  .search_price
+    :padding 2px 4px 2px 2px
+    :width 45px
+    :font-size 12px 
+    :height 18px
+    :margin-left 6px
+    :text-align right
+    :width 50px
+    :margin-bottom 10px  
 #search_radius
   :float left
   :margin-left 20px
   :margin-right 20px
+  :margin-top -3px
+  :font-weight bold
+  :color #AFD1E5
+  input
+    :padding 0
+    :margin -1px 0 2px 0
 tr.selected
   :background-color #F6F6F6
 td.fixed, th.fixed
@@ -505,6 +662,8 @@ tr td a.photo_link
     :text-align center
     :border-bottom 1px solid #CCC
     :margin-right 0
+    &:hover 
+      :background-color #fff  
   .ellipses
     :background transparent
     :border-bottom 0
@@ -522,10 +681,6 @@ tr td a.photo_link
   .sort
     :margin-left 30px
     :display inline
-.input_price
-  :border 1px solid #CCC
-  :padding 5px
-  :width 80px
 .listing_table
   :border-top 1px solid #999
 @import dashboard.sass

@@ -1,8 +1,8 @@
 - form_tag((@category ? @category : search_path), :id => 'search_small', :method => :get) do
   .form
     = text_field_tag :q, h(params[:q]), :title => t(:example_search)
-    = text_field_tag :zip_code, (params[:zip_code] || (signed_in? ? current_user.zip_code : nil)), :title => 'zip code'
-    = image_submit_tag 'search_small.png', :alt => t(:search), :id => 'search_button'
+    = text_field_tag :zip_code, (params[:zip_code] || (signed_in? ? current_user.zip_code : nil)), :title => 'ZIP'
+    %button.btn_med Search
     #browse_categories
       = link_to((@category ? @category.title : t(:browse)).capitalize, '#', :class => 'right_arrow', :id => 'browse')
       #categories
