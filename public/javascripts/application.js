@@ -76,6 +76,7 @@ $(function() {
 	$('div.login_form').corner('tl bl br 2px')
 	$('#search_details').corner('bottom 2px')
 	$('#categories').corner('2px')
+	$('.messages').corner('top 2px')
 	
 	
 	$('form').submit(function() {
@@ -89,7 +90,7 @@ $(function() {
 			$(this).next('img').remove();
 		} else {
 			$(this).css('background-position', '0px -18px')
-			$(this).after("<img src='"+$(this).attr('rel')+"' class='preview'  style='position:absolute;top:"+($(this).position().top - 119)+"px;left:"+$(this).position().left+"px;'/>");
+			$(this).after("<img src='"+$(this).attr('rel')+"' class='preview'  style='position:absolute;top:"+($(this).position().top - 99)+"px;left:"+$(this).position().left+"px;'/>");
 		}
 	})
 	

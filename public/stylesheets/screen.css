@@ -51,6 +51,17 @@ h4 {
   font-size: 10px;
   font-weight: bold; }
 
+h1 {
+  color: #2d7bb2;
+  background: #e1f3fd;
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 22px;
+  font-weight: normal;
+  padding: 13px 0 13px 15px;
+  margin: 0 0 0 -15px; }
+
 button {
   vertical-align: middle;
   font-style: normal;
@@ -82,30 +93,14 @@ button {
   font-size: 14px;
   padding: 0 8px; }
 
-.post_link {
-  background: #2098e5;
-  border: 1px solid #000;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px 11px;
-  text-shadow: 0 -1px 0 #093366;
-  float: right;
-  margin: 15px 15px; }
-  .post_link:hover {
-    border-color: #062054;
-    color: #fff; }
-  .post_link:active {
-    background: #1780D1; }
-
 .content {
-  margin-left: 20px; }
+  margin-left: 15px; }
 
 body.searches .content {
   margin-left: 0;
   min-width: 990px; }
 
-.text_field input, #search input, #search_small input, .search_filters input {
+.text_field input, #search input, #search_small input, .search_filters input, .password_field input {
   border-top: 1px solid #777;
   padding: 2px 5px 2px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -119,18 +114,18 @@ body.searches .content {
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
   background-color: #fff; }
-  .text_field input:focus, #search input:focus, #search_small input:focus, .search_filters input:focus {
+  .text_field input:focus, #search input:focus, #search_small input:focus, .search_filters input:focus, .password_field input:focus {
     background-color: #FFD;
     color: #333333; }
 
 a {
-  color: #2098e5;
+  color: #2d7bb2;
   text-decoration: none;
   outline: none; }
   a img {
     border: 0; }
   a:hover {
-    color: #2d7bb2; }
+    color: #333333; }
 
 .container {
   float: left;
@@ -146,6 +141,8 @@ a {
   padding: 5px 0 0 0; }
   .header a {
     color: #fff; }
+    .header a:hover {
+      color: #ccc; }
   .header .logged_out a {
     height: 25px;
     line-height: 25px;
@@ -159,6 +156,23 @@ a {
       background-color: #F4F4F4;
       border-bottom: 0;
       color: #ccc; }
+    .header .logged_out a:hover {
+      color: #ccc; }
+  .header .post_link {
+    background: #2d7bb2;
+    border: 1px solid #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 11px;
+    text-shadow: 0 -1px 0 #093366;
+    float: right;
+    margin: 15px 15px; }
+    .header .post_link:hover {
+      background-color: #2098e5;
+      color: #fff; }
+    .header .post_link:active {
+      background: #1780D1; }
   .header #register {
     float: right;
     margin: 11px 17px 0 0; }
@@ -167,10 +181,12 @@ a {
     z-index: 1000;
     margin: 17px 5px;
     position: relative; }
+    .header .login #login_link {
+      margin-right: 10px; }
     .header .login .login_form {
       z-index: -1;
       text-align: left;
-      right: 0px;
+      right: 10px;
       margin-top: 5px;
       background-color: #F4F4F4;
       width: 200px;
@@ -179,7 +195,7 @@ a {
       font-size: 11px;
       position: absolute; }
       .header .login .login_form a {
-        color: #2098e5;
+        color: #2d7bb2;
         border: none;
         padding: 0;
         margin-left: 20px;
@@ -189,7 +205,10 @@ a {
         display: inline;
         text-transform: lowercase;
         font-weight: normal;
-        color: #333; }
+        color: #333;
+        font-size: 11px;
+        padding: 0;
+        margin: 0; }
       .header .login .login_form .text_field input {
         width: 180px;
         margin-bottom: 10px; }
@@ -198,22 +217,21 @@ a {
         width: auto;
         margin: 8px 0 0 0; }
         .header .login .login_form .remember input {
-          margin: 0;
-          padding: 0; }
+          margin-left: 0; }
 
 .footer {
   clear: both;
   background-color: #EEE;
   border-top: 1px solid #CCC;
   padding: 0 20px 25px 20px;
-  color: #BBB;
-  font-size: 12px; }
+  color: #ccc;
+  font-size: 11px; }
   .footer .links {
     clear: both;
     margin: 25px 0 5px 0; }
   .footer a {
     margin-right: 10px;
-    color: #AAA;
+    color: #ccc;
     font-weight: bold; }
     .footer a:hover {
       color: #555; }
@@ -222,9 +240,10 @@ table {
   width: 100%; }
 
 label {
+  font-size: 12px;
   display: block;
   font-weight: bold;
-  color: #003366; }
+  color: #2d7bb2; }
   label span {
     font-weight: normal; }
 
@@ -294,10 +313,12 @@ label {
       #search_small #categories ul li {
         margin: 0;
         padding: 0; }
+        #search_small #categories ul li a {
+          color: #2d7bb2; }
 
 #search {
   clear: both;
-  padding-top: 20px; }
+  padding-top: 5px; }
   #search input {
     outline: none; }
   #search #q {
@@ -320,7 +341,7 @@ label {
     left: 100%;
     font-size: 11px;
     margin-left: 5px;
-    top: -180px;
+    top: -190px;
     height: 485px;
     padding: 10px 20px 10px 10px; }
     #search #categories ul {
@@ -329,8 +350,7 @@ label {
       padding: 0; }
       #search #categories ul li {
         margin: 0;
-        padding: 0;
-        font-weight: bold; }
+        padding: 0; }
 
 #browse_categories {
   display: inline;
@@ -366,8 +386,7 @@ label {
 .tagline {
   float: left;
   color: #bbb;
-  line-height: 60px;
-  margin-left: 12px;
+  line-height: 56px;
   font-size: 12px;
   letter-spacing: 1px; }
 
@@ -453,9 +472,11 @@ div.price, span.price {
 div.price {
   width: 300px; }
 
-table span.price {
+td.price {
   font-size: 15px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: right;
+  padding-right: 15px; }
 
 .flag {
   background-image: url('/images/flag.png');
@@ -517,9 +538,12 @@ table span.price {
     font-size: 12px;
     color: #ccc; }
   .listing_details h1 {
+    padding: 0;
+    background-color: #fff;
     font-size: 20px;
     color: #333333;
-    margin: 0 0 3px 0; }
+    margin: 0 0 5px 0;
+    font-weight: bold; }
 
 .date {
   font-size: 12px;
@@ -610,7 +634,7 @@ span.user {
   .search_filters label {
     display: block;
     padding-right: 10px;
-    color: #2D7BB2;
+    color: #2d7bb2;
     font-size: 11px;
     float: left;
     white-space: nowrap;
@@ -658,7 +682,7 @@ span.user {
   border-right: 1px solid #CAE7FC; }
   #search_details_left label {
     display: block;
-    color: #2D7BB2;
+    color: #2d7bb2;
     font-size: 11px;
     float: left;
     white-space: nowrap;
@@ -730,7 +754,7 @@ td {
   td a {
     color: #333333; }
     td a:hover {
-      color: #2098e5; }
+      color: #aaa; }
 
 td.title {
   font-size: 15px;
@@ -742,27 +766,27 @@ td.title {
 
 .grid {
   float: left;
-  padding: 18px 0 18px 0;
+  padding: 15px 0 15px 0;
   width: 100%; }
   .grid .results {
     margin-right: 18px; }
   .grid .grid_result {
-    width: 162px;
+    width: auto;
     float: left;
-    margin-left: 20px;
-    margin-bottom: 20px; }
+    margin-left: 15px;
+    margin-bottom: 15px; }
     .grid .grid_result img {
       border: 1px solid #333; }
     .grid .grid_result .image {
       position: relative;
-      width: 162px; }
+      float: left; }
     .grid .grid_result .title {
       font-size: 11px;
       position: absolute;
       bottom: 3px;
       left: 1px;
-      width: 152px;
-      padding: 2px 4px 6px;
+      width: 99%;
+      padding: 2px 0 6px;
       background: #333;
       color: #fff;
       font-weight: bold;
@@ -818,6 +842,50 @@ td.title {
   .grid_view_details .sort {
     margin-left: 30px;
     display: inline; }
+
+#register_intro {
+  float: left;
+  width: 340px;
+  margin: 45px 40px 0 0; }
+  #register_intro h2 {
+    margin: 0 0 15px 0;
+    color: #ff3300;
+    font-size: 18px; }
+  #register_intro p {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #666; }
+  #register_intro li {
+    list-style: disc outside;
+    color: #666;
+    line-height: 1.3;
+    margin: 4px 0 0 15px;
+    font-size: 14px; }
+
+#register_form {
+  float: left;
+  margin: 20px 40px 40px 40px;
+  height: auto; }
+  #register_form input[type="text"], #register_form input[type="password"] {
+    margin: 0;
+    width: 250px;
+    height: 24px;
+    font-size: 14px; }
+  #register_form label {
+    margin: 12px 0 4px 0; }
+  #register_form .btn_lg {
+    margin: 15px 10px 0 0; }
+
+.messages {
+  background-color: #FFF296;
+  font-size: 12px;
+  font-weight: bold;
+  width: auto;
+  position: fixed;
+  padding: 5px 12px;
+  bottom: 0;
+  right: 15px; }
 
 .dashboard_table {
   border-top: 10px solid #E5F3FC; }

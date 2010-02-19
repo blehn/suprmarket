@@ -20,10 +20,10 @@
             = image_tag('new.png', :alt => 'new')
         %td.icon
           - if listing.photos_count > 0
-            = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))
+            = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))    
         %td.title
           = link_to listing.title, listing
-        %td= listing.price
+        %td.price= listing.price                  
         %td
           = listing.location
           - if city
