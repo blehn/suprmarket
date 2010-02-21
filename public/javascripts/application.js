@@ -33,7 +33,7 @@ $(function() {
 	})
 	
 	//$(".tab_header:eq(0)").addClass('active_tab');
-	$(".tab").hide();
+	//$(".tab:gt(0)").hide();
 	
 	$(".tab").corner("tr bottom 2px")
 	$(".tab_header").corner("top 2px")
@@ -94,6 +94,13 @@ $(function() {
 		}
 	})
 	
+	
+	//Toggle favorite icon
+	$('.fav').click(function(){
+    $(this).toggleClass("on");
+  });
+  
+
 	$('.grid_result .title').hide();
 	$('.grid_result .title').css('opacity', 1);
 	$('.grid_result .image').hover(
