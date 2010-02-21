@@ -32,8 +32,8 @@ $(function() {
 		}
 	})
 	
-	$(".tab_header:eq(0)").addClass('active_tab');
-	$(".tab:gt(0)").hide();
+	//$(".tab_header:eq(0)").addClass('active_tab');
+	$(".tab").hide();
 	
 	$(".tab").corner("tr bottom 2px")
 	$(".tab_header").corner("top 2px")

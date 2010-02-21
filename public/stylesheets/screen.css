@@ -100,12 +100,11 @@ body.searches .content {
   margin-left: 0;
   min-width: 990px; }
 
-.text_field input, #search input, #search_small input, .search_filters input, .password_field input {
+.text_field input, .text_field textarea, #search input, #search textarea, #search_small input, #search_small textarea, .search_filters input, .search_filters textarea, .password_field input, .password_field textarea, .text_area input, .text_area textarea {
   border-top: 1px solid #777;
   padding: 2px 5px 2px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  height: 22px;
   color: #ddd;
   font-size: 13px;
   vertical-align: middle;
@@ -114,9 +113,11 @@ body.searches .content {
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
   background-color: #fff; }
-  .text_field input:focus, #search input:focus, #search_small input:focus, .search_filters input:focus, .password_field input:focus {
+  .text_field input:focus, .text_field textarea:focus, #search input:focus, #search textarea:focus, #search_small input:focus, #search_small textarea:focus, .search_filters input:focus, .search_filters textarea:focus, .password_field input:focus, .password_field textarea:focus, .text_area input:focus, .text_area textarea:focus {
     background-color: #FFD;
     color: #333333; }
+.text_field input, #search input, #search_small input, .search_filters input, .password_field input, .text_area input {
+  height: 22px; }
 
 a {
   color: #2d7bb2;
@@ -217,7 +218,8 @@ a {
         width: auto;
         margin: 8px 0 0 0; }
         .header .login .login_form .remember input {
-          margin-left: 0; }
+          margin: 0 2px 0 0;
+          vertical-align: middle; }
 
 .footer {
   clear: both;
@@ -443,23 +445,22 @@ span.button {
 
 .tabs {
   position: relative;
-  height: 32px; }
+  height: 32px;
+  margin-top: 20px; }
 
 .tab_header {
   position: relative;
   display: block;
-  border: 1px solid #CCC;
-  margin-top: 1px;
-  background-color: #F6F6F6;
-  border-bottom: 0;
-  color: #999;
-  padding: 8px 10px;
-  margin-right: 8px;
+  background-color: #fff;
+  color: #2d7bb2;
+  margin: 8px 20px 00 0;
+  padding-bottom: 10px;
   float: left;
-  font-size: 12px; }
+  font-size: 12px;
+  font-weight: bold; }
 
 .description {
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 14px;
   color: #333333;
   clear: both;
@@ -470,7 +471,7 @@ div.price, span.price {
   font-weight: bold; }
 
 div.price {
-  width: 300px; }
+  font-size: 20px; }
 
 td.price {
   font-size: 15px;
@@ -480,35 +481,38 @@ td.price {
 
 .flag {
   background-image: url('/images/flag.png');
-  background-position: 10px center;
+  background-position: 0px 1px;
   background-repeat: no-repeat;
-  padding-left: 25px; }
+  padding-left: 15px; }
 
 .active_tab {
-  top: 1px;
-  background-color: #E5F3FC;
-  border: 1px solid #9A9A9A;
-  border-bottom: 0;
-  margin-top: 0;
-  padding-bottom: 9px;
+  background-color: #fff;
   color: #333333;
   z-index: 2; }
 
 .tab {
   z-index: 1;
   position: relative;
-  background-color: #E5F3FC;
-  border: 1px solid #9A9A9A;
-  padding: 12px;
-  width: 355px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  width: 315px;
   clear: both;
-  float: left; }
+  float: left;
+  height: auto;
+  border-top: 1px solid #eee; }
+  .tab input[type="text"] {
+    width: 130px;
+    margin: 0 0 10px; }
   .tab textarea {
-    width: 353px;
-    height: 120px; }
-  .tab .submit {
-    text-align: right;
-    padding: 20px 0 0 0; }
+    width: 305px;
+    height: 80px;
+    margin: 0; }
+  .tab input[type="radio"] {
+    margin: 2px 0;
+    padding: 0;
+    vertical-align: middle; }
+  .tab button {
+    margin-top: 10px; }
   .tab label, .tab legend {
     font-size: 11px;
     color: #333333; }
@@ -544,6 +548,12 @@ td.price {
     color: #333333;
     margin: 0 0 5px 0;
     font-weight: bold; }
+  .listing_details h3 {
+    margin: 0;
+    padding: 20px 0 0;
+    border-top: 1px solid #eee;
+    float: left;
+    width: 100%; }
 
 .date {
   font-size: 12px;
@@ -955,8 +965,8 @@ tr.sold a, tr.sold span.price {
     float: left; }
 
 .listing_back {
-  border-bottom: 1px solid #999999;
-  margin-left: -20px;
-  padding-left: 20px;
-  padding-bottom: 5px;
-  margin-bottom: 25px; }
+  background-color: #e1f3fd;
+  color: #2d7bb2;
+  font-size: 12px;
+  padding: 6px 0 8px 20px;
+  margin: 0 0 25px -20px; }
