@@ -1,53 +1,84 @@
-.dashboard_table {
-  border-top: 10px solid #E5F3FC; }
+/*
+Sass::SyntaxError: Undefined variable: "!color3".
+on line 13 of /Users/ben/projects/market/public/stylesheets/sass/dashboard.sass
 
-body.dashboards .content, body.buying .content, body.selling .content {
-  margin: 0; }
+9: .dashboard_links
+10:   :position relative
+11:   :float left
+12:   :width 100%
+13:   background = !color3
+14:   :padding 10px 0
+15:   a
+16:     :padding 4px 15px
+17:     :margin 0 4px 0 0
+18:     :display block
+19:     color = !color5
 
-.dashboard_top {
-  border-top: 10px solid #E5F3FC;
-  clear: both;
-  padding: 25px 25px 18px 25px; }
 
-.dashboard_links {
-  position: relative;
-  float: left;
-  width: 100%;
-  border-bottom: 1px solid #999999; }
-  .dashboard_links a {
-    padding: 4px 0;
-    margin-top: 1px;
-    border: 1px solid #CCCCCC;
-    border-bottom: 0;
-    display: block;
-    color: #999999;
-    float: left;
-    background-color: #F6F6F6;
-    width: 110px;
-    margin-right: 10px;
-    text-align: center; }
-    .dashboard_links a span {
-      font-size: 11px;
-      padding: 0 4px;
-      margin-left: 4px;
-      color: #018AE1;
-      background: #FFFFFF;
-      border: 1px solid #CCCCCC; }
-
-a.first_tab_heading {
-  margin-left: 20px; }
-
-a.active_tab_heading {
-  position: relative;
-  margin-top: 0;
-  padding-bottom: 5px;
-  top: 1px;
-  background-color: #E5F3FC;
-  color: #333333;
-  border-color: #999999; }
-
-.offer_date {
-  width: 130px; }
-
-tr.sold a, tr.sold span.price {
-  color: #999; }
+Backtrace:
+/Users/ben/projects/market/public/stylesheets/sass/dashboard.sass:13
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/script/variable.rb:27:in `perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/prop_node.rb:87:in `perform!'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:179:in `_perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:156:in `perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `block in perform_children'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `map'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:191:in `perform!'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/rule_node.rb:156:in `perform!'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:179:in `_perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:156:in `perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `block in perform_children'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `map'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:191:in `perform!'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:179:in `_perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:156:in `perform'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/tree/node.rb:103:in `render'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:83:in `update_stylesheet'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:69:in `block (2 levels) in update_stylesheets'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:64:in `each'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:64:in `block in update_stylesheets'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:62:in `each'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin.rb:62:in `update_stylesheets'
+/Users/ben/projects/market/vendor/gems/haml-2.2.2/lib/sass/plugin/rails.rb:16:in `process'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/base.rb:391:in `process'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/base.rb:386:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:437:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `block in call'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/query_cache.rb:9:in `cache'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/query_cache.rb:28:in `call'
+/Users/ben/projects/market/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/params_parser.rb:15:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/ben/projects/market/app/middleware/flash_session_cookie_middleware.rb:14:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/failsafe.rb:26:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:114:in `block in call'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/reloader.rb:34:in `run'
+/Users/ben/projects/market/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/ben/projects/market/vendor/rails/railties/lib/rails/rack/static.rb:31:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Users/ben/projects/market/vendor/rails/railties/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/Cellar/ruby/1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: Undefined variable: \"!color3\".\A on line 13 of /Users/ben/projects/market/public/stylesheets/sass/dashboard.sass\A \A 9: .dashboard_links\A 10:   :position relative\A 11:   :float left\A 12:   :width 100%\A 13:   background = !color3\A 14:   :padding 10px 0\A 15:   a\A 16:     :padding 4px 15px\A 17:     :margin 0 4px 0 0\A 18:     :display block\A 19:     color = !color5\A "; }
