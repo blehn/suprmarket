@@ -44,7 +44,9 @@
     = render 'searches/bar'
   = link_to 'Post', new_listing_path, :class => 'post_link'    
   %span.user
-    %span.details= "#{link_to(current_user.username, dashboard_path)}#{link_to('('+t(:sign_out)+')', sign_out_path)}"
+    = link_to current_user.username, dashboard_path
+    %span.details
+      = link_to t(:sign_out), sign_out_path
     = image_tag('message.png')
     0
     = image_tag('favorite.png')

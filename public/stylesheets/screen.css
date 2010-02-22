@@ -603,8 +603,12 @@ span.user {
   margin: 22px 0 0 0;
   font-weight: bold;
   color: #444; }
-  span.user .details {
-    margin: 0 8px 0 0; }
+  span.user .details a {
+    margin: 0 8px 0 5px;
+    font-weight: normal;
+    color: #666; }
+    span.user .details a:hover {
+      color: #aaa; }
   span.user img {
     vertical-align: middle;
     margin-left: 2px; }
