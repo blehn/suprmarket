@@ -1,12 +1,17 @@
-%p Splunkr is currently a private marketplace.
-%p 
-  To create a new account, you must:
-  %ol
-    %li have a valid invitation code, or
-    %li receive an invitation from an existing user (via email)
+%h1 Register
 
-- form_for @user do |form|
-  = form.error_messages
-  = render :partial => '/users/form', :locals => {:form => form}
-  = image_submit_tag 'submit_button.png', :alt => t(:submit).capitalize
-  = link_to 'Cancel', root_path
+#register_form
+  - form_for @user do |form|
+    = form.error_messages
+    = render :partial => '/users/form', :locals => {:form => form}
+    %button.btn_lg Submit
+    /= link_to 'Cancel', root_path
+
+#register_intro
+  %h2 Important
+  %p 
+    Suprmarket is a private marketplace. You must have an account to post listings and communicate with sellers. We are currently accepting new users who meet one of the following criteria:
+    %ol
+      %li You are a registered reddit.com user as of March 1, 2010
+      %li You have a valid invitation code
+      %li You have received an invitation from an existing user (via email)

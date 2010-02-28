@@ -25,10 +25,11 @@
       = link_to t(:report_abuse), '#', :class => 'tab_header flag'
       .tab
         - form_for([@listing, @offer]) do |form|
-          .tab_left
-            .text_field
-              = form.label :amount, t(:offer_amount)
-              = form.text_field :amount
+          .text_field
+            /= form.label :amount, t(:offer_amount)
+            /= form.text_field :amount
+            = text_field_tag :amount, nil, :title => '$ offer amount'
+          /  
             .radio_button
               %fieldset
                 %legend= t(:pickup_availability)
@@ -44,19 +45,17 @@
                 .button
                   = form.radio_button :pickup_availability, 'weekend pm'
                   = form.label :pickup_availability_weekend_pm, t(:weekend).capitalize + ' ' + t(:pm)
-          .tab_right
-            .text_area
-              = form.label :message, t(:message)
-              = form.text_area :message
-          .submit
-            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+          .text_area
+            /= form.label :message, t(:message)
+            /= form.text_area :message
+            = text_area_tag :message, "message goes here", :title => 'message'
+        %button.btn_med Send
       .tab
         - form_for([@listing, @question]) do |form|
           .text_field
-            = form.label :message, t(:message)
-            = form.text_area :message
-          .submit
-            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+            /= form.label :message, t(:message)
+            = text_area_tag :message, "Ask the seller a question", :title => 'message'
+          %button.btn_med Send
       .tab
         - form_for([@listing, @report]) do |form|
           .radio_button
@@ -77,7 +76,7 @@
               .button
                 = form.radio_button :reason, 'offensive'
                 = form.label :reason_offensive, 'Inappropriate or offensive content'
-          .submit
-            = image_submit_tag 'submit_small.png', :alt => t(:submit)
+          %button.btn_med Send
+    %h3 Item Details      
     .description= @listing.description
 

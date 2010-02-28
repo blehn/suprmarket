@@ -1,9 +1,9 @@
 - if current_page?(sign_up_path)
   .logo_top
-    = link_to 'Splunkr.', root_path
+    %h2
+      = link_to 'Suprmarket', root_path
   = render 'searches/bar'
   .logged_out
-    Already a member? 
     .login
       = link_to t(:login).capitalize, sign_in_path, :id => 'login_link'
       .login_form
@@ -11,16 +11,19 @@
           .form
             .text_field= form.text_field :email, :title => 'email address'
             .text_field= form.password_field :password, :title => 'password'
-            .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
-            = form.check_box :remember_me
-            = form.label :remember_me
-            = link_to 'forgot password', new_password_path
+            %button.btn_sm Log In
+            .remember
+              = form.check_box :remember_me
+              = form.label :remember_me
+              = link_to 'forgot password', new_password_path
 - elsif signed_out? 
   - unless current_page?(root_path)
     .logo_top
-      = link_to 'Splunkr.', root_path
+      %h2
+        = link_to 'Suprmarket', root_path
     = render 'searches/bar'
   .logged_out
+    = link_to t(:register).capitalize, sign_up_path, :id => 'register'  
     .login
       = link_to t(:login).capitalize, sign_in_path, :id => 'login_link'
       .login_form
@@ -28,20 +31,24 @@
           .form
             .text_field= form.text_field :email, :title => 'email address'
             .text_field= form.password_field :password, :title => 'password'
-            .submit= image_submit_tag 'login_button.png', :alt => 'Log In'
-            = form.check_box :remember_me
-            = form.label :remember_me
-            = link_to 'forgot password', new_password_path
-    = link_to t(:register).capitalize, sign_up_path
+            %button.btn_sm Log In
+            .remember
+              = form.check_box :remember_me
+              = form.label :remember_me
+              = link_to 'forgot password', new_password_path
 - else
   .logo_top
-    = link_to 'Splunkr.', dashboard_path
+    %h2
+      = link_to 'Suprmarket', dashboard_path
   - unless current_page?(new_listing_path)
     = render 'searches/bar'
+  = link_to 'Post', new_listing_path, :class => 'post_link'    
   %span.user
-    %span.details= "#{link_to(current_user.username, dashboard_path)}#{link_to('('+t(:sign_out)+')', sign_out_path)}"
+    = link_to current_user.username, dashboard_path
+    %span.details
+      = link_to t(:sign_out), sign_out_path
     = image_tag('message.png')
     0
     = image_tag('favorite.png')
     = current_user.favorites_count
-  = link_to image_tag('post.png', :alt => t(:new_listing)), new_listing_path, :class => 'post_link'
+
