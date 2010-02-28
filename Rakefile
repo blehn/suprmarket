@@ -9,4 +9,8 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
-require 'thinking_sphinx/tasks'
+begin
+  require 'thinking_sphinx/tasks'
+rescue LoadError
+  puts "Could not load thinking sphinx tasks"
+end
