@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
   config.gem 'geokit'
   config.gem 'fastercsv', :lib => false
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
+  config.gem 'stringex'
   config.time_zone = 'UTC'
 end
 
