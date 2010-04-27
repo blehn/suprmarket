@@ -1,0 +1,14 @@
+= render 'dashboards/navigation'
+
+.dashboard_top
+  = link_to 'Feedback Left', :filter => 'left'
+  = link_to 'Feedback Received', :filter => 'received'
+  = image_tag('rating.png', :alt => 'Rating')
+  = "#{current_user.rating}% (#{current_user.ratings_count})"
+%table
+  %thead
+    %tr
+      %th Date &bull;
+      %th Item &bull;
+      %th User &bull;
+      %th Rating &bull

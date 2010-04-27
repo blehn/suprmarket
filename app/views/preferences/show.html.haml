@@ -1,0 +1,62 @@
+= render 'dashboards/navigation'
+
+.dashboard_top
+  .left
+    Account Info
+    Location
+    Settings
+    Invites
+  .right
+    #account_info
+      - form_for(current_user) do |form|
+        .text_field
+          = form.label :username
+          = form.text_field :username
+        .password_field
+          = form.label :password
+          = form.password_field :password
+        .text_field
+          = form.label :email, 'Email Address'
+          = form.text_field :email
+        .submit_button
+          = image_submit_tag('save_button.png', :alt => "Save")
+          = link_to 'Cancel', '#'
+    #location 
+      - form_for(current_user) do |form|
+        .text_field
+          = form.label :address_1
+          = form.text_field :address_1
+          = form.text_field :address_2
+        .text_field
+          = form.label :city
+          = form.text_field :city
+        .text_field
+          = form.label :state
+          = form.text_field :state
+        .text_field
+          = form.label :zip_cde
+          = form.text_field :zip_code
+        .submit_button
+          = image_submit_tag('save_button.png', :alt => "Save")
+    #settings
+      - form_for(current_user) do |form|
+        %fieldset
+          %label Default results view
+        %fieldset
+          %label Default sort order
+        %fieldset
+          %label Default thumbnail size
+        %fieldset
+          %label Listings per page (list view)
+        %fieldset
+          %label Listings per page (image view)
+        .submit_button
+          = image_submit_tag('save_button.png', :alt => "Save")
+    #invite
+      %p Enter a friend's email address to invite them to Suprmarket. Remember, you will be held accountable if they abuse the marketplace.
+      - form_tag(invites_path) do
+        .text_field
+          %input(type='text' name='email')
+        .submit_button
+          = image_submit_tag('send_button.png', :alt => "Send")
+        

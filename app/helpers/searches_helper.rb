@@ -22,8 +22,8 @@ module SearchesHelper
         output << "<div class='link ellipses'>...</div>"
         output << link_to(results.total_pages, params.merge(:page => results.total_pages), :class => 'link'+(results.total_pages == page ? ' active' : ''))
       end
-      output << link_to(image_tag('left.png'), params.merge(:page => [1, page - 1].max), :class => 'link')
-      output << link_to(image_tag('right.png'), params.merge(:page => [results.total_pages, page + 1].min), :class => 'link')
+      output << link_to(image_tag('left.png'), params.merge(:page => [1, page - 1].max), :class => 'link') if results.total_pages > 1
+      output << link_to(image_tag('right.png'), params.merge(:page => [results.total_pages, page + 1].min), :class => 'link')  if results.total_pages > 1
       output << '</div>'
     end
   end
