@@ -5,11 +5,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :dashboard, :only => [:show] do |dashboard|
     dashboard.resource :buying, :only => [:show], :as => 'buying', :controller => 'buying'
     dashboard.resource :selling, :only => [:show], :as => 'selling', :controller => 'selling'
+    dashboard.resource :feedback, :only => [:show], :as => 'feedback', :controller => 'feedback'
+    dashboard.resource :preferences, :only => [:show], :as => 'preferences', :controller => 'preferences'
   end
     
   
-  map.connect '/dashboard/:filter', :controller => :dashboards, :action => :show
-  map.resource :dashboard, :only => [:show]
   map.resource :search, :only => [:show]
   map.resources :categories, :only => [:show]
   map.resources :replies, :only => [:create]

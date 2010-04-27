@@ -96,7 +96,7 @@ button {
 .content {
   margin-left: 15px; }
 
-body.searches .content {
+body.searches .content, body.categories .content {
   margin-left: 0;
   min-width: 990px; }
 
@@ -262,7 +262,7 @@ label {
 
 #search_small {
   float: left;
-  width: 500px;
+  width: 530px;
   margin: 15px 0 0; }
   #search_small input {
     outline: none; }
@@ -914,7 +914,7 @@ td.title {
   bottom: 0;
   right: 15px; }
 
-body.dashboards .content, body.buying .content, body.selling .content {
+body.dashboards .content, body.buying .content, body.selling .content, body.feedback .content, body.preferences .content {
   margin: 0; }
 
 .dashboard_top {

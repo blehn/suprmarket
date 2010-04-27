@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :buyer_notifications, :foreign_key => 'buyer_id', :class_name => "Notification"
   
   # Hack clearance
+  def feedback
+    []
+  end
+  
   def before_create
     send("password_confirmation=", password) if password
   end
