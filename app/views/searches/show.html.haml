@@ -23,6 +23,7 @@
   - form_tag(search_path, :id => 'search_filter', :method => :get) do
     - params.select{ |key, value| ['q'].include?(key) }.each do |key, value|
       %input(type='hidden' name='#{key}' value='#{h(value)}')
+      %input(type='hidden' name='zip_code' value="#{h(params[:zip_code])}")
     .other_filters
       %label
         = check_box_tag :title_only, 1, params[:title_only]
