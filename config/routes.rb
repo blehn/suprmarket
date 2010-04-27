@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
     dashboard.resource :preferences, :only => [:show], :as => 'preferences', :controller => 'preferences'
   end
     
-  
+  map.resources :invites, :only => [:create]
   map.resource :search, :only => [:show]
   map.resources :categories, :only => [:show]
   map.resources :replies, :only => [:create]

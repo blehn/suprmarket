@@ -12,9 +12,12 @@ class User < ActiveRecord::Base
   has_many :seller_notifications, :foreign_key => 'seller_id', :class_name => "Notification"
   has_many :buyer_notifications, :foreign_key => 'buyer_id', :class_name => "Notification"
   
-  # Hack clearance
   def feedback
     []
+  end
+  
+  def use_invite(email)
+    # do stuff
   end
   
   def before_create

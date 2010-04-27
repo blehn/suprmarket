@@ -38,3 +38,25 @@
           = form.text_field :zip_code
         .submit_button
           = image_submit_tag('save_button.png', :alt => "Save")
+    #settings
+      - form_for(current_user) do |form|
+        %fieldset
+          %label Default results view
+        %fieldset
+          %label Default sort order
+        %fieldset
+          %label Default thumbnail size
+        %fieldset
+          %label Listings per page (list view)
+        %fieldset
+          %label Listings per page (image view)
+        .submit_button
+          = image_submit_tag('save_button.png', :alt => "Save")
+    #invite
+      %p Enter a friend's email address to invite them to Suprmarket. Remember, you will be held accountable if they abuse the marketplace.
+      - form_tag(invites_path) do
+        .text_field
+          %input(type='text' name='email')
+        .submit_button
+          = image_submit_tag('send_button.png', :alt => "Send")
+        
