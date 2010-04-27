@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     @favorites = signed_in? ? 
       current_user.favorites.all(:conditions => ['listing_id in (?)', @results.map(&:id)]).group_by(&:listing_id) : 
       {}
-    @category = Category.find(params[:id])
+    @category = Category.find_by_url(params[:id])
     @results = Listing.find_for_search(@order, @sort_mode, @city, params.merge(:with => {:category_id => @category.id}), favorites_for_search)
   end
 end

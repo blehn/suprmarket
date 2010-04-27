@@ -61,7 +61,6 @@ namespace :splunkr do
         Category.create(:title => category)
       end
 
-      
     end
   end
 end
