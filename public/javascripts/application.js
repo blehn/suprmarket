@@ -14,15 +14,7 @@ $(function() {
 	);
 	
 	$('input').hint('blur');
-	$('#q').focus(function() {
-		$('#search_details').show("slide", { direction: "up" }, "fast");
-	});
-	$('#search').blur(function() {
-		$('#search_details').hide();
-	});
-	$('#browse').click(function() {
-		$('#categories').toggle();
-	});
+	
 	
 	$("input[name='listing[willing_to_ship]']").change(function() {
 		if($(this).val() == 'yes') {
@@ -112,5 +104,25 @@ $(function() {
 		}
 	);
 	
+	$('#q').focus(function() {
+		$('#search_details').show("slide", { direction: "up" }, "fast", function() {
+		  var slider_val = slider_values.indexOf($("#slider_amount").val());
+		  $("#slider").slider({
+    		min: 0,
+    		max: 4,
+    		range: "min",
+    		value: slider_val,
+    		slide: function(event, ui) {
+    			$("#slider_amount").val(slider_values[ui.value]);
+    		}
+    	});
+		});
+	});
+	$('#search').blur(function() {
+		$('#search_details').hide();
+	});
+	$('#browse').click(function() {
+		$('#categories').toggle();
+	});
 	
 });
