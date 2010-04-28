@@ -26,35 +26,14 @@
       .tab
         - form_for([@listing, @offer]) do |form|
           .text_field
-            /= form.label :amount, t(:offer_amount)
-            /= form.text_field :amount
-            = text_field_tag :amount, nil, :title => '$ offer amount'
-          /  
-            .radio_button
-              %fieldset
-                %legend= t(:pickup_availability)
-                .button
-                  = form.radio_button :pickup_availability, 'weekday am'
-                  = form.label :pickup_availability_weekday_am, t(:weekday).capitalize + ' ' + t(:am)
-                .button
-                  = form.radio_button :pickup_availability, 'weekday pm'
-                  = form.label :pickup_availability_weekday_pm, t(:weekday).capitalize + ' ' + t(:pm)
-                .button
-                  = form.radio_button :pickup_availability, 'weekend am'
-                  = form.label :pickup_availability_weekend_am, t(:weekend).capitalize + ' ' + t(:am)
-                .button
-                  = form.radio_button :pickup_availability, 'weekend pm'
-                  = form.label :pickup_availability_weekend_pm, t(:weekend).capitalize + ' ' + t(:pm)
+            = form.text_field :amount, :value => nil, :title => '$ offer amount'
           .text_area
-            /= form.label :message, t(:message)
-            /= form.text_area :message
-            = text_area_tag :message, "message goes here", :title => 'message'
-        %button.btn_med Send
+            = form.text_area :message, :value => "message goes here", :title => 'message'
+          %button.btn_med Send
       .tab
         - form_for([@listing, @question]) do |form|
           .text_field
-            /= form.label :message, t(:message)
-            = text_area_tag :message, "Ask the seller a question", :title => 'message'
+            = form.text_area :message, :value => "Ask the seller a question", :title => 'message'
           %button.btn_med Send
       .tab
         - form_for([@listing, @report]) do |form|
