@@ -27,22 +27,6 @@
         - form_for([@listing, @offer]) do |form|
           .text_field
             = form.text_field :amount, :value => nil, :title => '$ offer amount'
-          /  
-            .radio_button
-              %fieldset
-                %legend= t(:pickup_availability)
-                .button
-                  = form.radio_button :pickup_availability, 'weekday am'
-                  = form.label :pickup_availability_weekday_am, t(:weekday).capitalize + ' ' + t(:am)
-                .button
-                  = form.radio_button :pickup_availability, 'weekday pm'
-                  = form.label :pickup_availability_weekday_pm, t(:weekday).capitalize + ' ' + t(:pm)
-                .button
-                  = form.radio_button :pickup_availability, 'weekend am'
-                  = form.label :pickup_availability_weekend_am, t(:weekend).capitalize + ' ' + t(:am)
-                .button
-                  = form.radio_button :pickup_availability, 'weekend pm'
-                  = form.label :pickup_availability_weekend_pm, t(:weekend).capitalize + ' ' + t(:pm)
           .text_area
             = form.text_area :message, :value => "message goes here", :title => 'message'
           %button.btn_med Send
