@@ -1,41 +1,3 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-:focus {
-  outline: 0; }
-
-ins {
-  text-decoration: none; }
-
-del {
-  text-decoration: line-through; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
 
 body {
   background-color: #EEE;
@@ -398,6 +360,7 @@ label {
 #search_details {
   display: none;
   background-color: #e1f3fd;
+  z-index: 10;
   width: 359px;
   padding: 12px 6px;
   font-size: 11px;
@@ -685,14 +648,14 @@ span.user {
     border-color: #555; }
 
 #slider_amount {
-  border: 0;
-  background: transparent;
-  color: #2d7bb2;
-  display: inline;
-  width: 57px;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold; }
+  border: 0 !important;
+  background: transparent !important;
+  color: #2d7bb2 !important;
+  display: inline !important;
+  width: 57px !important;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: bold !important; }
 
 #search_details_left {
   width: 170px;
@@ -734,7 +697,8 @@ span.user {
   margin-right: 20px;
   margin-top: -3px;
   font-weight: bold;
-  color: #AFD1E5; }
+  color: #AFD1E5;
+  background: transparent; }
   #search_radius input {
     padding: 0;
     margin: -1px 0 2px 0; }

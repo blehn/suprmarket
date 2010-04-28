@@ -1,4 +1,4 @@
-@import reset.sass
+/ @import reset.sass
 !sans = "Helvetica Neue", Helvetica, Arial, sans-serif
 !serif = Georgia, serif
 !color1 = #292929
@@ -354,7 +354,8 @@ label
 
 #search_details
   :display none
-  background-color = !color3
+  :background-color = !color3
+  :z-index 10
   :width 359px
   :padding 12px 6px
   :font-size 11px
@@ -626,6 +627,7 @@ span.user
 #slider
   :font-size 60% 
   :margin-top -2px
+
   .ui-slider-range
     :background #AFD1E5
   .ui-slider-handle
@@ -633,14 +635,14 @@ span.user
     :border-color #555
 
 #slider_amount
-  :border 0
-  :background transparent
-  color = !color4
-  :display inline
-  :width 57px
-  font-family = !sans
-  :font-size 11px
-  :font-weight bold
+  :border 0 !important
+  :background transparent !important
+  color = !color4 !important
+  :display inline !important
+  :width 57px !important
+  font-family = !sans !important
+  :font-size 11px !important
+  :font-weight bold !important
   
 #search_details_left
   :width 170px
@@ -681,6 +683,7 @@ span.user
   :margin-top -3px
   :font-weight bold
   :color #AFD1E5
+  :background transparent
   input
     :padding 0
     :margin -1px 0 2px 0
