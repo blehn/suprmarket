@@ -340,7 +340,9 @@ label {
   letter-spacing: -1px; }
 
 .logo_top h2 {
-  font-size: 26px; }
+  font-size: 26px;
+  float: left;
+  margin: -2px 0 0 0; }
 .logo_top a {
   display: block;
   width: auto;
