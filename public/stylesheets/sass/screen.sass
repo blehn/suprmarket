@@ -1,7 +1,7 @@
 / @import reset.sass
 !sans = "Helvetica Neue", Helvetica, Arial, sans-serif
 !serif = Georgia, serif
-!color1 = #333
+!color1 = #292929
 !color2 = #2098E5
 !color3 = #E1F3FD
 !color4 = #2D7BB2
@@ -14,7 +14,7 @@
 body
   :background-color #EEE
   :font-family "Helvetica Neue", Helvetica, Arial, sans-serif
-  :min-width 980px
+  :min-width 990px
 body, p, div, h4
   :margin 0
   :padding 0
@@ -97,6 +97,12 @@ a
   :width 100%
   :background-color #FFF
   :min-height 500px
+.home
+  .header
+    :background-color #fff
+    .login, .logged_out
+      a
+        color = !color4
 .header
   :text-align right
   :height 65px
@@ -253,7 +259,6 @@ label
     :margin-left -5px
     :width 58px
     :padding 3px 5px
-    :font-weight normal
     :border-left-color #000
   #categories
     :background #fff
@@ -293,7 +298,6 @@ label
     :margin-left -5px
     :width 90px
     :padding 6px 10px
-    :font-weight normal
   #categories
     :background #fff
     :line-height 1.2
@@ -321,7 +325,7 @@ label
   :font-weight bold
 .logo
   :width 215px
-  :height 42px
+  :height 80px
   :overflow hidden
   :float left
   :margin-left 115px
@@ -332,6 +336,8 @@ label
 .logo_top
   h2
     :font-size 26px
+    :float left
+    :margin -2px 0 0 0
   a
     :display block
     :width auto
@@ -343,9 +349,9 @@ label
   
 .tagline
   :float left
-  :color #bbb
+  color = !color1
   :line-height 56px
-  :font-size 12px
+  :font-size 11px
   :letter-spacing 1px
 
 #search_details
@@ -443,7 +449,7 @@ td.price
 .tab
   :z-index 1
   :position relative
-  :padding 20px 0
+  :padding 7px 0 20px
   :background-color #fff
   :width 355px
   :clear both
@@ -750,9 +756,10 @@ td.title
       :font-size 11px
       :position absolute
       :bottom 3px
-      :left 1px
-      :width 99%
+      :left 0
+      :width 100%
       :padding 2px 0 6px
+      :text-indent 10px
       :background #333
       :color #fff
       :font-weight bold

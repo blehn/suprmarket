@@ -1,4 +1,4 @@
-var slider_values = ['<5 miles', '<20 miles', '<50 miles', '<200 miles', 'Anywhere'];
+var slider_values = ['5 mi', '20 mi', '50 mi', '200 mi', 'Anywhere'];
 
 $(function() {
 	
