@@ -117,6 +117,7 @@ $(function() {
     		}
     	});
 		});
+		$(this).unbind('focus');
 	});
 	$('#search').blur(function() {
 		$('#search_details').hide();
