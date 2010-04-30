@@ -70,7 +70,7 @@ body.searches .content, body.categories .content
     :padding 2px 5px 2px
     font-family = !sans
     :font-weight bold
-    :color #ddd
+    color = !color1
     :font-size 13px
     :vertical-align middle		
     :border
@@ -81,7 +81,8 @@ body.searches .content, body.categories .content
     :background-color #fff
     &:focus
       :background-color #FFD
-      color = !color1
+    &.blur  
+      :color #ddd
   input
     :height 22px
 a
@@ -127,6 +128,7 @@ a
         :background-color #F4F4F4
         :border-bottom 0
         :color #ccc
+        :box-shadow 10px 10px 5px #888
       &:hover
         :color #ccc
   .post_link
@@ -243,11 +245,13 @@ label
       :background #444
   #q, #zip_code
     :background-color #333
-    :color #666
+    :color #aaa
     :border-color #000 #444 #444
     &:focus
       :background-color #444
       :color #fff
+    &.blur  
+      :color #666
   #q
     :font-size 15px
     :margin 0
