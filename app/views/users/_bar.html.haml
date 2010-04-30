@@ -47,8 +47,8 @@
     = link_to current_user.username, dashboard_path
     %span.details
       = link_to t(:sign_out), sign_out_path
-    = image_tag('message.png')
+    = activity_link_to
     0
-    = image_tag('favorite.png')
+    = link_to image_tag('favorite.png'), favorites_path
     = current_user.favorites_count
 

@@ -90,6 +90,10 @@ $(function() {
 	//Toggle favorite icon
 	$('.fav').click(function(){
     $(this).toggleClass("on");
+    $.post($(this).attr('href'), function(data) {
+      $('.messages').html(data.message);
+    })
+    return false;
   });
   
 

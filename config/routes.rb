@@ -17,6 +17,8 @@ ActionController::Routing::Routes.draw do |map|
     listing.resources :favorites, :only => [:create, :destroy]
   end
   
+  map.favorites '/favorites', :controller => :favorites
+  
   map.with_options :controller => :home do |home|
     home.rules '/rules', :action => :show, :id => :rules
     home.feedback '/feedback', :action => :show, :id => :feedback

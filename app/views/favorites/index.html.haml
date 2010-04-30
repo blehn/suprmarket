@@ -1,0 +1,4 @@
+= render "searches/filters"
+= render :partial => (params[:grid_view] ? 'listings/grid' : 'listings/results'), :locals => {:city => @city, :results => @results, :favorites => @favorites}
+- content_for(:footer) do
+  = custom_paginate @results

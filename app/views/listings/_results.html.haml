@@ -35,4 +35,4 @@
           - else 
             /= link_to(image_tag('favorite.png', :alt => 'Remove from favorites'), listing_favorite_path(listing, favorites[listing.id]), :method => :delete)
             /= link_to(image_tag('not_favorite.png', :alt => 'Add to Favorites'), listing_favorites_path(listing), :method => :post)
-            = link_to('Add to favorites', listing_favorites_path(listing), :method => :post, :class => 'fav')
+            = link_to('Add to favorites', listing_favorites_path(listing, :format => :json), :class => 'fav')
