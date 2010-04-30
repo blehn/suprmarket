@@ -67,7 +67,7 @@ body.searches .content, body.categories .content {
   padding: 2px 5px 2px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  color: #ddd;
+  color: #292929;
   font-size: 13px;
   vertical-align: middle;
   border-top: 1px solid #999;
@@ -76,8 +76,9 @@ body.searches .content, body.categories .content {
   border-left: 1px solid #ddd;
   background-color: #fff; }
   .text_field input:focus, .text_field textarea:focus, #search input:focus, #search textarea:focus, #search_small input:focus, #search_small textarea:focus, .search_filters input:focus, .search_filters textarea:focus, .password_field input:focus, .password_field textarea:focus, .text_area input:focus, .text_area textarea:focus {
-    background-color: #FFD;
-    color: #292929; }
+    background-color: #FFD; }
+  .text_field input.blur, .text_field textarea.blur, #search input.blur, #search textarea.blur, #search_small input.blur, #search_small textarea.blur, .search_filters input.blur, .search_filters textarea.blur, .password_field input.blur, .password_field textarea.blur, .text_area input.blur, .text_area textarea.blur {
+    color: #ddd; }
 .text_field input, #search input, #search_small input, .search_filters input, .password_field input, .text_area input {
   height: 22px; }
 
@@ -123,7 +124,8 @@ a {
     .header .logged_out a.active {
       background-color: #F4F4F4;
       border-bottom: 0;
-      color: #ccc; }
+      color: #ccc;
+      box-shadow: 10px 10px 5px #888; }
     .header .logged_out a:hover {
       color: #ccc; }
   .header .post_link {
@@ -244,11 +246,13 @@ label {
       background: #444; }
   #search_small #q, #search_small #zip_code {
     background-color: #333;
-    color: #666;
+    color: #aaa;
     border-color: #000 #444 #444; }
     #search_small #q:focus, #search_small #zip_code:focus {
       background-color: #444;
       color: #fff; }
+    #search_small #q.blur, #search_small #zip_code.blur {
+      color: #666; }
   #search_small #q {
     font-size: 15px;
     margin: 0;
