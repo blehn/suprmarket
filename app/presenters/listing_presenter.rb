@@ -4,7 +4,7 @@ class ListingPresenter < Presenter
   end
   
   def price
-    "<span class='price'>$#{original_price}</span>"
+    "<span class='price'><sup>$</sup>#{original_price}</span>"
   end
   
   def location
@@ -14,9 +14,9 @@ class ListingPresenter < Presenter
   def distance_from(user)
     distance = city.distance_from(user.zip_code)
     case distance
-    when 0..5 then '< 5 miles'
+    when 0..5 then '(within 5 mi)'
     else
-      "~ #{distance.ceil} miles"
+      "(within #{distance.ceil} mi)"
     end
   end
 end

@@ -89,7 +89,7 @@ a {
   a img {
     border: 0; }
   a:hover {
-    color: #292929; }
+    color: #2098e5; }
 
 .container {
   float: left;
@@ -252,7 +252,7 @@ label {
       background-color: #444;
       color: #fff; }
     #search_small #q.blur, #search_small #zip_code.blur {
-      color: #666; }
+      color: #555; }
   #search_small #q {
     font-size: 15px;
     margin: 0;
@@ -271,13 +271,14 @@ label {
     position: absolute;
     left: 100%;
     margin-left: 5px;
-    top: 0px;
-    height: 500px;
-    border-left: 1px solid #EEE;
-    padding-left: 20px;
+    top: -5px;
+    height: 530px;
+    padding: 10px;
     text-align: left;
     font-size: 11px;
-    z-index: 100; }
+    z-index: 100;
+    width: 80px;
+    border: 1px solid #ddd; }
     #search_small #categories ul {
       list-style-type: none;
       margin: 0;
@@ -287,6 +288,8 @@ label {
         padding: 0; }
         #search_small #categories ul li a {
           color: #2d7bb2; }
+          #search_small #categories ul li a:hover {
+            color: #2098e5; }
 
 #search {
   clear: both;
@@ -426,7 +429,7 @@ span.button {
   display: block;
   background-color: #fff;
   color: #2d7bb2;
-  margin: 10px 20px 0 0;
+  margin: 10px 30px 0 0;
   padding-bottom: 10px;
   float: left;
   font-size: 12px;
@@ -437,11 +440,19 @@ span.button {
   font-size: 14px;
   color: #292929;
   clear: both;
-  line-height: 1.3; }
+  line-height: 1.4; }
 
 div.price, span.price {
   color: #54AE00;
   font-weight: bold; }
+  div.price sup, span.price sup {
+    font-weight: normal;
+    font-size: .7em;
+    margin: 0 .1em 0 0;
+    position: relative;
+    top: -.25em;
+    vertical-align: inherit;
+    color: #87C64C; }
 
 div.price {
   font-size: 20px; }
@@ -454,7 +465,7 @@ td.price {
 
 .flag {
   background-image: url('/images/flag.png');
-  background-position: 0px 1px;
+  background-position: 0px 2px;
   background-repeat: no-repeat;
   padding-left: 15px; }
 
@@ -503,17 +514,28 @@ td.price {
 
 .seller_details {
   clear: both;
-  font-size: 11px;
+  font-size: 12px;
   margin: 5px 0; }
+  .seller_details span.ratings_count {
+    color: #292929;
+    font-weight: bold; }
+  .seller_details span.rating {
+    color: #aaa;
+    font-size: 10px; }
 
 .listing_details {
-  width: 355px; }
+  width: 360px; }
   .listing_details div.price {
-    float: left; }
+    float: left;
+    margin: 0 0 10px; }
   .listing_details div.location {
-    float: right;
+    float: left;
     font-size: 12px;
-    color: #ccc; }
+    color: #ccc;
+    width: 100%;
+    margin: 0 0 5px; }
+    .listing_details div.location span.distance {
+      display: inline; }
   .listing_details h1 {
     padding: 0;
     background-color: #fff;
@@ -541,6 +563,8 @@ table {
     text-align: left;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc; }
+    table thead tr:hover {
+      background-color: #f6f6f6; }
   table th, table td {
     padding: 5px;
     vertical-align: middle; }
@@ -611,7 +635,7 @@ span.user {
   .search_filters .other_filters {
     margin-left: 80px;
     float: left;
-    width: 520px; }
+    width: 430px; }
   .search_filters .search_views {
     position: absolute;
     left: 15px;
@@ -620,7 +644,7 @@ span.user {
       opacity: .7; }
   .search_filters label {
     display: block;
-    padding-right: 10px;
+    padding-right: 20px;
     color: #2d7bb2;
     font-size: 11px;
     float: left;
@@ -710,7 +734,7 @@ span.user {
     margin: -1px 0 2px 0; }
 
 tr.selected {
-  background-color: #F6F6F6; }
+  background-color: #fcfcfc; }
 
 td.fixed, th.fixed {
   width: 50px;
@@ -754,10 +778,11 @@ td {
     color: #292929; }
     td a:hover {
       color: #aaa; }
+    td a:visited {
+      color: #663399; }
 
 td.title {
   font-size: 15px;
-  font-weight: bold;
   min-width: 540px; }
 
 .list_view_icon {
@@ -915,12 +940,12 @@ body.dashboards .content, body.buying .content, body.selling .content, body.feed
       color: #2d7bb2; }
     .dashboard_links a span {
       font-size: 10px;
-      padding: 0 4px;
-      margin: 0 0 0 4px;
+      padding: 1px 4px;
+      margin: 0 0 0 5px;
       background: #FFFFFF;
       color: #ff3300;
       font-weight: bold;
-      vertical-align: middle; }
+      vertical-align: text-top; }
 
 
 a.active_tab_heading {

@@ -28,7 +28,7 @@
           = listing.location
           - if city
             = display_distance(listing.city.distance_from(city))
-        %td= image_tag('rating.png') + " #{listing.user.rating} (#{listing.user.ratings_count})"
+        %td= " #{listing.user.rating} (#{listing.user.ratings_count})"
         %td.icon 
           - if @favorites.key?(listing.id)
             = link_to('Remove from favorites', listing_favorite_path(listing, favorites[listing.id]), :method => :delete, :class => 'fav on')

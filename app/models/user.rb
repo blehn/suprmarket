@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
   
   def rating
-    ratings_count > 0 ? read_attribute(:rating) : '~'
+    ratings_count > 0 ? read_attribute(:rating) : '0'
   end
   
   # Update lat and lng if address changed

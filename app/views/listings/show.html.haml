@@ -8,16 +8,17 @@
       %div[photo]= image_tag photo.file(:display)
   .listing_details
     .date= @listing.date
-    %h1.title= @listing.title
-    .price= @listing.price
+    %h1.title= @listing.title 
     .location
       = @listing.location
-      .distance= @listing.distance_from(current_user) if signed_in?
+      %span.distance= @listing.distance_from(current_user) if signed_in?   
+    .price= @listing.price
     .seller_details
       .seller
         = link_to @listing.user.username, @listing.user
-        = image_tag('rating.png', :alt => 'rating')
-        = "#{@listing.user.rating} (#{@listing.user.ratings_count})"
+        /= image_tag('rating.png', :alt => 'rating')
+        %span.ratings_count= "+#{@listing.user.ratings_count}"
+        %span.rating= "#{@listing.user.rating}%"
 
     .tabs
       = link_to t(:make_an_offer), '#', :class => 'tab_header'
