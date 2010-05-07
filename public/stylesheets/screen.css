@@ -799,22 +799,19 @@ td.title {
     float: left;
     margin-left: 15px;
     margin-bottom: 15px; }
-    .grid .grid_result img {
-      border: 1px solid #333; }
     .grid .grid_result .image {
       position: relative;
       float: left; }
     .grid .grid_result .title {
       font-size: 11px;
       position: absolute;
-      bottom: 3px;
+      bottom: 2px;
       left: 0;
       width: 100%;
-      padding: 2px 0 6px;
-      text-indent: 10px;
-      background: #333;
+      text-align: center;
+      padding: 2px 0 4px;
+      background-color: #292929;
       color: #fff;
-      font-weight: bold;
       line-height: 1.15;
       display: none; }
     .grid .grid_result .location {
@@ -966,7 +963,6 @@ tr.sold a, tr.sold span.price {
     float: left;
     width: 562px; }
     .listing .photos img {
-      border: 1px solid #333333;
       margin-bottom: 25px; }
   .listing .listing_details {
     margin-left: 35px;
