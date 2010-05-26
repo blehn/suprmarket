@@ -19,7 +19,7 @@ h1 {
   width: 100%;
   height: auto;
   float: left;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: normal;
   padding: 13px 0 13px 15px;
   margin: 0 0 0 -15px; }
@@ -37,8 +37,7 @@ button {
     border: 1px solid #777;
     cursor: pointer; }
   button:active {
-    background: #ddd;
-    outline: none; }
+    background: #ddd; }
 
 .btn_lg {
   height: 36px;
@@ -62,11 +61,11 @@ body.searches .content, body.categories .content {
   margin-left: 0;
   min-width: 990px; }
 
-.text_field input, .text_field textarea, #search input, #search textarea, #search_small input, #search_small textarea, .search_filters input, .search_filters textarea, .password_field input, .password_field textarea, .text_area input, .text_area textarea {
+.text_field input, .text_field textarea, #search input, #search textarea, #search_small input, #search_small textarea, .search_filters input, .search_filters textarea, .password_field input, .password_field textarea, .text_area input, .text_area textarea, .radio_button input, .radio_button textarea {
   border-top: 1px solid #777;
   padding: 2px 5px 2px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   color: #292929;
   font-size: 13px;
   vertical-align: middle;
@@ -75,11 +74,9 @@ body.searches .content, body.categories .content {
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
   background-color: #fff; }
-  .text_field input:focus, .text_field textarea:focus, #search input:focus, #search textarea:focus, #search_small input:focus, #search_small textarea:focus, .search_filters input:focus, .search_filters textarea:focus, .password_field input:focus, .password_field textarea:focus, .text_area input:focus, .text_area textarea:focus {
-    background-color: #FFD; }
-  .text_field input.blur, .text_field textarea.blur, #search input.blur, #search textarea.blur, #search_small input.blur, #search_small textarea.blur, .search_filters input.blur, .search_filters textarea.blur, .password_field input.blur, .password_field textarea.blur, .text_area input.blur, .text_area textarea.blur {
+  .text_field input.blur, .text_field textarea.blur, #search input.blur, #search textarea.blur, #search_small input.blur, #search_small textarea.blur, .search_filters input.blur, .search_filters textarea.blur, .password_field input.blur, .password_field textarea.blur, .text_area input.blur, .text_area textarea.blur, .radio_button input.blur, .radio_button textarea.blur {
     color: #ddd; }
-.text_field input, #search input, #search_small input, .search_filters input, .password_field input, .text_area input {
+.text_field input, #search input, #search_small input, .search_filters input, .password_field input, .text_area input, .radio_button input {
   height: 22px; }
 
 a {
@@ -129,7 +126,7 @@ a {
     .header .logged_out a:hover {
       color: #ccc; }
   .header .post_link {
-    background: #2d7bb2;
+    background: #2098e5;
     border: 1px solid #000;
     color: #fff;
     font-size: 14px;
@@ -139,10 +136,10 @@ a {
     float: right;
     margin: 15px 15px; }
     .header .post_link:hover {
-      background-color: #2098e5;
+      background: #1780D1;
       color: #fff; }
     .header .post_link:active {
-      background: #1780D1; }
+      background-color: #2d7bb2; }
   .header #register {
     float: right;
     margin: 11px 17px 0 0; }
@@ -388,32 +385,16 @@ label {
   padding: 0; }
 .radio_button legend {
   font-weight: bold;
-  color: #003366; }
+  color: #2d7bb2; }
 .radio_button label {
   margin-right: 20px;
   display: inline;
   color: #000;
   font-weight: normal; }
 
-.will_ship {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 750px; }
-  .will_ship label {
-    display: block;
-    color: #999; }
-
 .submit {
   clear: both;
   padding: 10px 0; }
-
-#shipping {
-  position: relative; }
-
-input.price {
-  background: url('/images/money.png') 5px center no-repeat;
-  padding-left: 15px !important; }
 
 span.button {
   color: #2098E5; }
@@ -443,7 +424,7 @@ span.button {
   line-height: 1.4; }
 
 div.price, span.price {
-  color: #54AE00;
+  color: #00AA13;
   font-weight: bold; }
   div.price sup, span.price sup {
     font-weight: normal;
@@ -886,19 +867,77 @@ td.title {
     margin: 4px 0 0 15px;
     font-size: 14px; }
 
-#register_form {
+#register_form, #listing_form {
   float: left;
   margin: 20px 40px 40px 40px;
   height: auto; }
-  #register_form input[type="text"], #register_form input[type="password"] {
+  #register_form input[type="text"], #register_form input[type="password"], #listing_form input[type="text"], #listing_form input[type="password"] {
     margin: 0;
     width: 250px;
     height: 24px;
     font-size: 14px; }
-  #register_form label {
+  #register_form label, #listing_form label {
     margin: 12px 0 4px 0; }
-  #register_form .btn_lg {
+  #register_form .btn_lg, #listing_form .btn_lg {
     margin: 15px 10px 0 0; }
+
+#listing_form {
+  width: 530px; }
+  #listing_form label {
+    font-size: 14px; }
+  #listing_form .text_field, #listing_form .text_area, #listing_form .radio_button, #listing_form .select {
+    margin-bottom: 15px; }
+  #listing_form #listing_title {
+    width: 520px; }
+  #listing_form #listing_description {
+    width: 520px;
+    height: 200px;
+    font-weight: normal; }
+  #listing_form #listing_price, #listing_form .will_ship input {
+    width: 110px;
+    background: url('/images/money.png') 5px center no-repeat;
+    padding-left: 12px !important;
+    color: #00AA13;
+    font-size: 16px; }
+  #listing_form .select, #listing_form .price, #listing_form .radio_button, #listing_form .zip {
+    float: left;
+    margin-right: 60px; }
+    #listing_form .select legend, #listing_form .price legend, #listing_form .radio_button legend, #listing_form .zip legend {
+      font-size: 14px;
+      margin-bottom: 5px; }
+    #listing_form .select label, #listing_form .price label, #listing_form .radio_button label, #listing_form .zip label {
+      font-size: 14px;
+      font-weight: bold; }
+  #listing_form .radio_button {
+    height: 55px;
+    padding-top: 12px; }
+    #listing_form .radio_button label {
+      font-size: 12px; }
+  #listing_form #listing_zip_code {
+    width: 118px; }
+  #listing_form #listing_category_id {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-color: #999;
+    padding: 4px 3px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 13px; }
+  #listing_form #shipping {
+    width: 250px;
+    position: relative; }
+    #listing_form #shipping .will_ship {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 120px; }
+      #listing_form #shipping .will_ship label {
+        display: block;
+        color: #999; }
+  #listing_form #images {
+    float: left;
+    width: 530px; }
+  #listing_form .file_field {
+    margin: 0 4px 4px 0; }
 
 .messages {
   background-color: #FFF296;

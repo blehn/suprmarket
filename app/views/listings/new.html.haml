@@ -1,3 +1,5 @@
+%h1 Post an item
+
 - content_for(:head) do
   = javascript_include_tag 'swfupload/swfupload', 'swfupload/swfupload.swfobject', 'swfupload/handlers'
   - session_key_name = ActionController::Base.session_options[:key]
@@ -50,11 +52,6 @@
       //swf_upload = new SWFUpload(swf_settings);
     };
     
-Complete all fields and click the <strong>Submit</strong> button to post your listing.
+#register_intro Complete all fields and click the <strong>Submit</strong> button to post your listing.
 - form_for(@listing, :html => {:multipart => true, :class => 'swf_upload'}) do |form|
   = render form
-    
-  
-  .submit
-    = image_submit_tag 'submit_button.png', :alt => 'Submit'
-    = link_to 'cancel', root_path
