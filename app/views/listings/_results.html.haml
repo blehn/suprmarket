@@ -5,7 +5,7 @@
       %th.icon
       %th.icon
       %th= sort_link_to(:title, 'Item')
-      %th= sort_link_to(:price, 'Price')
+      %th.price= sort_link_to(:price, 'Price')
       %th= city ? sort_link_to(:distance, 'Distance') : 'Location'
       %th= sort_link_to(:rating, 'User Rating')
       %th.icon= image_tag('favorite_header.png', :alt => 'favorite')

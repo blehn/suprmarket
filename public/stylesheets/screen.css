@@ -57,7 +57,7 @@ button {
 .content {
   margin-left: 15px; }
 
-body.searches .content, body.categories .content {
+body.searches .content, body.categories .content, body.favorites .content {
   margin-left: 0;
   min-width: 990px; }
 
@@ -444,6 +444,10 @@ td.price {
   text-align: right;
   padding-right: 15px; }
 
+th.price {
+  text-align: right;
+  padding-right: 12px; }
+
 .flag {
   background-image: url('/images/flag.png');
   background-position: 0px 2px;
@@ -723,7 +727,7 @@ td.fixed, th.fixed {
 
 td.icon, th.icon {
   width: 35px;
-  text-align: center; }
+  text-align: left; }
   td.icon a.fav, th.icon a.fav {
     background: url('/images/ui.png') 0 -12px no-repeat;
     text-indent: -10000px;
