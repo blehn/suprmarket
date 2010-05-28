@@ -68,8 +68,6 @@ $(function() {
 	$('div.login_form').corner('tl bl br 2px')
 	$('#search_details').corner('bottom 2px')
 	$('#categories').corner('2px')
-	$('.messages').corner('top 2px')
-	
 	
 	$('form').submit(function() {
 		this.submit();
@@ -87,8 +85,14 @@ $(function() {
 	})
 	
 	
-        function toggle_favorites() {
-
+        function set_message(message) {
+          if($('.messages').length == 0) {
+            $('body').append("<div class='messages'></div>");
+          }
+          $('.messages').html(message);
+          $('.messages').corner('top 2px')
+          $('.messages').show();
+          setTimeout("$('.messages').fadeOut()", 3000);
         }
 	//Toggle favorite icon
 	$('.fav').click(function(e){
@@ -96,11 +100,11 @@ $(function() {
           $(this).toggleClass("on");
           if($(this).hasClass("on")) {
             $.post($(this).attr('href'), function(data) {
-              $('.messages').html(data.message);
+              set_message(data.message);
             });
           } else {
             $.post($(this).attr('href'), {"_method" : "DELETE"}, function(data) {
-              $('.messages').html(data.message);
+              set_message(data.message);
             });
           }
           return false;
@@ -139,5 +143,9 @@ $(function() {
 	$('#browse').click(function() {
 		$('#categories').toggle();
 	});
+	
+        if($('.messages').length > 0) {
+          setTimeout("$('.messages').fadeOut()", 3000);
+        }
 	
 });

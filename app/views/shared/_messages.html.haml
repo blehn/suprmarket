@@ -1,3 +1,4 @@
-%div.messages
-  - %w(failure warning notice success).each do |message_type|
-    = flash[message_type.to_sym]
+- unless flash.empty?
+  %div.messages
+    - %w(failure warning notice success).each do |message_type|
+      = flash[message_type.to_sym]
