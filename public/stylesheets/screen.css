@@ -725,20 +725,23 @@ td.fixed, th.fixed {
   width: 50px;
   padding-left: 15px; }
 
-td.icon, th.icon {
+td.icon {
   width: 35px;
-  text-align: left; }
-  td.icon a.fav, th.icon a.fav {
+  text-align: center; }
+  td.icon a.fav {
     background: url('/images/ui.png') 0 -12px no-repeat;
     text-indent: -10000px;
     overflow: hidden;
     width: 14px;
     height: 11px;
     display: block; }
-    td.icon a.fav:hover, th.icon a.fav:hover {
+    td.icon a.fav:hover {
       background-position: 0 -24px; }
-    td.icon a.fav.on, th.icon a.fav.on {
+    td.icon a.fav.on {
       background-position: 0 -36px; }
+
+th.icon {
+  text-align: left; }
 
 tr td a.photo_link {
   display: block;
