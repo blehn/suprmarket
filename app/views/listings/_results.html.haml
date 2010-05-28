@@ -8,7 +8,8 @@
       %th.price= sort_link_to(:price, 'Price')
       %th= city ? sort_link_to(:distance, 'Distance') : 'Location'
       %th= sort_link_to(:rating, 'User Rating')
-      %th.icon= image_tag('favorite_header.png', :alt => 'favorite')
+      - if signed_in?
+        %th.icon= image_tag('favorite_header.png', :alt => 'favorite')
   %tbody
     - results.each do |listing|
       - listing = listing.presenter
@@ -20,17 +21,18 @@
             = image_tag('new.png', :alt => 'new')
         %td.icon
           - if listing.photos_count > 0
-            = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))    
+            = link_to('expand', '#', :class => 'photo_link', :rel => listing.photos[0].file.url(:thumb))
         %td.title
           = link_to listing.title, listing
-        %td.price= listing.price                  
+        %td.price= listing.price
         %td
           = listing.location
           - if city
             = display_distance(listing.city.distance_from(city))
         %td= " #{listing.user.rating} (#{listing.user.ratings_count})"
-        %td.icon 
-          - if favorites.key?(listing.id)
-            = link_to('Remove from favorites', listing_favorite_path(listing, :format => :json), :class => 'fav on')
-          - else 
-            = link_to('Add to favorites', listing_favorite_path(listing, :format => :json), :class => 'fav')
+        - if signed_in?
+          %td.icon
+            - if favorites.key?(listing.id)
+              = link_to('Remove from favorites', listing_favorite_path(listing, :format => :json), :class => 'fav on')
+            - else
+              = link_to('Add to favorites', listing_favorite_path(listing, :format => :json), :class => 'fav')
