@@ -30,9 +30,7 @@
             = display_distance(listing.city.distance_from(city))
         %td= " #{listing.user.rating} (#{listing.user.ratings_count})"
         %td.icon 
-          - if @favorites.key?(listing.id)
-            = link_to('Remove from favorites', listing_favorite_path(listing, favorites[listing.id]), :method => :delete, :class => 'fav on')
+          - if favorites.key?(listing.id)
+            = link_to('Remove from favorites', listing_favorite_path(listing, :format => :json), :class => 'fav on')
           - else 
-            /= link_to(image_tag('favorite.png', :alt => 'Remove from favorites'), listing_favorite_path(listing, favorites[listing.id]), :method => :delete)
-            /= link_to(image_tag('not_favorite.png', :alt => 'Add to Favorites'), listing_favorites_path(listing), :method => :post)
-            = link_to('Add to favorites', listing_favorites_path(listing, :format => :json), :class => 'fav')
+            = link_to('Add to favorites', listing_favorite_path(listing, :format => :json), :class => 'fav')

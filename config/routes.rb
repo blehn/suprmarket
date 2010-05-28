@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories, :only => [:show]
   map.resources :replies, :only => [:create]
   map.resources :listings, :has_many => [:offers, :questions, :reports] do |listing|
-    listing.resources :favorites, :only => [:create, :destroy]
+    listing.resource :favorite, :only => [:create, :destroy]
   end
   
   map.favorites '/favorites', :controller => :favorites

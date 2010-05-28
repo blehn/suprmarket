@@ -87,14 +87,24 @@ $(function() {
 	})
 	
 	
+        function toggle_favorites() {
+
+        }
 	//Toggle favorite icon
-	$('.fav').click(function(){
-    $(this).toggleClass("on");
-    $.post($(this).attr('href'), function(data) {
-      $('.messages').html(data.message);
-    })
-    return false;
-  });
+	$('.fav').click(function(e){
+            e.preventDefault();
+          $(this).toggleClass("on");
+          if($(this).hasClass("on")) {
+            $.post($(this).attr('href'), function(data) {
+              $('.messages').html(data.message);
+            });
+          } else {
+            $.post($(this).attr('href'), {"_method" : "DELETE"}, function(data) {
+              $('.messages').html(data.message);
+            });
+          }
+          return false;
+        });
   
 
 	$('.grid_result .title').hide();

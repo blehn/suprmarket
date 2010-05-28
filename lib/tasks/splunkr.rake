@@ -1,6 +1,6 @@
 namespace :splunkr do
   namespace :load do
-    
+
     desc 'load cities'
     task :cities => :environment do
       require 'csv'
@@ -19,7 +19,7 @@ namespace :splunkr do
         last_lon = lon
       end
     end
-    
+
     desc 'load categories'
     task :categories => :environment do
       %w[appliances
