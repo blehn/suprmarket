@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100427025547) do
+ActiveRecord::Schema.define(:version => 20100528023625) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20100427025547) do
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invites", :force => true do |t|
+    t.string   "code"
+    t.datetime "expires_at"
+    t.integer  "sender_id"
+    t.integer  "user_id"
+    t.boolean  "used",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
