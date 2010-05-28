@@ -961,6 +961,9 @@ td.title {
   top: -3px;
   right: 0; }
 
+img.arrow {
+  vertical-align: 50%; }
+
 body.dashboards .content, body.buying .content, body.selling .content, body.feedback .content, body.preferences .content {
   margin: 0; }
 
