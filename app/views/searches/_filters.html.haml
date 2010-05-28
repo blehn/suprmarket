@@ -3,8 +3,9 @@
     .grid_view_details
       .image_size
         Image size: 
-        = params[:large] ? link_to('Small', params.merge(:large => nil)) : '<strong>Small</strong>'
-        = params[:large] ? '<strong>Large</strong>' : link_to('Large', params.merge(:large => 1))
+        .image_sizes
+          = link_to(image_tag((params[:large] ? 'grid_view_down.png' : 'grid_view_up.png')), params.merge(:large => nil), :class => 'grid_view_icon')
+          = link_to(image_tag((params[:large] ? 'list_view_up.png' : 'list_view_down.png')), params.merge(:large => 1), :class => 'list_view_icon')
       .sort
         Sort by:
         = link_to 'Date', params.merge(:sort => 'date_desc')

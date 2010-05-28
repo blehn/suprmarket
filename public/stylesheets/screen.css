@@ -953,6 +953,14 @@ td.title {
   bottom: 0;
   right: 15px; }
 
+.grid_view_details .image_size {
+  padding-right: 50px;
+  position: relative; }
+.grid_view_details .image_sizes {
+  position: absolute;
+  top: -3px;
+  right: 0; }
+
 body.dashboards .content, body.buying .content, body.selling .content, body.feedback .content, body.preferences .content {
   margin: 0; }
 
