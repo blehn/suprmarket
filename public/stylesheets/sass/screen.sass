@@ -19,8 +19,8 @@ body, p, div, h4
   :margin 0
   :padding 0
 h4
-  :color #003366
-  :font-size 10px
+  color = !color1
+  :font-size 12px
   :font-weight bold
 h1
   color = !color4
@@ -554,17 +554,24 @@ table
       &:hover
         :color #666
   th.hidden
+    :background-color #eee
     span
       :display none
   &.inner
     :font-size 11px
     th, td
       :padding 0
+      :font-size 11px
+      :border none
     textarea
       :width 360px
       :height 60px
     .answered, .reply
       :color #999999
+table.dashboard_table
+  td, tr
+    &:hover
+      :background-color #fff
 span.user
   :float right
   :width auto
@@ -749,8 +756,6 @@ td
 td.title
   :font-size 15px
   :min-width 540px
-.list_view_icon
-  :margin-left -1px
 .grid
   :float left
   :padding 15px 0 15px 0
@@ -916,7 +921,7 @@ td.title
   .file_field
     :margin 0 4px 4px 0
 .messages
-  :background-color #FFF296
+  :background-color #FFFF33
   :font-size 12px
   :font-weight bold
   :width auto
@@ -924,5 +929,30 @@ td.title
   :padding 5px 12px
   :bottom 0
   :right 15px
+
+.grid_view_details 
+  .image_size
+    :padding-right 30px
+    :position relative
+  .image_sizes
+    :width 40px
+    :position absolute
+    :top 16px
+    :right 0
+    a
+      &:hover
+        :opacity .5
+    .thumb_sm
+      :position absolute
+      :left 0
+      :bottom 0
+    .thumb_lg
+      :position absolute
+      :left 21px
+      :bottom 0
+      :width 21px
+
+img.arrow
+  :vertical-align 50%
 @import dashboard.sass
 @import listing.sass

@@ -8,8 +8,12 @@
       %th.price= sort_link_to(:price, 'Price')
       %th= city ? sort_link_to(:distance, 'Distance') : 'Location'
       %th= sort_link_to(:rating, 'User Rating')
+<<<<<<< HEAD
+      %th.icon
+=======
       - if signed_in?
         %th.icon= image_tag('favorite_header.png', :alt => 'favorite')
+>>>>>>> 9816696c545b8da5f8a0c93a1e7ce9c62a3d7167
   %tbody
     - results.each do |listing|
       - listing = listing.presenter

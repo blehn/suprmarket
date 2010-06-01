@@ -11,7 +11,24 @@ class User < ActiveRecord::Base
   has_many :replies
   has_many :seller_notifications, :foreign_key => 'seller_id', :class_name => "Notification"
   has_many :buyer_notifications, :foreign_key => 'buyer_id', :class_name => "Notification"
+  validate_on_create :check_invitation_code
+  after_create :use_invitation_code
   
+  def check_invitation_code
+    unless Invite.exists?(:code => self.invitation_code, :used => false)
+      if Invite.exists?(:code => self.invitation_code)
+        errors.add_to_base('Invitation code has already been used.')
+      else
+        errors.add_to_base('Invitation code is invalid.')
+      end
+    end
+  end
+
+  def use_invitation_code
+    Invite.update_all("used = true, user_id = #{self.id}", "code = '#{self.invitation_code}'", :limit => 1)
+  end
+
+
   def feedback
     []
   end

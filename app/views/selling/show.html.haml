@@ -4,7 +4,7 @@
   %table.dashboard_table
     %thead
       %tr
-        %th Date &bull;
+        %th.fixed Date &bull;
         %th Item &bull;
         %th Price &bull;
         - if @current_filter == 'selling'
@@ -17,20 +17,20 @@
           %th User Rating
     - @listings.each do |listing|
       %tr{:class => listing.sold? ? 'sold' : nil}
-        %td= listing.created_at.to_s(:month_day).upcase
-        %td
+        %td.fixed= listing.created_at.to_s(:month_day).upcase
+        %td.title
           = link_to listing.title, listing
           %h4 OFFERS
           - unless listing.offers.empty?
             %table.inner
               - @notifications[listing.id].each do |notification|
                 %tr
-                  %td= notification.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td= notification.created_at.to_datetime.strftime("%b %d %I:%M%P")
                   %td
                     = notification_display(notification, 'seller')
               / - listing.offers.reject{|offer| offer.state == 'counter'}.each do |offer|
               /                 %tr
-              /                   %td.offer_date= offer.created_at.to_datetime.strftime("%B %d %I:%M%P") + offer.state
+              /                   %td.offer_date= offer.created_at.to_datetime.strftime("%b %d %I:%M%P") + offer.state
               /                   %td
               /                     %strong= "#{offer.user.username} #{offer.user.rating}%"
               /                     (#{offer.user.ratings_count})
@@ -57,12 +57,12 @@
               - listing.questions.each do |question|
                 - if question.reply              
                   %tr.answered
-                    %td= question.reply.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                    %td.date= question.reply.created_at.to_datetime.strftime("%b %d %I:%M%P")
                     %td
                       %div[question.reply]
                         You replied: #{question.reply.message}
                 %tr{:class => question.reply ? 'answered' : nil}
-                  %td= question.created_at.to_datetime.strftime("%B %d %I:%M%P")
+                  %td= question.created_at.to_datetime.strftime("%b %d %I:%M%P")
                   %td
                     %div[question]
                       %strong= question.user.username
@@ -79,7 +79,7 @@
                           
                 
 
-        %td= listing.price
+        %td.price= listing.price
         %td= image_tag('offer.png', :alt => 'Offers') + listing.offers_count.to_s
         %td= image_tag('question.png', :alt => 'Questions') + listing.questions_count.to_s
         %td= link_to 'Edit', edit_listing_path(listing)

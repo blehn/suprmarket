@@ -2,7 +2,7 @@
 module ApplicationHelper
   def sort_link_to(field, name = nil)
     name = field if name.nil?
-    marker = @order == field ? (@sort_mode == :asc ? '&uarr;' : '&darr;'): '&bull;'
+    marker = @order == field ? (@sort_mode == :asc ? image_tag('arrow-up.png', :class => 'arrow') : image_tag('arrow-down.png', :class => 'arrow')): '&bull;'
     link_to("#{name} #{marker}", 
       params.merge(:page => nil, :sort => (params[:sort] == "#{field}_asc" ?  "#{field}_desc" : "#{field}_asc")), 
       :class => @order == field ? 'active' : nil

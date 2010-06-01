@@ -2,9 +2,9 @@
   - if params[:grid_view]
     .grid_view_details
       .image_size
-        Image size: 
-        = params[:large] ? link_to('Small', params.merge(:large => nil)) : '<strong>Small</strong>'
-        = params[:large] ? '<strong>Large</strong>' : link_to('Large', params.merge(:large => 1))
+        .image_sizes
+          = link_to(image_tag((params[:large] ? 'thumb-small-off.png' : 'thumb-small-on.png')), params.merge(:large => nil), :class => 'thumb_sm')
+          = link_to(image_tag((params[:large] ? 'thumb-large-on.png' : 'thumb-large-off.png')), params.merge(:large => 1), :class => 'thumb_lg')
       .sort
         Sort by:
         = link_to 'Date', params.merge(:sort => 'date_desc')

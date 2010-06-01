@@ -9,8 +9,8 @@ body, p, div, h4 {
   padding: 0; }
 
 h4 {
-  color: #003366;
-  font-size: 10px;
+  color: #292929;
+  font-size: 12px;
   font-weight: bold; }
 
 h1 {
@@ -565,17 +565,24 @@ table {
         color: #333; }
       table th a:hover {
         color: #666; }
-  table th.hidden span {
-    display: none; }
+  table th.hidden {
+    background-color: #eee; }
+    table th.hidden span {
+      display: none; }
   table.inner {
     font-size: 11px; }
     table.inner th, table.inner td {
-      padding: 0; }
+      padding: 0;
+      font-size: 11px;
+      border: none; }
     table.inner textarea {
       width: 360px;
       height: 60px; }
     table.inner .answered, table.inner .reply {
       color: #999999; }
+
+table.dashboard_table td:hover, table.dashboard_table tr:hover {
+  background-color: #fff; }
 
 span.user {
   float: right;
@@ -773,9 +780,6 @@ td.title {
   font-size: 15px;
   min-width: 540px; }
 
-.list_view_icon {
-  margin-left: -1px; }
-
 .grid {
   float: left;
   padding: 15px 0 15px 0;
@@ -947,7 +951,7 @@ td.title {
     margin: 0 4px 4px 0; }
 
 .messages {
-  background-color: #FFF296;
+  background-color: #FFFF33;
   font-size: 12px;
   font-weight: bold;
   width: auto;
@@ -955,6 +959,29 @@ td.title {
   padding: 5px 12px;
   bottom: 0;
   right: 15px; }
+
+.grid_view_details .image_size {
+  padding-right: 30px;
+  position: relative; }
+.grid_view_details .image_sizes {
+  width: 40px;
+  position: absolute;
+  top: 16px;
+  right: 0; }
+  .grid_view_details .image_sizes a:hover {
+    opacity: .5; }
+  .grid_view_details .image_sizes .thumb_sm {
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+  .grid_view_details .image_sizes .thumb_lg {
+    position: absolute;
+    left: 21px;
+    bottom: 0;
+    width: 21px; }
+
+img.arrow {
+  vertical-align: 50%; }
 
 body.dashboards .content, body.buying .content, body.selling .content, body.feedback .content, body.preferences .content {
   margin: 0; }
