@@ -1,5 +1,6 @@
 .home_content
-  .logo Suprmarket
+  .logo 
+    %img{:src => "images/logo-lg.png", :alt => "Suprmarket"}
   .tagline= t(:tagline)
   - form_tag(search_path, :id => 'search', :method => :get) do
     .form

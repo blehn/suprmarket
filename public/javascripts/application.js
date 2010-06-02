@@ -92,7 +92,7 @@ $(function() {
           $('.messages').html(message);
           $('.messages').corner('top 2px')
           $('.messages').show();
-          setTimeout("$('.messages').fadeOut()", 1200);
+          setTimeout("$('.messages').fadeOut()", 1500);
         }
 	//Toggle favorite icon
 	$('.fav').click(function(e){
@@ -145,7 +145,7 @@ $(function() {
 	});
 	
         if($('.messages').length > 0) {
-          setTimeout("$('.messages').fadeOut()", 1200);
+          setTimeout("$('.messages').fadeOut()", 1500);
         }
 	
 });
