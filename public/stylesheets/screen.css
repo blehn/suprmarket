@@ -9,7 +9,7 @@ body, p, div, h4 {
   padding: 0; }
 
 h4 {
-  color: #292929;
+  color: #191919;
   font-size: 12px;
   font-weight: bold; }
 
@@ -19,9 +19,9 @@ h1 {
   width: 100%;
   height: auto;
   float: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
-  padding: 13px 0 13px 15px;
+  padding: 10px 0 13px 15px;
   margin: 0 0 0 -15px; }
 
 button {
@@ -30,7 +30,7 @@ button {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
   border: 1px solid #aaa;
-  color: #333;
+  color: #222;
   text-shadow: 0px 1px 0px #fff;
   background: url('/images/btn_bg.png') 0 0 repeat-x; }
   button:hover {
@@ -66,7 +66,7 @@ body.searches .content, body.categories .content, body.favorites .content {
   padding: 2px 5px 2px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  color: #292929;
+  color: #191919;
   font-size: 13px;
   vertical-align: middle;
   border-top: 1px solid #999;
@@ -101,9 +101,9 @@ a {
 
 .header {
   text-align: right;
-  height: 65px;
+  height: 46px;
   width: 100%;
-  background-color: #292929;
+  background-color: #191919;
   padding: 5px 0 0 0; }
   .header a {
     color: #fff; }
@@ -134,7 +134,7 @@ a {
     padding: 5px 11px;
     text-shadow: 0 -1px 0 #093366;
     float: right;
-    margin: 15px 15px; }
+    margin: 5px 15px; }
     .header .post_link:hover {
       background: #1780D1;
       color: #fff; }
@@ -142,11 +142,11 @@ a {
       background-color: #2d7bb2; }
   .header #register {
     float: right;
-    margin: 11px 17px 0 0; }
+    margin: 1px 17px 0 0; }
   .header .login {
     float: right;
     z-index: 1000;
-    margin: 17px 5px;
+    margin: 7px 5px;
     position: relative; }
     .header .login #login_link {
       margin-right: 10px; }
@@ -227,9 +227,11 @@ label {
   padding-right: 10px; }
 
 #search_small {
-  float: left;
-  width: 530px;
-  margin: 15px 0 0; }
+  text-align: left;
+  position: absolute;
+  width: 520px;
+  top: 10px;
+  left: 170px; }
   #search_small input {
     outline: none; }
   #search_small button {
@@ -255,11 +257,11 @@ label {
     margin: 0;
     padding: 3px 5px;
     border-right: 0;
-    width: 255px; }
+    width: 253px; }
   #search_small #zip_code {
     font-size: 15px;
     margin-left: -5px;
-    width: 58px;
+    width: 50px;
     padding: 3px 5px;
     border-left-color: #000; }
   #search_small #categories {
@@ -339,7 +341,7 @@ label {
   float: left;
   margin-left: 115px;
   font-size: 36px;
-  color: #292929;
+  color: #191919;
   font-weight: bold;
   letter-spacing: -1px; }
 
@@ -353,12 +355,12 @@ label {
   height: 32px;
   overflow: hidden;
   float: left;
-  margin: 15px 15px;
+  margin: 5px 15px;
   color: #fff; }
 
 .tagline {
   float: left;
-  color: #292929;
+  color: #191919;
   line-height: 56px;
   font-size: 11px;
   letter-spacing: 1px; }
@@ -419,7 +421,7 @@ span.button {
 .description {
   padding-top: 10px;
   font-size: 14px;
-  color: #292929;
+  color: #191919;
   clear: both;
   line-height: 1.4; }
 
@@ -456,7 +458,7 @@ th.price {
 
 .active_tab {
   background-color: #fff;
-  color: #292929;
+  color: #191919;
   z-index: 2; }
 
 .tab {
@@ -502,7 +504,7 @@ th.price {
   font-size: 12px;
   margin: 5px 0; }
   .seller_details span.ratings_count {
-    color: #292929;
+    color: #191919;
     font-weight: bold; }
   .seller_details span.rating {
     color: #aaa;
@@ -525,7 +527,7 @@ th.price {
     padding: 0;
     background-color: #fff;
     font-size: 20px;
-    color: #292929;
+    color: #191919;
     margin: 0 0 5px 0;
     font-weight: bold; }
   .listing_details h3 {
@@ -588,7 +590,7 @@ span.user {
   float: right;
   width: auto;
   font-size: 11px;
-  margin: 22px 0 0 0;
+  margin: 13px 0 0 0;
   font-weight: bold;
   color: #444; }
   span.user .details a {
@@ -770,7 +772,7 @@ td {
   border-bottom: 1px solid #eee;
   font-size: 12px; }
   td a {
-    color: #292929; }
+    color: #191919; }
     td a:hover {
       color: #aaa; }
     td a:visited {
@@ -802,7 +804,7 @@ td.title {
       width: 100%;
       text-align: center;
       padding: 2px 0 4px;
-      background-color: #292929;
+      background-color: #191919;
       color: #fff;
       line-height: 1.15;
       display: none; }
@@ -996,7 +998,7 @@ body.dashboards .content, body.buying .content, body.selling .content, body.feed
   float: left;
   width: 100%;
   background: #e1f3fd;
-  padding: 10px 0; }
+  padding: 7px 0; }
   .dashboard_links a {
     padding: 4px 15px;
     margin: 0 4px 0 0;
@@ -1016,7 +1018,7 @@ body.dashboards .content, body.buying .content, body.selling .content, body.feed
       background: #FFFFFF;
       color: #ff3300;
       font-weight: bold;
-      vertical-align: text-top; }
+      vertical-align: middle; }
 
 
 a.active_tab_heading {

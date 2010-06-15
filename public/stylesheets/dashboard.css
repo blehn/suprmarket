@@ -7,7 +7,7 @@ on line 13 of /Users/ben/projects/market/public/stylesheets/sass/dashboard.sass
 11:   :float left
 12:   :width 100%
 13:   background = !color3
-14:   :padding 10px 0
+14:   :padding 7px 0
 15:   a
 16:     :padding 4px 15px
 17:     :margin 0 4px 0 0
@@ -81,4 +81,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Sass::SyntaxError: Undefined variable: \"!color3\".\A on line 13 of /Users/ben/projects/market/public/stylesheets/sass/dashboard.sass\A \A 9: .dashboard_links\A 10:   :position relative\A 11:   :float left\A 12:   :width 100%\A 13:   background = !color3\A 14:   :padding 10px 0\A 15:   a\A 16:     :padding 4px 15px\A 17:     :margin 0 4px 0 0\A 18:     :display block\A 19:     color = !color5\A "; }
+  content: "Sass::SyntaxError: Undefined variable: \"!color3\".\A on line 13 of /Users/ben/projects/market/public/stylesheets/sass/dashboard.sass\A \A 9: .dashboard_links\A 10:   :position relative\A 11:   :float left\A 12:   :width 100%\A 13:   background = !color3\A 14:   :padding 7px 0\A 15:   a\A 16:     :padding 4px 15px\A 17:     :margin 0 4px 0 0\A 18:     :display block\A 19:     color = !color5\A "; }
