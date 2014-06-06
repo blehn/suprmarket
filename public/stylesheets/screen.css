@@ -986,6 +986,16 @@ td.title {
 img.arrow {
   vertical-align: 50%; }
 
+#errorExplanation {
+  width: 100%;
+  height: auto;
+  float: left;
+  color: #ff3300; }
+  #errorExplanation h2 {
+    font-size: 14px; }
+  #errorExplanation p, #errorExplanation ul {
+    font-size: 12px; }
+
 body.dashboards .content, body.buying .content, body.selling .content, body.feedback .content, body.preferences .content {
   margin: 0; }
 

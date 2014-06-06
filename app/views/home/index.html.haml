@@ -4,7 +4,7 @@
   .tagline= t(:tagline)
   - form_tag(search_path, :id => 'search', :method => :get) do
     .form
-      = text_field_tag :q, {}, :title => t(:example_search)
+      = text_field_tag :q, nil, :title => t(:example_search)
       = text_field_tag :zip_code, nil, :title => 'ZIP Code'
       %button.btn_lg Search
       #browse_categories
@@ -18,9 +18,6 @@
           %label
             = check_box_tag :title_only
             %span Only in titles
-          %label
-            = check_box_tag :include_completed
-            %span Include completed
           %label
             = check_box_tag :has_image
             %span Has photo
